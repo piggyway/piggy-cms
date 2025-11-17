@@ -1,0 +1,25 @@
+{
+  "collection": "product_info_jxn_species",
+  "field": "ref_species_rid",
+  "related_collection": "ref_species",
+  "meta": {
+    "junction_field": "product_info_rid",
+    "many_collection": "product_info_jxn_species",
+    "many_field": "ref_species_rid",
+    "one_allowed_collections": null,
+    "one_collection": "ref_species",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "schema": {
+    "table": "product_info_jxn_species",
+    "column": "ref_species_rid",
+    "foreign_key_table": "ref_species",
+    "foreign_key_column": "id",
+    "constraint_name": "product_info_jxn_species_ref_species_rid_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

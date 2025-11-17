@@ -1,0 +1,48 @@
+{
+  "collection": "product_variants",
+  "field": "is_available",
+  "type": "boolean",
+  "meta": {
+    "collection": "product_variants",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "is_available",
+    "group": null,
+    "hidden": false,
+    "interface": "boolean",
+    "note": null,
+    "options": {
+      "label": "Available"
+    },
+    "readonly": false,
+    "required": false,
+    "searchable": true,
+    "sort": 18,
+    "special": [
+      "cast-boolean"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "name": "is_available",
+    "table": "product_variants",
+    "data_type": "boolean",
+    "default_value": true,
+    "max_length": null,
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "is_nullable": true,
+    "is_unique": false,
+    "is_indexed": false,
+    "is_primary_key": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "foreign_key_table": null,
+    "foreign_key_column": null
+  }
+}

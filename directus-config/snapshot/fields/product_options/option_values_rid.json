@@ -1,0 +1,32 @@
+{
+  "collection": "product_options",
+  "field": "option_values_rid",
+  "type": "alias",
+  "meta": {
+    "collection": "product_options",
+    "conditions": null,
+    "display": "related-values",
+    "display_options": {
+      "template": "{{product_option_rid.name}}{{value}}{{color_hex}}"
+    },
+    "field": "option_values_rid",
+    "group": null,
+    "hidden": false,
+    "interface": "list-o2m",
+    "note": null,
+    "options": {
+      "template": "{{product_option_rid.name}}{{value}}{{color_hex}}"
+    },
+    "readonly": false,
+    "required": false,
+    "searchable": true,
+    "sort": 5,
+    "special": [
+      "o2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

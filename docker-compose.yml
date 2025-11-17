@@ -1,0 +1,38 @@
+services:
+  directus:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ENVIRONMENT: ${ENV:-DEV}
+    container_name: piggy-cms-directus
+    ports:
+      - "${DIRECTUS_PORT:-8055}:8055"
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./directus-config:/directus/directus-config
+      - ./directus-sync-cmd/directus-sync.config.js:/directus/directus-sync.config.js
+    env_file:
+      - .env
+    environment:
+      SECRET: ${SECRET}
+      DB_CLIENT: ${DB_CLIENT}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      ADMIN_EMAIL: ${DIRECTUS_ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${DIRECTUS_ADMIN_PASSWORD}
+      PUBLIC_URL: ""
+      WEBSOCKETS_ENABLED: "true"
+      MAX_PAYLOAD_SIZE: "10000000"
+      EXTENSIONS_AUTO_RELOAD: "true"
+    networks:
+      - piggy-network
+
+networks:
+  piggy-network:
+    name: piggy-network
+    external: true
+

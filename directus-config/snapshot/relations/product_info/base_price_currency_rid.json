@@ -1,0 +1,25 @@
+{
+  "collection": "product_info",
+  "field": "base_price_currency_rid",
+  "related_collection": "ref_currency",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "product_info",
+    "many_field": "base_price_currency_rid",
+    "one_allowed_collections": null,
+    "one_collection": "ref_currency",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "schema": {
+    "table": "product_info",
+    "column": "base_price_currency_rid",
+    "foreign_key_table": "ref_currency",
+    "foreign_key_column": "id",
+    "constraint_name": "product_info_base_price_currency_rid_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

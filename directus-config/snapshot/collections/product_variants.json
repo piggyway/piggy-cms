@@ -1,0 +1,28 @@
+{
+  "collection": "product_variants",
+  "meta": {
+    "accountability": "all",
+    "archive_app_filter": true,
+    "archive_field": null,
+    "archive_value": null,
+    "collapse": "open",
+    "collection": "product_variants",
+    "color": null,
+    "display_template": null,
+    "group": "Products",
+    "hidden": false,
+    "icon": null,
+    "item_duplication_fields": null,
+    "note": "产品变体表，存储每个选项组合的具体信息(价格、库存、尺寸等)",
+    "preview_url": null,
+    "singleton": false,
+    "sort": 2,
+    "sort_field": "sort",
+    "translations": null,
+    "unarchive_value": null,
+    "versioning": false
+  },
+  "schema": {
+    "name": "product_variants"
+  }
+}

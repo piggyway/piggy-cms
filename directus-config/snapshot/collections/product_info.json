@@ -1,0 +1,28 @@
+{
+  "collection": "product_info",
+  "meta": {
+    "accountability": "all",
+    "archive_app_filter": true,
+    "archive_field": null,
+    "archive_value": null,
+    "collapse": "open",
+    "collection": "product_info",
+    "color": null,
+    "display_template": null,
+    "group": "Products",
+    "hidden": false,
+    "icon": null,
+    "item_duplication_fields": null,
+    "note": "产品基础信息表，存储产品的通用信息,不包含具体的价格、库存等变体相关信息",
+    "preview_url": null,
+    "singleton": false,
+    "sort": 1,
+    "sort_field": "sort",
+    "translations": null,
+    "unarchive_value": null,
+    "versioning": false
+  },
+  "schema": {
+    "name": "product_info"
+  }
+}

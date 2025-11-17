@@ -1,0 +1,36 @@
+{
+  "collection": "product_variants",
+  "field": "options",
+  "type": "alias",
+  "meta": {
+    "collection": "product_variants",
+    "conditions": null,
+    "display": "related-values",
+    "display_options": {
+      "template": "{{option_value_rid.product_option_rid.name}}{{option_value_rid.value}}"
+    },
+    "field": "options",
+    "group": null,
+    "hidden": false,
+    "interface": "list-m2m",
+    "note": null,
+    "options": {
+      "fields": [
+        "option_value_rid.product_option_rid.name",
+        "option_value_rid.value"
+      ],
+      "layout": "table"
+    },
+    "readonly": false,
+    "required": false,
+    "searchable": true,
+    "sort": 20,
+    "special": [
+      "m2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collection": "product_info",
+  "field": "brand_rid",
+  "related_collection": "ref_brand",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "product_info",
+    "many_field": "brand_rid",
+    "one_allowed_collections": null,
+    "one_collection": "ref_brand",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "schema": {
+    "table": "product_info",
+    "column": "brand_rid",
+    "foreign_key_table": "ref_brand",
+    "foreign_key_column": "id",
+    "constraint_name": "product_info_brand_rid_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

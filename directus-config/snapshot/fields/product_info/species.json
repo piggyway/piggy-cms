@@ -1,0 +1,35 @@
+{
+  "collection": "product_info",
+  "field": "species",
+  "type": "alias",
+  "meta": {
+    "collection": "product_info",
+    "conditions": null,
+    "display": "related-values",
+    "display_options": {
+      "template": "{{ref_species_rid.name}}"
+    },
+    "field": "species",
+    "group": null,
+    "hidden": false,
+    "interface": "list-m2m",
+    "note": null,
+    "options": {
+      "fields": [
+        "ref_species_rid.name"
+      ],
+      "layout": "table"
+    },
+    "readonly": false,
+    "required": false,
+    "searchable": true,
+    "sort": 11,
+    "special": [
+      "m2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

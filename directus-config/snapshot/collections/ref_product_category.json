@@ -1,0 +1,28 @@
+{
+  "collection": "ref_product_category",
+  "meta": {
+    "accountability": "all",
+    "archive_app_filter": true,
+    "archive_field": null,
+    "archive_value": null,
+    "collapse": "open",
+    "collection": "ref_product_category",
+    "color": null,
+    "display_template": null,
+    "group": "Products",
+    "hidden": false,
+    "icon": null,
+    "item_duplication_fields": null,
+    "note": "商品种类，比如hut，liner",
+    "preview_url": null,
+    "singleton": false,
+    "sort": 6,
+    "sort_field": null,
+    "translations": null,
+    "unarchive_value": null,
+    "versioning": false
+  },
+  "schema": {
+    "name": "ref_product_category"
+  }
+}
