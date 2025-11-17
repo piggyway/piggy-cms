@@ -22,7 +22,7 @@ COPY --from=third-party-ext /extensions/directus ./extensions
 USER node
 
 # Accept environment as build arg
-ARG ENVIRONMENT=DEV
+ARG ENVIRONMENT=PROD
 ENV ENVIRONMENT=${ENVIRONMENT}
 
 # Create necessary directories
@@ -30,9 +30,6 @@ RUN mkdir -p /directus/uploads /directus/directus-config
 
 # Conditionally copy config files for non-DEV environments
 COPY ./directus-config /tmp/directus-config
-RUN if [ "$ENVIRONMENT" != "DEV" ]; then \
-      cp -r /tmp/directus-config/* /directus/directus-config/ 2>/dev/null || true; \
-    else \
-      echo "Running in DEV mode - config will be mounted as volume"; \
-    fi
-
+COPY ./directus-sync-cmd/directus-sync.config.js /tmp/directus-sync.config.js
+RUN cp -r /tmp/directus-config/* /directus/directus-config/ 2>/dev/null || true;
+RUN cp /tmp/directus-sync.config.js /directus/directus-sync.config.js;

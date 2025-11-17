@@ -91,6 +91,12 @@ railway run directus-sync pull  # 拉取 schema
 railway run directus-sync push  # 推送 schema
 ```
 
+**重要提示：**
+1. 确保在 Railway 环境变量中设置了 `DIRECTUS_ADMIN_TOKEN`（在 Directus 管理界面创建）
+2. 在 Railway 中，`DIRECTUS_URL` 应该**不设置**或设置为 `http://localhost:8055`（因为 directus-sync 在同一个容器内运行）
+3. 确保 `ENV` 环境变量设置为非 `DEV` 值（如 `PROD`），这样配置文件才会被复制到容器中
+4. 如果遇到连接错误，检查 Directus 服务是否正在运行：`railway logs`
+
 ## 环境变量说明
 
 ### PostgreSQL 配置
@@ -112,9 +118,13 @@ railway run directus-sync push  # 推送 schema
 - `DIRECTUS_PORT`: Directus 服务端口（默认：8055）
 
 ### Directus Sync 配置
-- `DIRECTUS_URL`: Directus API URL（本地开发：http://localhost:8055，容器内：http://directus:8055，Railway：使用环境变量中的 PUBLIC_URL）
-- `DIRECTUS_ADMIN_TOKEN`: Directus 管理员 Token（需要先创建）
-- `DIRECTUS_SYNC_DUMP_PATH`: Schema 导出路径（默认：/directus/directus-config）
+- `DIRECTUS_URL`: Directus API URL
+  - 本地开发：`http://localhost:8055`
+  - Railway 部署：**不设置**或设置为 `http://localhost:8055`（同一容器内）
+  - Docker Compose 多容器：`http://directus:8055`
+- `DIRECTUS_ADMIN_TOKEN`: Directus 管理员 Token（需要先创建，**必需**）
+- `DIRECTUS_SYNC_DUMP_PATH`: Schema 导出路径（默认：`/directus/directus-config`）
+- `ENV`: 环境类型（Railway 部署时设置为 `PROD` 或其他非 `DEV` 值，以确保配置文件被复制到容器中）
 
 ## 常用命令
 
