@@ -1,0 +1,79 @@
+{
+  "collection": "orders",
+  "field": "status",
+  "type": "string",
+  "meta": {
+    "collection": "orders",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "status",
+    "group": null,
+    "hidden": false,
+    "interface": "select-dropdown",
+    "note": null,
+    "options": {
+      "choices": [
+        {
+          "text": "pending_payment",
+          "value": "pending_payment"
+        },
+        {
+          "text": "paid",
+          "value": "paid"
+        },
+        {
+          "text": "processing",
+          "value": "processing"
+        },
+        {
+          "text": "shipped",
+          "value": "shipped"
+        },
+        {
+          "text": "completed",
+          "value": "completed"
+        },
+        {
+          "text": "cancelled",
+          "value": "cancelled"
+        },
+        {
+          "text": "refunded",
+          "value": "refunded"
+        },
+        {
+          "text": "disputed",
+          "value": "disputed"
+        }
+      ]
+    },
+    "readonly": false,
+    "required": false,
+    "searchable": true,
+    "sort": 6,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "name": "status",
+    "table": "orders",
+    "data_type": "character varying",
+    "default_value": "pending_payment",
+    "max_length": 50,
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "is_nullable": false,
+    "is_unique": false,
+    "is_indexed": false,
+    "is_primary_key": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "foreign_key_table": null,
+    "foreign_key_column": null
+  }
+}

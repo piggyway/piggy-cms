@@ -1,0 +1,25 @@
+{
+  "collection": "checkout_intents",
+  "field": "shipping_method_code",
+  "related_collection": "ref_shipping_method",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "checkout_intents",
+    "many_field": "shipping_method_code",
+    "one_allowed_collections": null,
+    "one_collection": "ref_shipping_method",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "schema": {
+    "table": "checkout_intents",
+    "column": "shipping_method_code",
+    "foreign_key_table": "ref_shipping_method",
+    "foreign_key_column": "id",
+    "constraint_name": "checkout_intents_shipping_method_code_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

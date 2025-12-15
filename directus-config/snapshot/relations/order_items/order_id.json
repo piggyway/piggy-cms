@@ -1,0 +1,25 @@
+{
+  "collection": "order_items",
+  "field": "order_id",
+  "related_collection": "orders",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "order_items",
+    "many_field": "order_id",
+    "one_allowed_collections": null,
+    "one_collection": "orders",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "order_items",
+    "sort_field": null
+  },
+  "schema": {
+    "table": "order_items",
+    "column": "order_id",
+    "foreign_key_table": "orders",
+    "foreign_key_column": "id",
+    "constraint_name": "order_items_order_id_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

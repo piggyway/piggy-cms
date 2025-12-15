@@ -1,0 +1,25 @@
+{
+  "collection": "refresh_tokens",
+  "field": "user_id",
+  "related_collection": "users",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "refresh_tokens",
+    "many_field": "user_id",
+    "one_allowed_collections": null,
+    "one_collection": "users",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "schema": {
+    "table": "refresh_tokens",
+    "column": "user_id",
+    "foreign_key_table": "users",
+    "foreign_key_column": "id",
+    "constraint_name": "refresh_tokens_user_id_users_id_fk",
+    "on_update": "NO ACTION",
+    "on_delete": "CASCADE"
+  }
+}

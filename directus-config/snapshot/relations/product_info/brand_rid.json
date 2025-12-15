@@ -18,7 +18,7 @@
     "column": "brand_rid",
     "foreign_key_table": "ref_brand",
     "foreign_key_column": "id",
-    "constraint_name": "product_info_brand_rid_foreign",
+    "constraint_name": "product_info_brand_rid_ref_brand_id_fk",
     "on_update": "NO ACTION",
     "on_delete": "SET NULL"
   }

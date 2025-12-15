@@ -1,0 +1,46 @@
+{
+  "collection": "checkout_intents",
+  "field": "cart_snapshot",
+  "type": "json",
+  "meta": {
+    "collection": "checkout_intents",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "cart_snapshot",
+    "group": null,
+    "hidden": false,
+    "interface": null,
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "searchable": true,
+    "sort": 7,
+    "special": [
+      "cast-json"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "name": "cart_snapshot",
+    "table": "checkout_intents",
+    "data_type": "json",
+    "default_value": null,
+    "max_length": null,
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "is_nullable": true,
+    "is_unique": false,
+    "is_indexed": false,
+    "is_primary_key": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "foreign_key_table": null,
+    "foreign_key_column": null
+  }
+}

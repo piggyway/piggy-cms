@@ -18,7 +18,7 @@
     "column": "option_value_rid",
     "foreign_key_table": "product_option_values",
     "foreign_key_column": "id",
-    "constraint_name": "product_variant_jxn_option_values_option_value_rid_foreign",
+    "constraint_name": "product_variant_jxn_option_values_option_value_rid_product_opti",
     "on_update": "NO ACTION",
     "on_delete": "SET NULL"
   }
