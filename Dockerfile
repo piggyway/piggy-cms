@@ -14,7 +14,7 @@ FROM directus/directus:latest
 # Install directus-sync@3.4.0 globally
 # Switch to root to install global package, then switch back to node user
 USER root
-RUN npm install --global directus-sync@3.4.0
+RUN npm install --global directus-sync@3.4.1
 
 # Copy third-party extensions from extensions stage
 COPY --from=third-party-ext /extensions/directus ./extensions
