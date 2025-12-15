@@ -1,6 +1,6 @@
 FROM node:23-slim
 
-RUN npm install --global directus-sync@3.4.0
+RUN npm install --global directus-sync@3.4.1
 
 WORKDIR /directus
 
