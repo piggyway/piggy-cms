@@ -31,7 +31,7 @@
     "name": "date_created",
     "table": "orders",
     "data_type": "timestamp with time zone",
-    "default_value": "now()",
+    "default_value": "CURRENT_TIMESTAMP",
     "max_length": null,
     "numeric_precision": null,
     "numeric_scale": null,

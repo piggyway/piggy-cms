@@ -18,7 +18,7 @@
     "column": "category_rid",
     "foreign_key_table": "ref_product_category",
     "foreign_key_column": "id",
-    "constraint_name": "product_info_category_rid_ref_product_category_id_fk",
+    "constraint_name": "product_info_category_rid_foreign",
     "on_update": "NO ACTION",
     "on_delete": "SET NULL"
   }

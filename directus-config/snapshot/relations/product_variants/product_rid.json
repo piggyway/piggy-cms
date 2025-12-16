@@ -18,7 +18,7 @@
     "column": "product_rid",
     "foreign_key_table": "product_info",
     "foreign_key_column": "id",
-    "constraint_name": "product_variants_product_rid_product_info_id_fk",
+    "constraint_name": "product_variants_product_rid_foreign",
     "on_update": "NO ACTION",
     "on_delete": "SET NULL"
   }
