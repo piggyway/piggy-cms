@@ -3,7 +3,7 @@
   "info": {
     "title": "Dynamic API Specification",
     "description": "This is a dynamically generated API specification for all endpoints existing on the current project.",
-    "version": "15ad7667ad5f761919eea0eceb7a6d3e4be21eb2"
+    "version": "957fe18162350f43961a099e89e2a7aab9c38279"
   },
   "servers": [
     {
@@ -12957,395 +12957,6 @@
         ]
       }
     },
-    "/items/email_login_tokens": {
-      "post": {
-        "summary": "Create an Item",
-        "description": "Create a new email_login_tokens item.",
-        "tags": [
-          "Items",
-          "ItemsEmailLoginTokens"
-        ],
-        "operationId": "createItemsEmailLoginTokens",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Meta"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
-                    }
-                  },
-                  {
-                    "$ref": "#/components/schemas/ItemsEmailLoginTokens"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ItemsEmailLoginTokens"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      },
-      "get": {
-        "summary": "List Items",
-        "description": "List the email_login_tokens items.",
-        "tags": [
-          "Items",
-          "ItemsEmailLoginTokens"
-        ],
-        "operationId": "readItemsEmailLoginTokens",
-        "security": [
-          {
-            "Auth": []
-          }
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Limit"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Offset"
-          },
-          {
-            "$ref": "#/components/parameters/Sort"
-          },
-          {
-            "$ref": "#/components/parameters/Filter"
-          },
-          {
-            "$ref": "#/components/parameters/Search"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "$ref": "#/components/schemas/ItemsEmailLoginTokens"
-                      }
-                    },
-                    "meta": {
-                      "$ref": "#/components/schemas/x-metadata"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      },
-      "patch": {
-        "summary": "Update Multiple Items",
-        "description": "Update multiple email_login_tokens items at the same time.",
-        "tags": [
-          "Items",
-          "ItemsEmailLoginTokens"
-        ],
-        "operationId": "updateItemsEmailLoginTokens",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Limit"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Offset"
-          },
-          {
-            "$ref": "#/components/parameters/Sort"
-          },
-          {
-            "$ref": "#/components/parameters/Filter"
-          },
-          {
-            "$ref": "#/components/parameters/Search"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
-                    }
-                  },
-                  {
-                    "$ref": "#/components/schemas/ItemsEmailLoginTokens"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ItemsEmailLoginTokens"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete Multiple Items",
-        "description": "Delete multiple existing email_login_tokens items.",
-        "tags": [
-          "Items",
-          "ItemsEmailLoginTokens"
-        ],
-        "operationId": "deleteItemsEmailLoginTokens",
-        "responses": {
-          "200": {
-            "description": "Successful request"
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        },
-        "parameters": []
-      }
-    },
-    "/items/email_login_tokens/{id}": {
-      "get": {
-        "summary": "Retrieve an Item",
-        "description": "Retrieve a single email_login_tokens item by unique identifier.",
-        "tags": [
-          "Items",
-          "ItemsEmailLoginTokens"
-        ],
-        "operationId": "readSingleItemsEmailLoginTokens",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Version"
-          },
-          {
-            "name": "id",
-            "description": "Index of the item.",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "oneOf": [
-                {
-                  "type": "integer",
-                  "description": "Incremental index of the item.",
-                  "example": 1
-                },
-                {
-                  "type": "string",
-                  "description": "Unique identifier of the item.",
-                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
-                }
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        }
-      },
-      "patch": {
-        "summary": "Update an Item",
-        "description": "Update an existing email_login_tokens item.",
-        "tags": [
-          "Items",
-          "ItemsEmailLoginTokens"
-        ],
-        "operationId": "updateSingleItemsEmailLoginTokens",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "name": "id",
-            "description": "Index of the item.",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "oneOf": [
-                {
-                  "type": "integer",
-                  "description": "Incremental index of the item.",
-                  "example": 1
-                },
-                {
-                  "type": "string",
-                  "description": "Unique identifier of the item.",
-                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
-                }
-              ]
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "$ref": "#/components/schemas/ItemsEmailLoginTokens"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete an Item",
-        "description": "Delete an existing email_login_tokens item.",
-        "tags": [
-          "Items",
-          "ItemsEmailLoginTokens"
-        ],
-        "operationId": "deleteSingleItemsEmailLoginTokens",
-        "responses": {
-          "200": {
-            "description": "Successful request"
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "description": "Index of the item.",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "oneOf": [
-                {
-                  "type": "integer",
-                  "description": "Incremental index of the item.",
-                  "example": 1
-                },
-                {
-                  "type": "string",
-                  "description": "Unique identifier of the item.",
-                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
     "/items/order_items": {
       "post": {
         "summary": "Create an Item",
@@ -18402,6 +18013,395 @@
           }
         ]
       }
+    },
+    "/items/email_login_tokens": {
+      "post": {
+        "summary": "Create an Item",
+        "description": "Create a new email_login_tokens item.",
+        "tags": [
+          "Items",
+          "ItemsEmailLoginTokens"
+        ],
+        "operationId": "createItemsEmailLoginTokens",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Meta"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "get": {
+        "summary": "List Items",
+        "description": "List the email_login_tokens items.",
+        "tags": [
+          "Items",
+          "ItemsEmailLoginTokens"
+        ],
+        "operationId": "readItemsEmailLoginTokens",
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/x-metadata"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Multiple Items",
+        "description": "Update multiple email_login_tokens items at the same time.",
+        "tags": [
+          "Items",
+          "ItemsEmailLoginTokens"
+        ],
+        "operationId": "updateItemsEmailLoginTokens",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Multiple Items",
+        "description": "Delete multiple existing email_login_tokens items.",
+        "tags": [
+          "Items",
+          "ItemsEmailLoginTokens"
+        ],
+        "operationId": "deleteItemsEmailLoginTokens",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/items/email_login_tokens/{id}": {
+      "get": {
+        "summary": "Retrieve an Item",
+        "description": "Retrieve a single email_login_tokens item by unique identifier.",
+        "tags": [
+          "Items",
+          "ItemsEmailLoginTokens"
+        ],
+        "operationId": "readSingleItemsEmailLoginTokens",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update an Item",
+        "description": "Update an existing email_login_tokens item.",
+        "tags": [
+          "Items",
+          "ItemsEmailLoginTokens"
+        ],
+        "operationId": "updateSingleItemsEmailLoginTokens",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an Item",
+        "description": "Delete an existing email_login_tokens item.",
+        "tags": [
+          "Items",
+          "ItemsEmailLoginTokens"
+        ],
+        "operationId": "deleteSingleItemsEmailLoginTokens",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   },
   "tags": [
@@ -18587,10 +18587,6 @@
       "x-collection": "ref_shipping_method"
     },
     {
-      "name": "ItemsEmailLoginTokens",
-      "x-collection": "email_login_tokens"
-    },
-    {
       "name": "ItemsOrderItems",
       "x-collection": "order_items"
     },
@@ -18646,6 +18642,10 @@
     {
       "name": "ItemsRefreshTokens",
       "x-collection": "refresh_tokens"
+    },
+    {
+      "name": "ItemsEmailLoginTokens",
+      "x-collection": "email_login_tokens"
     }
   ],
   "components": {
@@ -20643,6 +20643,10 @@
             "type": "string",
             "format": "uuid"
           },
+          "provider": {
+            "nullable": true,
+            "type": "string"
+          },
           "provider_account_id": {
             "nullable": false,
             "type": "string"
@@ -20660,10 +20664,6 @@
             "nullable": false,
             "type": "string",
             "format": "uuid"
-          },
-          "provider": {
-            "nullable": true,
-            "type": "string"
           }
         },
         "x-collection": "accounts",
@@ -21606,64 +21606,6 @@
         },
         "x-collection": "ref_shipping_method"
       },
-      "ItemsEmailLoginTokens": {
-        "type": "object",
-        "properties": {
-          "code_hash": {
-            "nullable": false,
-            "type": "string"
-          },
-          "consumed_at": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "email": {
-            "nullable": false,
-            "type": "string"
-          },
-          "expires_at": {
-            "nullable": false,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "ip": {
-            "nullable": true,
-            "type": "string"
-          },
-          "purpose": {
-            "nullable": false,
-            "type": "string"
-          },
-          "user_agent": {
-            "nullable": true,
-            "type": "string"
-          },
-          "user_id": {
-            "nullable": false,
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsUsers"
-              }
-            ]
-          }
-        },
-        "x-collection": "email_login_tokens",
-        "required": [
-          "code_hash",
-          "email",
-          "expires_at",
-          "user_id"
-        ]
-      },
       "ItemsOrderItems": {
         "type": "object",
         "properties": {
@@ -22266,6 +22208,11 @@
       "ItemsRefreshTokens": {
         "type": "object",
         "properties": {
+          "created_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time"
+          },
           "expires_at": {
             "nullable": false,
             "type": "string",
@@ -22293,6 +22240,68 @@
             "type": "string",
             "format": "uuid"
           },
+          "updated_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          "user_agent": {
+            "nullable": true,
+            "type": "string"
+          },
+          "user_id": {
+            "nullable": false,
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsUsers"
+              }
+            ]
+          }
+        },
+        "x-collection": "refresh_tokens",
+        "required": [
+          "expires_at",
+          "refresh_token_hash",
+          "user_id"
+        ]
+      },
+      "ItemsEmailLoginTokens": {
+        "type": "object",
+        "properties": {
+          "code_hash": {
+            "nullable": false,
+            "type": "string"
+          },
+          "consumed_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "email": {
+            "nullable": false,
+            "type": "string"
+          },
+          "expires_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "ip": {
+            "nullable": true,
+            "type": "string"
+          },
+          "purpose": {
+            "nullable": false,
+            "type": "string"
+          },
           "user_agent": {
             "nullable": true,
             "type": "string"
@@ -22318,12 +22327,17 @@
             "nullable": true,
             "type": "string",
             "format": "date-time"
+          },
+          "failed_attempts": {
+            "nullable": true,
+            "type": "integer"
           }
         },
-        "x-collection": "refresh_tokens",
+        "x-collection": "email_login_tokens",
         "required": [
+          "code_hash",
+          "email",
           "expires_at",
-          "refresh_token_hash",
           "user_id"
         ]
       }
