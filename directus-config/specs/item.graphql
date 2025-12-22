@@ -103,14 +103,22 @@ type Query {
   promo_codes_by_id(id: ID!, version: String): promo_codes
   promo_codes_aggregated(groupBy: [String], filter: promo_codes_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [promo_codes_aggregated!]!
   promo_codes_by_version(version: String!, id: ID!): version_promo_codes
-  refresh_tokens(filter: refresh_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [refresh_tokens!]!
-  refresh_tokens_by_id(id: ID!, version: String): refresh_tokens
-  refresh_tokens_aggregated(groupBy: [String], filter: refresh_tokens_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [refresh_tokens_aggregated!]!
-  refresh_tokens_by_version(version: String!, id: ID!): version_refresh_tokens
-  email_login_tokens(filter: email_login_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [email_login_tokens!]!
-  email_login_tokens_by_id(id: ID!, version: String): email_login_tokens
-  email_login_tokens_aggregated(groupBy: [String], filter: email_login_tokens_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [email_login_tokens_aggregated!]!
-  email_login_tokens_by_version(version: String!, id: ID!): version_email_login_tokens
+  orders(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [orders!]!
+  orders_by_id(id: ID!, version: String): orders
+  orders_aggregated(groupBy: [String], filter: orders_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [orders_aggregated!]!
+  orders_by_version(version: String!, id: ID!): version_orders
+  order_items(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [order_items!]!
+  order_items_by_id(id: ID!, version: String): order_items
+  order_items_aggregated(groupBy: [String], filter: order_items_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [order_items_aggregated!]!
+  order_items_by_version(version: String!, id: ID!): version_order_items
+  pickup_locations(filter: pickup_locations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pickup_locations!]!
+  pickup_locations_by_id(id: ID!, version: String): pickup_locations
+  pickup_locations_aggregated(groupBy: [String], filter: pickup_locations_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [pickup_locations_aggregated!]!
+  pickup_locations_by_version(version: String!, id: ID!): version_pickup_locations
+  pickup_slots(filter: pickup_slots_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pickup_slots!]!
+  pickup_slots_by_id(id: ID!, version: String): pickup_slots
+  pickup_slots_aggregated(groupBy: [String], filter: pickup_slots_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [pickup_slots_aggregated!]!
+  pickup_slots_by_version(version: String!, id: ID!): version_pickup_slots
 }
 
 type Mutation {
@@ -166,13 +174,17 @@ type Mutation {
   create_promo_code_usage_item(data: create_promo_code_usage_input!): promo_code_usage
   create_promo_codes_items(filter: promo_codes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_promo_codes_input!]): [promo_codes!]!
   create_promo_codes_item(data: create_promo_codes_input!): promo_codes
-  create_refresh_tokens_items(filter: refresh_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_refresh_tokens_input!]): [refresh_tokens!]!
-  create_refresh_tokens_item(data: create_refresh_tokens_input!): refresh_tokens
-  create_email_login_tokens_items(filter: email_login_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_email_login_tokens_input!]): [email_login_tokens!]!
-  create_email_login_tokens_item(data: create_email_login_tokens_input!): email_login_tokens
-  update_directus_sync_id_map_items(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_sync_id_map_input!): [directus_sync_id_map!]!
-  update_directus_sync_id_map_batch(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_sync_id_map_input!]): [directus_sync_id_map!]!
-  update_directus_sync_id_map_item(id: ID!, data: update_directus_sync_id_map_input!): directus_sync_id_map
+  create_orders_items(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_orders_input!]): [orders!]!
+  create_orders_item(data: create_orders_input!): orders
+  create_order_items_items(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_order_items_input!]): [order_items!]!
+  create_order_items_item(data: create_order_items_input!): order_items
+  create_pickup_locations_items(filter: pickup_locations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_pickup_locations_input!]): [pickup_locations!]!
+  create_pickup_locations_item(data: create_pickup_locations_input!): pickup_locations
+  create_pickup_slots_items(filter: pickup_slots_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_pickup_slots_input!]): [pickup_slots!]!
+  create_pickup_slots_item(data: create_pickup_slots_input!): pickup_slots
+  update_user_addresses_items(filter: user_addresses_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_user_addresses_input!): [user_addresses!]!
+  update_user_addresses_batch(filter: user_addresses_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_user_addresses_input!]): [user_addresses!]!
+  update_user_addresses_item(id: ID!, data: update_user_addresses_input!): user_addresses
   update_accounts_items(filter: accounts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_accounts_input!): [accounts!]!
   update_accounts_batch(filter: accounts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_accounts_input!]): [accounts!]!
   update_accounts_item(id: ID!, data: update_accounts_input!): accounts
@@ -248,14 +260,20 @@ type Mutation {
   update_promo_codes_items(filter: promo_codes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_promo_codes_input!): [promo_codes!]!
   update_promo_codes_batch(filter: promo_codes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_promo_codes_input!]): [promo_codes!]!
   update_promo_codes_item(id: ID!, data: update_promo_codes_input!): promo_codes
-  update_refresh_tokens_items(filter: refresh_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_refresh_tokens_input!): [refresh_tokens!]!
-  update_refresh_tokens_batch(filter: refresh_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_refresh_tokens_input!]): [refresh_tokens!]!
-  update_refresh_tokens_item(id: ID!, data: update_refresh_tokens_input!): refresh_tokens
-  update_email_login_tokens_items(filter: email_login_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_email_login_tokens_input!): [email_login_tokens!]!
-  update_email_login_tokens_batch(filter: email_login_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_email_login_tokens_input!]): [email_login_tokens!]!
-  update_email_login_tokens_item(id: ID!, data: update_email_login_tokens_input!): email_login_tokens
-  delete_directus_sync_id_map_items(ids: [ID]!): delete_many
-  delete_directus_sync_id_map_item(id: ID!): delete_one
+  update_orders_items(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_orders_input!): [orders!]!
+  update_orders_batch(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_orders_input!]): [orders!]!
+  update_orders_item(id: ID!, data: update_orders_input!): orders
+  update_order_items_items(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_order_items_input!): [order_items!]!
+  update_order_items_batch(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_order_items_input!]): [order_items!]!
+  update_order_items_item(id: ID!, data: update_order_items_input!): order_items
+  update_pickup_locations_items(filter: pickup_locations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_pickup_locations_input!): [pickup_locations!]!
+  update_pickup_locations_batch(filter: pickup_locations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_pickup_locations_input!]): [pickup_locations!]!
+  update_pickup_locations_item(id: ID!, data: update_pickup_locations_input!): pickup_locations
+  update_pickup_slots_items(filter: pickup_slots_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_pickup_slots_input!): [pickup_slots!]!
+  update_pickup_slots_batch(filter: pickup_slots_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_pickup_slots_input!]): [pickup_slots!]!
+  update_pickup_slots_item(id: ID!, data: update_pickup_slots_input!): pickup_slots
+  delete_user_addresses_items(ids: [ID]!): delete_many
+  delete_user_addresses_item(id: ID!): delete_one
   delete_accounts_items(ids: [ID]!): delete_many
   delete_accounts_item(id: ID!): delete_one
   delete_user_addresses_items(ids: [ID]!): delete_many
@@ -306,10 +324,14 @@ type Mutation {
   delete_promo_code_usage_item(id: ID!): delete_one
   delete_promo_codes_items(ids: [ID]!): delete_many
   delete_promo_codes_item(id: ID!): delete_one
-  delete_refresh_tokens_items(ids: [ID]!): delete_many
-  delete_refresh_tokens_item(id: ID!): delete_one
-  delete_email_login_tokens_items(ids: [ID]!): delete_many
-  delete_email_login_tokens_item(id: ID!): delete_one
+  delete_orders_items(ids: [ID]!): delete_many
+  delete_orders_item(id: ID!): delete_one
+  delete_order_items_items(ids: [ID]!): delete_many
+  delete_order_items_item(id: ID!): delete_one
+  delete_pickup_locations_items(ids: [ID]!): delete_many
+  delete_pickup_locations_item(id: ID!): delete_one
+  delete_pickup_slots_items(ids: [ID]!): delete_many
+  delete_pickup_slots_item(id: ID!): delete_one
 }
 
 type Subscription {
@@ -360,8 +382,10 @@ type Subscription {
   product_variant_jxn_option_values_mutated(event: EventEnum): product_variant_jxn_option_values_mutated
   promo_code_usage_mutated(event: EventEnum): promo_code_usage_mutated
   promo_codes_mutated(event: EventEnum): promo_codes_mutated
-  refresh_tokens_mutated(event: EventEnum): refresh_tokens_mutated
-  email_login_tokens_mutated(event: EventEnum): email_login_tokens_mutated
+  orders_mutated(event: EventEnum): orders_mutated
+  order_items_mutated(event: EventEnum): order_items_mutated
+  pickup_locations_mutated(event: EventEnum): pickup_locations_mutated
+  pickup_slots_mutated(event: EventEnum): pickup_slots_mutated
 }
 
 """The `Boolean` scalar type represents `true` or `false`."""
@@ -663,6 +687,14 @@ type checkout_intents_mutated {
 
 type count_functions {
   count: Int
+}
+
+type date_functions {
+  year: Int
+  month: Int
+  week: Int
+  day: Int
+  weekday: Int
 }
 
 type datetime_functions {
@@ -1481,24 +1513,132 @@ type orders_mutated {
   data: orders
 }
 
+type pickup_locations {
+  id: ID!
+  date_created: Date
+  date_created_func: datetime_functions
+  date_updated: Date
+  date_updated_func: datetime_functions
+  name: String
+  address: String
+  instructions: String
+  timezone: String
+  inventory: Int
+  is_active: Boolean
+}
+
+type pickup_locations_aggregated {
+  group: JSON
+  countAll: Int
+  count: pickup_locations_aggregated_count
+  countDistinct: pickup_locations_aggregated_count
+  avg: pickup_locations_aggregated_fields
+  sum: pickup_locations_aggregated_fields
+  avgDistinct: pickup_locations_aggregated_fields
+  sumDistinct: pickup_locations_aggregated_fields
+  min: pickup_locations_aggregated_fields
+  max: pickup_locations_aggregated_fields
+}
+
+type pickup_locations_aggregated_count {
+  id: Int
+  date_created: Int
+  date_updated: Int
+  name: Int
+  address: Int
+  instructions: Int
+  timezone: Int
+  inventory: Int
+  is_active: Int
+}
+
+type pickup_locations_aggregated_fields {
+  id: Float
+  inventory: Float
+}
+
+type pickup_locations_mutated {
+  key: ID!
+  event: EventEnum
+  data: pickup_locations
+}
+
+type pickup_slots {
+  id: ID!
+  sort: Int
+  date_created: Date
+  date_created_func: datetime_functions
+  date_updated: Date
+  date_updated_func: datetime_functions
+  location_id(filter: pickup_locations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pickup_locations
+  slot_date: Date
+  slot_date_func: date_functions
+  start_at: Date
+  start_at_func: time_functions
+  end_at: Date
+  end_at_func: time_functions
+  is_active: Boolean
+}
+
+type pickup_slots_aggregated {
+  group: JSON
+  countAll: Int
+  count: pickup_slots_aggregated_count
+  countDistinct: pickup_slots_aggregated_count
+  avg: pickup_slots_aggregated_fields
+  sum: pickup_slots_aggregated_fields
+  avgDistinct: pickup_slots_aggregated_fields
+  sumDistinct: pickup_slots_aggregated_fields
+  min: pickup_slots_aggregated_fields
+  max: pickup_slots_aggregated_fields
+}
+
+type pickup_slots_aggregated_count {
+  id: Int
+  sort: Int
+  date_created: Int
+  date_updated: Int
+  location_id: Int
+  slot_date: Int
+  start_at: Int
+  end_at: Int
+  is_active: Int
+}
+
+type pickup_slots_aggregated_fields {
+  id: Float
+  sort: Float
+  location_id: Float
+}
+
+type pickup_slots_mutated {
+  key: ID!
+  event: EventEnum
+  data: pickup_slots
+}
+
 type product_info {
-  attributes: JSON
-  attributes_func: count_functions
-  base_price: Float
-  base_price_currency_rid(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
-  brand_rid(filter: ref_brand_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_brand
-  category_rid(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_product_category
+  id: ID!
+  sort: Int
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
   description: String
-  id: ID!
-  is_featured: Boolean
-  slug: String
-  sort: Int
-  subtitle: String
   title: String
+  subtitle: String
+  slug: String
+  is_featured: Boolean
+  base_price: Float
+  brand_rid(filter: ref_brand_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_brand
+  base_price_currency_rid(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
+  attributes: JSON
+  attributes_func: count_functions
+  category_rid(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_product_category
+  species(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_jxn_species]
+  species_func: count_functions
+  product_varients(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variants]
+  product_varients_func: count_functions
   product_info_files(filter: product_info_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_files]
   product_info_files_func: count_functions
   product_varients(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variants]
@@ -2385,6 +2525,12 @@ type refresh_tokens_mutated {
   data: refresh_tokens
 }
 
+type time_functions {
+  hour: Int
+  minute: Int
+  second: Int
+}
+
 type user_addresses {
   address_text: String!
   country_code: String
@@ -2616,21 +2762,49 @@ type version_orders {
 }
 
 """"""
+type version_pickup_locations {
+  id: ID
+  date_created: Date
+  date_updated: Date
+  name: String
+  address: String
+  instructions: String
+  timezone: String
+  inventory: Int
+  is_active: Boolean
+}
+
+""""""
+type version_pickup_slots {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  location_id: JSON
+  slot_date: Date
+  start_at: Date
+  end_at: Date
+  is_active: Boolean
+}
+
+""""""
 type version_product_info {
-  attributes: JSON
-  base_price: Float
-  base_price_currency_rid: JSON
-  brand_rid: JSON
-  category_rid: JSON
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
   description: String
-  id: ID
-  is_featured: Boolean
-  slug: String
-  sort: Int
-  subtitle: String
   title: String
+  subtitle: String
+  slug: String
+  is_featured: Boolean
+  base_price: Float
+  brand_rid: JSON
+  base_price_currency_rid: JSON
+  attributes: JSON
+  category_rid: JSON
+  species: JSON
+  product_varients: JSON
   product_info_files: JSON
   product_varients: JSON
   species: JSON
@@ -3229,9 +3403,36 @@ input create_orders_input {
   order_items: [create_order_items_input]
 }
 
-input create_product_info_files_input {
+input create_pickup_locations_input {
+  id: ID
   date_created: Date
   date_updated: Date
+  name: String
+  address: String
+  instructions: String
+  timezone: String
+  inventory: Int
+  is_active: Boolean
+}
+
+input create_pickup_slots_input {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  location_id: create_pickup_locations_input
+  slot_date: Date
+  start_at: Date
+  end_at: Date
+  is_active: Boolean
+}
+
+input create_product_info_files_input {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  product_info_rid: create_product_info_input
   external_url: String
   id: ID
   product_info_rid: create_product_info_input
@@ -3474,6 +3675,14 @@ input date_filter_operators {
   _nin: [String]
   _between: [GraphQLStringOrFloat]
   _nbetween: [GraphQLStringOrFloat]
+}
+
+input date_function_filter_operators {
+  year: number_filter_operators
+  month: number_filter_operators
+  week: number_filter_operators
+  day: number_filter_operators
+  weekday: number_filter_operators
 }
 
 input datetime_function_filter_operators {
@@ -4077,11 +4286,49 @@ input orders_filter {
   _or: [orders_filter]
 }
 
-input product_info_files_filter {
+input pickup_locations_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
+  name: string_filter_operators
+  address: string_filter_operators
+  instructions: string_filter_operators
+  timezone: string_filter_operators
+  inventory: number_filter_operators
+  is_active: boolean_filter_operators
+  _and: [pickup_locations_filter]
+  _or: [pickup_locations_filter]
+}
+
+input pickup_slots_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  location_id: pickup_locations_filter
+  slot_date: date_filter_operators
+  slot_date_func: date_function_filter_operators
+  start_at: date_filter_operators
+  start_at_func: time_function_filter_operators
+  end_at: date_filter_operators
+  end_at_func: time_function_filter_operators
+  is_active: boolean_filter_operators
+  _and: [pickup_slots_filter]
+  _or: [pickup_slots_filter]
+}
+
+input product_info_files_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  product_info_rid: product_info_filter
   external_url: string_filter_operators
   id: number_filter_operators
   product_info_rid: product_info_filter
@@ -4500,6 +4747,12 @@ input string_filter_operators {
   _nempty: Boolean
 }
 
+input time_function_filter_operators {
+  hour: number_filter_operators
+  minute: number_filter_operators
+  second: number_filter_operators
+}
+
 input update_accounts_input {
   created_at: Date
   email_at_link: String
@@ -4747,9 +5000,36 @@ input update_orders_input {
   order_items: [update_order_items_input]
 }
 
-input update_product_info_files_input {
+input update_pickup_locations_input {
+  id: ID
   date_created: Date
   date_updated: Date
+  name: String
+  address: String
+  instructions: String
+  timezone: String
+  inventory: Int
+  is_active: Boolean
+}
+
+input update_pickup_slots_input {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  location_id: update_pickup_locations_input
+  slot_date: Date
+  start_at: Date
+  end_at: Date
+  is_active: Boolean
+}
+
+input update_product_info_files_input {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  product_info_rid: update_product_info_input
   external_url: String
   id: ID
   product_info_rid: update_product_info_input

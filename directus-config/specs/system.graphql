@@ -289,8 +289,10 @@ type Subscription {
   product_variant_jxn_option_values_mutated(event: EventEnum): product_variant_jxn_option_values_mutated
   promo_code_usage_mutated(event: EventEnum): promo_code_usage_mutated
   promo_codes_mutated(event: EventEnum): promo_codes_mutated
-  refresh_tokens_mutated(event: EventEnum): refresh_tokens_mutated
-  email_login_tokens_mutated(event: EventEnum): email_login_tokens_mutated
+  orders_mutated(event: EventEnum): orders_mutated
+  order_items_mutated(event: EventEnum): order_items_mutated
+  pickup_locations_mutated(event: EventEnum): pickup_locations_mutated
+  pickup_slots_mutated(event: EventEnum): pickup_slots_mutated
 }
 
 """The `Boolean` scalar type represents `true` or `false`."""
@@ -480,6 +482,14 @@ type checkout_intents_mutated {
 
 type count_functions {
   count: Int
+}
+
+type date_functions {
+  year: Int
+  month: Int
+  week: Int
+  day: Int
+  weekday: Int
 }
 
 type datetime_functions {
@@ -1856,6 +1866,49 @@ type orders_mutated {
   data: orders
 }
 
+type pickup_locations {
+  id: ID!
+  date_created: Date
+  date_created_func: datetime_functions
+  date_updated: Date
+  date_updated_func: datetime_functions
+  name: String
+  address: String
+  instructions: String
+  timezone: String
+  inventory: Int
+  is_active: Boolean
+}
+
+type pickup_locations_mutated {
+  key: ID!
+  event: EventEnum
+  data: pickup_locations
+}
+
+type pickup_slots {
+  id: ID!
+  sort: Int
+  date_created: Date
+  date_created_func: datetime_functions
+  date_updated: Date
+  date_updated_func: datetime_functions
+  location_id(filter: pickup_locations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pickup_locations
+  slot_date: Date
+  slot_date_func: date_functions
+  start_at: Date
+  start_at_func: time_functions
+  end_at: Date
+  end_at_func: time_functions
+  is_active: Boolean
+}
+
+type pickup_slots_mutated {
+  key: ID!
+  event: EventEnum
+  data: pickup_slots
+}
+
 type policy_me_globals_type {
   enforce_tfa: Boolean
   app_access: Boolean
@@ -2262,6 +2315,12 @@ type server_info_websocket_graphql {
 type server_info_websocket_rest {
   authentication: server_info_websocket_rest_authentication
   path: String
+}
+
+type time_functions {
+  hour: Int
+  minute: Int
+  second: Int
 }
 
 type user_addresses {
@@ -3428,11 +3487,30 @@ input orders_filter {
   _or: [orders_filter]
 }
 
-input product_info_files_filter {
+input pickup_locations_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
+  name: string_filter_operators
+  address: string_filter_operators
+  instructions: string_filter_operators
+  timezone: string_filter_operators
+  inventory: number_filter_operators
+  is_active: boolean_filter_operators
+  _and: [pickup_locations_filter]
+  _or: [pickup_locations_filter]
+}
+
+input product_info_files_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  product_info_rid: product_info_filter
   external_url: string_filter_operators
   id: number_filter_operators
   product_info_rid: product_info_filter
