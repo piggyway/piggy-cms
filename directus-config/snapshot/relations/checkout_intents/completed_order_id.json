@@ -18,7 +18,7 @@
     "column": "completed_order_id",
     "foreign_key_table": "orders",
     "foreign_key_column": "id",
-    "constraint_name": "checkout_intents_completed_order_id_foreign",
+    "constraint_name": "checkout_intents_completed_order_id_orders_id_fk",
     "on_update": "NO ACTION",
     "on_delete": "SET NULL"
   }

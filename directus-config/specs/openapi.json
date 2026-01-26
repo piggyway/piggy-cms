@@ -3,7 +3,7 @@
   "info": {
     "title": "Dynamic API Specification",
     "description": "This is a dynamically generated API specification for all endpoints existing on the current project.",
-    "version": "4fda1a2804e0b04dbb82bdb3ef5cb33744f5e1e3"
+    "version": "407500945494ee00494c0141884458c8a130addf"
   },
   "servers": [
     {
@@ -861,12 +861,14 @@
               "schema": {
                 "properties": {
                   "format": {
-                    "description": "What file format to save the export to. One of csv, xml, json",
+                    "description": "What file format to save the export to. One of csv, csv_utf8, xml, json, yaml",
                     "type": "string",
                     "enum": [
                       "csv",
+                      "csv_utf8",
                       "xml",
-                      "json"
+                      "json",
+                      "yaml"
                     ]
                   },
                   "query": {
@@ -6020,398 +6022,6 @@
         ]
       }
     },
-    "/webhooks": {
-      "get": {
-        "summary": "List Webhooks",
-        "description": "Get all webhooks.",
-        "operationId": "getWebhooks",
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Webhooks"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Webhooks"
-        ]
-      },
-      "post": {
-        "summary": "Create a Webhook",
-        "description": "Create a new webhook.",
-        "operationId": "createWebhook",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "description": "The name of the webhook.",
-                    "type": "string",
-                    "example": "create articles"
-                  },
-                  "method": {
-                    "description": "Method used in the webhook.",
-                    "type": "string",
-                    "example": "POST"
-                  },
-                  "url": {
-                    "description": "The url of the webhook.",
-                    "type": "string",
-                    "example": null
-                  },
-                  "status": {
-                    "description": "The status of the webhook.",
-                    "type": "string",
-                    "example": "active"
-                  },
-                  "data": {
-                    "description": "If yes, send the content of what was done",
-                    "type": "boolean",
-                    "example": true
-                  },
-                  "actions": {
-                    "description": "The actions that triggers this webhook.",
-                    "example": null
-                  },
-                  "system-collections": {
-                    "description": "The collections that triggers this webhook.",
-                    "example": null
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Roles"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Webhooks"
-        ]
-      },
-      "patch": {
-        "summary": "Update Multiple Webhooks",
-        "description": "Update multiple webhooks at the same time.",
-        "tags": [
-          "Webhooks"
-        ],
-        "operationId": "updateWebhooks",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Limit"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Offset"
-          },
-          {
-            "$ref": "#/components/parameters/Sort"
-          },
-          {
-            "$ref": "#/components/parameters/Filter"
-          },
-          {
-            "$ref": "#/components/parameters/Search"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "data": {
-                    "properties": {
-                      "name": {
-                        "description": "The name of the webhook.",
-                        "type": "string",
-                        "example": "create articles"
-                      },
-                      "method": {
-                        "description": "Method used in the webhook.",
-                        "type": "string",
-                        "example": "POST"
-                      },
-                      "url": {
-                        "description": "The url of the webhook.",
-                        "type": "string",
-                        "example": null
-                      },
-                      "status": {
-                        "description": "The status of the webhook.",
-                        "type": "string",
-                        "example": "active"
-                      },
-                      "data": {
-                        "description": "If yes, send the content of what was done",
-                        "type": "boolean",
-                        "example": true
-                      },
-                      "actions": {
-                        "description": "The actions that triggers this webhook.",
-                        "example": null
-                      },
-                      "system-collections": {
-                        "description": "The collections that triggers this webhook.",
-                        "example": null
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "keys": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/Webhooks"
-                      }
-                    },
-                    "meta": {
-                      "$ref": "#/components/schemas/x-metadata"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete Multiple Webhooks",
-        "description": "Delete multiple existing webhooks.",
-        "tags": [
-          "Webhooks"
-        ],
-        "operationId": "deleteWebhooks",
-        "responses": {
-          "200": {
-            "description": "Successful request"
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      }
-    },
-    "/webhooks/{id}": {
-      "get": {
-        "summary": "Retrieve a Webhook",
-        "description": "Retrieve a single webhook by unique identifier.",
-        "operationId": "getWebhook",
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Webhooks"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Webhooks"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/UUId"
-          }
-        ]
-      },
-      "patch": {
-        "summary": "Update a Webhook",
-        "description": "Update an existing webhook",
-        "operationId": "updateWebhook",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/UUId"
-          },
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "description": "The name of the webhook.",
-                    "type": "string",
-                    "example": "create articles"
-                  },
-                  "method": {
-                    "description": "Method used in the webhook.",
-                    "type": "string",
-                    "example": "POST"
-                  },
-                  "url": {
-                    "description": "The url of the webhook.",
-                    "type": "string",
-                    "example": null
-                  },
-                  "status": {
-                    "description": "The status of the webhook.",
-                    "type": "string",
-                    "example": "active"
-                  },
-                  "data": {
-                    "description": "If yes, send the content of what was done",
-                    "type": "boolean",
-                    "example": true
-                  },
-                  "actions": {
-                    "description": "The actions that triggers this webhook.",
-                    "example": null
-                  },
-                  "system-collections": {
-                    "description": "The collections that triggers this webhook.",
-                    "example": null
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Roles"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Webhooks"
-        ]
-      },
-      "delete": {
-        "summary": "Delete a Webhook",
-        "description": "Delete an existing webhook",
-        "operationId": "deleteWebhook",
-        "responses": {
-          "200": {
-            "description": "Successful request"
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Webhooks"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/UUId"
-          }
-        ]
-      }
-    },
     "/extensions": {
       "get": {
         "summary": "List Extensions",
@@ -7424,102 +7034,15 @@
         }
       }
     },
-    "/settings": {
-      "get": {
-        "summary": "Retrieve Settings",
-        "description": "List the settings.",
-        "operationId": "getSettings",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Limit"
-          },
-          {
-            "$ref": "#/components/parameters/Offset"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Settings"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Settings"
-        ]
-      },
-      "patch": {
-        "summary": "Update Settings",
-        "description": "Update the settings",
-        "operationId": "updateSetting",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Settings"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Settings"
-        ]
-      }
-    },
-    "/items/directus_sync_id_map": {
+    "/items/user_addresses": {
       "post": {
         "summary": "Create an Item",
-        "description": "Create a new directus_sync_id_map item.",
+        "description": "Create a new user_addresses item.",
         "tags": [
           "Items",
-          "ItemsDirectusSyncIDMap"
+          "ItemsUserAddresses"
         ],
-        "operationId": "createItemsDirectusSyncIDMap",
+        "operationId": "createItemsUserAddresses",
         "parameters": [
           {
             "$ref": "#/components/parameters/Meta"
@@ -7533,11 +7056,11 @@
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                      "$ref": "#/components/schemas/ItemsUserAddresses"
                     }
                   },
                   {
-                    "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                    "$ref": "#/components/schemas/ItemsUserAddresses"
                   }
                 ]
               }
@@ -7555,7 +7078,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                        "$ref": "#/components/schemas/ItemsUserAddresses"
                       }
                     }
                   }
@@ -7570,12 +7093,12 @@
       },
       "get": {
         "summary": "List Items",
-        "description": "List the directus_sync_id_map items.",
+        "description": "List the user_addresses items.",
         "tags": [
           "Items",
-          "ItemsDirectusSyncIDMap"
+          "ItemsUserAddresses"
         ],
-        "operationId": "readItemsDirectusSyncIDMap",
+        "operationId": "readItemsUserAddresses",
         "security": [
           {
             "Auth": []
@@ -7616,7 +7139,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                        "$ref": "#/components/schemas/ItemsUserAddresses"
                       }
                     },
                     "meta": {
@@ -7634,12 +7157,12 @@
       },
       "patch": {
         "summary": "Update Multiple Items",
-        "description": "Update multiple directus_sync_id_map items at the same time.",
+        "description": "Update multiple user_addresses items at the same time.",
         "tags": [
           "Items",
-          "ItemsDirectusSyncIDMap"
+          "ItemsUserAddresses"
         ],
-        "operationId": "updateItemsDirectusSyncIDMap",
+        "operationId": "updateItemsUserAddresses",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -7671,11 +7194,11 @@
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                      "$ref": "#/components/schemas/ItemsUserAddresses"
                     }
                   },
                   {
-                    "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                    "$ref": "#/components/schemas/ItemsUserAddresses"
                   }
                 ]
               }
@@ -7692,7 +7215,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                        "$ref": "#/components/schemas/ItemsUserAddresses"
                       }
                     }
                   }
@@ -7704,12 +7227,12 @@
       },
       "delete": {
         "summary": "Delete Multiple Items",
-        "description": "Delete multiple existing directus_sync_id_map items.",
+        "description": "Delete multiple existing user_addresses items.",
         "tags": [
           "Items",
-          "ItemsDirectusSyncIDMap"
+          "ItemsUserAddresses"
         ],
-        "operationId": "deleteItemsDirectusSyncIDMap",
+        "operationId": "deleteItemsUserAddresses",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -7721,15 +7244,15 @@
         "parameters": []
       }
     },
-    "/items/directus_sync_id_map/{id}": {
+    "/items/user_addresses/{id}": {
       "get": {
         "summary": "Retrieve an Item",
-        "description": "Retrieve a single directus_sync_id_map item by unique identifier.",
+        "description": "Retrieve a single user_addresses item by unique identifier.",
         "tags": [
           "Items",
-          "ItemsDirectusSyncIDMap"
+          "ItemsUserAddresses"
         ],
-        "operationId": "readSingleItemsDirectusSyncIDMap",
+        "operationId": "readSingleItemsUserAddresses",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -7771,7 +7294,7 @@
                   "properties": {
                     "data": {
                       "type": "object",
-                      "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                      "$ref": "#/components/schemas/ItemsUserAddresses"
                     }
                   }
                 }
@@ -7788,12 +7311,12 @@
       },
       "patch": {
         "summary": "Update an Item",
-        "description": "Update an existing directus_sync_id_map item.",
+        "description": "Update an existing user_addresses item.",
         "tags": [
           "Items",
-          "ItemsDirectusSyncIDMap"
+          "ItemsUserAddresses"
         ],
-        "operationId": "updateSingleItemsDirectusSyncIDMap",
+        "operationId": "updateSingleItemsUserAddresses",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -7827,7 +7350,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                "$ref": "#/components/schemas/ItemsUserAddresses"
               }
             }
           }
@@ -7842,7 +7365,7 @@
                   "properties": {
                     "data": {
                       "type": "object",
-                      "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                      "$ref": "#/components/schemas/ItemsUserAddresses"
                     }
                   }
                 }
@@ -7859,12 +7382,12 @@
       },
       "delete": {
         "summary": "Delete an Item",
-        "description": "Delete an existing directus_sync_id_map item.",
+        "description": "Delete an existing user_addresses item.",
         "tags": [
           "Items",
-          "ItemsDirectusSyncIDMap"
+          "ItemsUserAddresses"
         ],
-        "operationId": "deleteSingleItemsDirectusSyncIDMap",
+        "operationId": "deleteSingleItemsUserAddresses",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -7897,105 +7420,18 @@
               ]
             }
           }
-        ]
-      }
-    },
-    "/settings": {
-      "get": {
-        "summary": "Retrieve Settings",
-        "description": "List the settings.",
-        "operationId": "getSettings",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Limit"
-          },
-          {
-            "$ref": "#/components/parameters/Offset"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Settings"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Settings"
-        ]
-      },
-      "patch": {
-        "summary": "Update Settings",
-        "description": "Update the settings",
-        "operationId": "updateSetting",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Settings"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Settings"
         ]
       }
     },
     "/items/accounts": {
       "post": {
         "summary": "Create an Item",
-        "description": "Create a new carts item.",
+        "description": "Create a new accounts item.",
         "tags": [
           "Items",
-          "ItemsCarts"
+          "ItemsAccounts"
         ],
-        "operationId": "createItemsCarts",
+        "operationId": "createItemsAccounts",
         "parameters": [
           {
             "$ref": "#/components/parameters/Meta"
@@ -8009,11 +7445,11 @@
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/ItemsCarts"
+                      "$ref": "#/components/schemas/ItemsAccounts"
                     }
                   },
                   {
-                    "$ref": "#/components/schemas/ItemsCarts"
+                    "$ref": "#/components/schemas/ItemsAccounts"
                   }
                 ]
               }
@@ -8031,7 +7467,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/ItemsCarts"
+                        "$ref": "#/components/schemas/ItemsAccounts"
                       }
                     }
                   }
@@ -8046,12 +7482,12 @@
       },
       "get": {
         "summary": "List Items",
-        "description": "List the carts items.",
+        "description": "List the accounts items.",
         "tags": [
           "Items",
-          "ItemsCarts"
+          "ItemsAccounts"
         ],
-        "operationId": "readItemsCarts",
+        "operationId": "readItemsAccounts",
         "security": [
           {
             "Auth": []
@@ -8092,7 +7528,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "$ref": "#/components/schemas/ItemsCarts"
+                        "$ref": "#/components/schemas/ItemsAccounts"
                       }
                     },
                     "meta": {
@@ -8110,12 +7546,12 @@
       },
       "patch": {
         "summary": "Update Multiple Items",
-        "description": "Update multiple carts items at the same time.",
+        "description": "Update multiple accounts items at the same time.",
         "tags": [
           "Items",
-          "ItemsCarts"
+          "ItemsAccounts"
         ],
-        "operationId": "updateItemsCarts",
+        "operationId": "updateItemsAccounts",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -8147,11 +7583,11 @@
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/ItemsCarts"
+                      "$ref": "#/components/schemas/ItemsAccounts"
                     }
                   },
                   {
-                    "$ref": "#/components/schemas/ItemsCarts"
+                    "$ref": "#/components/schemas/ItemsAccounts"
                   }
                 ]
               }
@@ -8168,7 +7604,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/ItemsCarts"
+                        "$ref": "#/components/schemas/ItemsAccounts"
                       }
                     }
                   }
@@ -8180,12 +7616,12 @@
       },
       "delete": {
         "summary": "Delete Multiple Items",
-        "description": "Delete multiple existing carts items.",
+        "description": "Delete multiple existing accounts items.",
         "tags": [
           "Items",
-          "ItemsCarts"
+          "ItemsAccounts"
         ],
-        "operationId": "deleteItemsCarts",
+        "operationId": "deleteItemsAccounts",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -8197,15 +7633,15 @@
         "parameters": []
       }
     },
-    "/items/carts/{id}": {
+    "/items/accounts/{id}": {
       "get": {
         "summary": "Retrieve an Item",
-        "description": "Retrieve a single carts item by unique identifier.",
+        "description": "Retrieve a single accounts item by unique identifier.",
         "tags": [
           "Items",
-          "ItemsCarts"
+          "ItemsAccounts"
         ],
-        "operationId": "readSingleItemsCarts",
+        "operationId": "readSingleItemsAccounts",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -8247,7 +7683,7 @@
                   "properties": {
                     "data": {
                       "type": "object",
-                      "$ref": "#/components/schemas/ItemsCarts"
+                      "$ref": "#/components/schemas/ItemsAccounts"
                     }
                   }
                 }
@@ -8264,12 +7700,12 @@
       },
       "patch": {
         "summary": "Update an Item",
-        "description": "Update an existing carts item.",
+        "description": "Update an existing accounts item.",
         "tags": [
           "Items",
-          "ItemsCarts"
+          "ItemsAccounts"
         ],
-        "operationId": "updateSingleItemsCarts",
+        "operationId": "updateSingleItemsAccounts",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -8303,7 +7739,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "$ref": "#/components/schemas/ItemsCarts"
+                "$ref": "#/components/schemas/ItemsAccounts"
               }
             }
           }
@@ -8318,7 +7754,7 @@
                   "properties": {
                     "data": {
                       "type": "object",
-                      "$ref": "#/components/schemas/ItemsCarts"
+                      "$ref": "#/components/schemas/ItemsAccounts"
                     }
                   }
                 }
@@ -8335,12 +7771,12 @@
       },
       "delete": {
         "summary": "Delete an Item",
-        "description": "Delete an existing carts item.",
+        "description": "Delete an existing accounts item.",
         "tags": [
           "Items",
-          "ItemsCarts"
+          "ItemsAccounts"
         ],
-        "operationId": "deleteSingleItemsCarts",
+        "operationId": "deleteSingleItemsAccounts",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -9151,6 +8587,93 @@
               ]
             }
           }
+        ]
+      }
+    },
+    "/settings": {
+      "get": {
+        "summary": "Retrieve Settings",
+        "description": "List the settings.",
+        "operationId": "getSettings",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Settings"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        },
+        "tags": [
+          "Settings"
+        ]
+      },
+      "patch": {
+        "summary": "Update Settings",
+        "description": "Update the settings",
+        "operationId": "updateSetting",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Settings"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        },
+        "tags": [
+          "Settings"
         ]
       }
     },
@@ -17323,15 +16846,15 @@
         ]
       }
     },
-    "/items/email_login_tokens": {
+    "/items/promo_codes": {
       "post": {
         "summary": "Create an Item",
-        "description": "Create a new email_login_tokens item.",
+        "description": "Create a new promo_codes item.",
         "tags": [
           "Items",
-          "ItemsEmailLoginTokens"
+          "ItemsPromoCodes"
         ],
-        "operationId": "createItemsEmailLoginTokens",
+        "operationId": "createItemsPromoCodes",
         "parameters": [
           {
             "$ref": "#/components/parameters/Meta"
@@ -17345,11 +16868,11 @@
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                      "$ref": "#/components/schemas/ItemsPromoCodes"
                     }
                   },
                   {
-                    "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                    "$ref": "#/components/schemas/ItemsPromoCodes"
                   }
                 ]
               }
@@ -17367,7 +16890,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                        "$ref": "#/components/schemas/ItemsPromoCodes"
                       }
                     }
                   }
@@ -17382,12 +16905,12 @@
       },
       "get": {
         "summary": "List Items",
-        "description": "List the email_login_tokens items.",
+        "description": "List the promo_codes items.",
         "tags": [
           "Items",
-          "ItemsEmailLoginTokens"
+          "ItemsPromoCodes"
         ],
-        "operationId": "readItemsEmailLoginTokens",
+        "operationId": "readItemsPromoCodes",
         "security": [
           {
             "Auth": []
@@ -17428,7 +16951,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                        "$ref": "#/components/schemas/ItemsPromoCodes"
                       }
                     },
                     "meta": {
@@ -17446,12 +16969,12 @@
       },
       "patch": {
         "summary": "Update Multiple Items",
-        "description": "Update multiple email_login_tokens items at the same time.",
+        "description": "Update multiple promo_codes items at the same time.",
         "tags": [
           "Items",
-          "ItemsEmailLoginTokens"
+          "ItemsPromoCodes"
         ],
-        "operationId": "updateItemsEmailLoginTokens",
+        "operationId": "updateItemsPromoCodes",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -17483,11 +17006,11 @@
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                      "$ref": "#/components/schemas/ItemsPromoCodes"
                     }
                   },
                   {
-                    "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                    "$ref": "#/components/schemas/ItemsPromoCodes"
                   }
                 ]
               }
@@ -17504,7 +17027,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                        "$ref": "#/components/schemas/ItemsPromoCodes"
                       }
                     }
                   }
@@ -17516,12 +17039,12 @@
       },
       "delete": {
         "summary": "Delete Multiple Items",
-        "description": "Delete multiple existing email_login_tokens items.",
+        "description": "Delete multiple existing promo_codes items.",
         "tags": [
           "Items",
-          "ItemsEmailLoginTokens"
+          "ItemsPromoCodes"
         ],
-        "operationId": "deleteItemsEmailLoginTokens",
+        "operationId": "deleteItemsPromoCodes",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -17533,15 +17056,15 @@
         "parameters": []
       }
     },
-    "/items/email_login_tokens/{id}": {
+    "/items/promo_codes/{id}": {
       "get": {
         "summary": "Retrieve an Item",
-        "description": "Retrieve a single email_login_tokens item by unique identifier.",
+        "description": "Retrieve a single promo_codes item by unique identifier.",
         "tags": [
           "Items",
-          "ItemsEmailLoginTokens"
+          "ItemsPromoCodes"
         ],
-        "operationId": "readSingleItemsEmailLoginTokens",
+        "operationId": "readSingleItemsPromoCodes",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -17583,7 +17106,7 @@
                   "properties": {
                     "data": {
                       "type": "object",
-                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                      "$ref": "#/components/schemas/ItemsPromoCodes"
                     }
                   }
                 }
@@ -17600,12 +17123,12 @@
       },
       "patch": {
         "summary": "Update an Item",
-        "description": "Update an existing email_login_tokens item.",
+        "description": "Update an existing promo_codes item.",
         "tags": [
           "Items",
-          "ItemsEmailLoginTokens"
+          "ItemsPromoCodes"
         ],
-        "operationId": "updateSingleItemsEmailLoginTokens",
+        "operationId": "updateSingleItemsPromoCodes",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -17639,7 +17162,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                "$ref": "#/components/schemas/ItemsPromoCodes"
               }
             }
           }
@@ -17654,7 +17177,7 @@
                   "properties": {
                     "data": {
                       "type": "object",
-                      "$ref": "#/components/schemas/ItemsEmailLoginTokens"
+                      "$ref": "#/components/schemas/ItemsPromoCodes"
                     }
                   }
                 }
@@ -17671,12 +17194,12 @@
       },
       "delete": {
         "summary": "Delete an Item",
-        "description": "Delete an existing email_login_tokens item.",
+        "description": "Delete an existing promo_codes item.",
         "tags": [
           "Items",
-          "ItemsEmailLoginTokens"
+          "ItemsPromoCodes"
         ],
-        "operationId": "deleteSingleItemsEmailLoginTokens",
+        "operationId": "deleteSingleItemsPromoCodes",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -18490,6 +18013,395 @@
         ]
       }
     },
+    "/items/product_variant_reviews": {
+      "post": {
+        "summary": "Create an Item",
+        "description": "Create a new product_variant_reviews item.",
+        "tags": [
+          "Items",
+          "ItemsProductVariantReviews"
+        ],
+        "operationId": "createItemsProductVariantReviews",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Meta"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsProductVariantReviews"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsProductVariantReviews"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsProductVariantReviews"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "get": {
+        "summary": "List Items",
+        "description": "List the product_variant_reviews items.",
+        "tags": [
+          "Items",
+          "ItemsProductVariantReviews"
+        ],
+        "operationId": "readItemsProductVariantReviews",
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/ItemsProductVariantReviews"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/x-metadata"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Multiple Items",
+        "description": "Update multiple product_variant_reviews items at the same time.",
+        "tags": [
+          "Items",
+          "ItemsProductVariantReviews"
+        ],
+        "operationId": "updateItemsProductVariantReviews",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsProductVariantReviews"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsProductVariantReviews"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsProductVariantReviews"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Multiple Items",
+        "description": "Delete multiple existing product_variant_reviews items.",
+        "tags": [
+          "Items",
+          "ItemsProductVariantReviews"
+        ],
+        "operationId": "deleteItemsProductVariantReviews",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/items/product_variant_reviews/{id}": {
+      "get": {
+        "summary": "Retrieve an Item",
+        "description": "Retrieve a single product_variant_reviews item by unique identifier.",
+        "tags": [
+          "Items",
+          "ItemsProductVariantReviews"
+        ],
+        "operationId": "readSingleItemsProductVariantReviews",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsProductVariantReviews"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update an Item",
+        "description": "Update an existing product_variant_reviews item.",
+        "tags": [
+          "Items",
+          "ItemsProductVariantReviews"
+        ],
+        "operationId": "updateSingleItemsProductVariantReviews",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/ItemsProductVariantReviews"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsProductVariantReviews"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an Item",
+        "description": "Delete an existing product_variant_reviews item.",
+        "tags": [
+          "Items",
+          "ItemsProductVariantReviews"
+        ],
+        "operationId": "deleteSingleItemsProductVariantReviews",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
     "/items/pickup_locations": {
       "post": {
         "summary": "Create an Item",
@@ -18844,6 +18756,395 @@
           "ItemsPickupLocations"
         ],
         "operationId": "deleteSingleItemsPickupLocations",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/items/product_info_detail_information_files": {
+      "post": {
+        "summary": "Create an Item",
+        "description": "Create a new product_info_detail_information_files item.",
+        "tags": [
+          "Items",
+          "ItemsProductInfoDetailInformationFiles"
+        ],
+        "operationId": "createItemsProductInfoDetailInformationFiles",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Meta"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "get": {
+        "summary": "List Items",
+        "description": "List the product_info_detail_information_files items.",
+        "tags": [
+          "Items",
+          "ItemsProductInfoDetailInformationFiles"
+        ],
+        "operationId": "readItemsProductInfoDetailInformationFiles",
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/x-metadata"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Multiple Items",
+        "description": "Update multiple product_info_detail_information_files items at the same time.",
+        "tags": [
+          "Items",
+          "ItemsProductInfoDetailInformationFiles"
+        ],
+        "operationId": "updateItemsProductInfoDetailInformationFiles",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Multiple Items",
+        "description": "Delete multiple existing product_info_detail_information_files items.",
+        "tags": [
+          "Items",
+          "ItemsProductInfoDetailInformationFiles"
+        ],
+        "operationId": "deleteItemsProductInfoDetailInformationFiles",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/items/product_info_detail_information_files/{id}": {
+      "get": {
+        "summary": "Retrieve an Item",
+        "description": "Retrieve a single product_info_detail_information_files item by unique identifier.",
+        "tags": [
+          "Items",
+          "ItemsProductInfoDetailInformationFiles"
+        ],
+        "operationId": "readSingleItemsProductInfoDetailInformationFiles",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update an Item",
+        "description": "Update an existing product_info_detail_information_files item.",
+        "tags": [
+          "Items",
+          "ItemsProductInfoDetailInformationFiles"
+        ],
+        "operationId": "updateSingleItemsProductInfoDetailInformationFiles",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an Item",
+        "description": "Delete an existing product_info_detail_information_files item.",
+        "tags": [
+          "Items",
+          "ItemsProductInfoDetailInformationFiles"
+        ],
+        "operationId": "deleteSingleItemsProductInfoDetailInformationFiles",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -19368,11 +19669,6 @@
       "x-collection": "directus_operations"
     },
     {
-      "name": "Webhooks",
-      "description": "Webhooks.",
-      "x-collection": "directus_webhooks"
-    },
-    {
       "name": "Extensions",
       "description": "Directus can easily be extended through the addition of several types of extensions, including layouts, interfaces, and modules.",
       "x-collection": "directus_extensions"
@@ -19388,29 +19684,17 @@
       "x-collection": "directus_comments"
     },
     {
-      "name": "Settings",
-      "description": "Settings control the way the platform works and acts.",
-      "x-collection": "directus_settings"
-    },
-    {
-      "name": "ItemsDirectusSyncIDMap",
-      "x-collection": "directus_sync_id_map"
+      "name": "ItemsUserAddresses",
+      "x-collection": "user_addresses"
     },
     {
       "name": "ItemsAccounts",
       "x-collection": "accounts"
     },
     {
-      "name": "ItemsUserAddresses",
-      "x-collection": "user_addresses"
-    },
-    {
-      "name": "ItemsCarts",
-      "x-collection": "carts"
-    },
-    {
-      "name": "ItemsCartItems",
-      "x-collection": "cart_items"
+      "name": "ItemsRefProductCategory",
+      "x-collection": "ref_product_category",
+      "description": "商品种类，比如hut，liner"
     },
     {
       "name": "ItemsProductInfo",
@@ -19418,9 +19702,38 @@
       "description": "产品基础信息表，存储产品的通用信息,不包含具体的价格、库存等变体相关信息"
     },
     {
+      "name": "Settings",
+      "description": "Settings control the way the platform works and acts.",
+      "x-collection": "directus_settings"
+    },
+    {
+      "name": "ItemsRefSpecies",
+      "x-collection": "ref_species",
+      "description": "某产品适用的宠物种类，比如guinea pig, bird, rabbit"
+    },
+    {
+      "name": "ItemsProductInfoJxnSpecies",
+      "x-collection": "product_info_jxn_species"
+    },
+    {
+      "name": "ItemsRefBrand",
+      "x-collection": "ref_brand",
+      "description": "商品的品牌，比如谢谢喵，彩虹家"
+    },
+    {
       "name": "ItemsRefCurrency",
       "x-collection": "ref_currency",
       "description": "商品价格的货币种类（如RMB，AUD）"
+    },
+    {
+      "name": "ItemsProductOptionValues",
+      "x-collection": "product_option_values",
+      "description": "某选项具体的值，比如Size有S, M, L, XL"
+    },
+    {
+      "name": "ItemsProductOptions",
+      "x-collection": "product_options",
+      "description": "商品选项，如Size，Color等"
     },
     {
       "name": "ItemsProductVariants",
@@ -19428,20 +19741,28 @@
       "description": "产品变体表，存储每个选项组合的具体信息(价格、库存、尺寸等)"
     },
     {
+      "name": "ItemsProductVariantJxnOptionValues",
+      "x-collection": "product_variant_jxn_option_values"
+    },
+    {
+      "name": "ItemsCartItems",
+      "x-collection": "cart_items"
+    },
+    {
+      "name": "ItemsProductInfoFiles",
+      "x-collection": "product_info_files"
+    },
+    {
+      "name": "ItemsProductVariantFiles",
+      "x-collection": "product_variant_files"
+    },
+    {
       "name": "ItemsRefCartStatus",
       "x-collection": "ref_cart_status"
     },
     {
-      "name": "ItemsUsers",
-      "x-collection": "users"
-    },
-    {
-      "name": "ItemsCheckoutIntents",
-      "x-collection": "checkout_intents"
-    },
-    {
-      "name": "ItemsOrders",
-      "x-collection": "orders"
+      "name": "ItemsCarts",
+      "x-collection": "carts"
     },
     {
       "name": "ItemsRefPaymentMethod",
@@ -19452,69 +19773,52 @@
       "x-collection": "ref_shipping_method"
     },
     {
-      "name": "ItemsOrderItems",
-      "x-collection": "order_items"
-    },
-    {
-      "name": "ItemsRefBrand",
-      "x-collection": "ref_brand",
-      "description": "商品的品牌，比如谢谢喵，彩虹家"
-    },
-    {
-      "name": "ItemsRefProductCategory",
-      "x-collection": "ref_product_category",
-      "description": "商品种类，比如hut，liner"
-    },
-    {
-      "name": "ItemsProductInfoFiles",
-      "x-collection": "product_info_files"
-    },
-    {
-      "name": "ItemsProductInfoJxnSpecies",
-      "x-collection": "product_info_jxn_species"
-    },
-    {
-      "name": "ItemsRefSpecies",
-      "x-collection": "ref_species",
-      "description": "某产品适用的宠物种类，比如guinea pig, bird, rabbit"
-    },
-    {
-      "name": "ItemsProductOptions",
-      "x-collection": "product_options",
-      "description": "商品选项，如Size，Color等"
-    },
-    {
-      "name": "ItemsProductOptionValues",
-      "x-collection": "product_option_values",
-      "description": "某选项具体的值，比如Size有S, M, L, XL"
-    },
-    {
-      "name": "ItemsProductVariantFiles",
-      "x-collection": "product_variant_files"
-    },
-    {
-      "name": "ItemsProductVariantJxnOptionValues",
-      "x-collection": "product_variant_jxn_option_values"
-    },
-    {
-      "name": "ItemsPromoCodeUsage",
-      "x-collection": "promo_code_usage"
-    },
-    {
-      "name": "ItemsPromoCodes",
-      "x-collection": "promo_codes"
+      "name": "ItemsCheckoutIntents",
+      "x-collection": "checkout_intents"
     },
     {
       "name": "ItemsRefreshTokens",
       "x-collection": "refresh_tokens"
     },
     {
+      "name": "ItemsPromoCodeUsage",
+      "x-collection": "promo_code_usage"
+    },
+    {
+      "name": "ItemsEmailLoginTokens",
+      "x-collection": "email_login_tokens"
+    },
+    {
+      "name": "ItemsDirectusSyncIDMap",
+      "x-collection": "directus_sync_id_map"
+    },
+    {
+      "name": "ItemsUsers",
+      "x-collection": "users"
+    },
+    {
+      "name": "ItemsPromoCodes",
+      "x-collection": "promo_codes"
+    },
+    {
+      "name": "ItemsOrders",
+      "x-collection": "orders"
+    },
+    {
       "name": "ItemsOrderItems",
       "x-collection": "order_items"
     },
     {
+      "name": "ItemsProductVariantReviews",
+      "x-collection": "product_variant_reviews"
+    },
+    {
       "name": "ItemsPickupLocations",
       "x-collection": "pickup_locations"
+    },
+    {
+      "name": "ItemsProductInfoDetailInformationFiles",
+      "x-collection": "product_info_detail_information_files"
     },
     {
       "name": "ItemsPickupSlots",
@@ -20893,78 +21197,6 @@
         },
         "x-collection": "directus_operations"
       },
-      "Webhooks": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The index of the webhook.",
-            "type": "integer",
-            "example": 1
-          },
-          "name": {
-            "description": "The name of the webhook.",
-            "type": "string",
-            "example": "create articles"
-          },
-          "method": {
-            "description": "Method used in the webhook.",
-            "type": "string",
-            "example": "POST"
-          },
-          "url": {
-            "description": "The url of the webhook.",
-            "type": "string",
-            "example": null,
-            "nullable": true
-          },
-          "status": {
-            "description": "The status of the webhook.",
-            "type": "string",
-            "example": "inactive"
-          },
-          "data": {
-            "description": "If yes, send the content of what was done",
-            "type": "boolean",
-            "example": true
-          },
-          "actions": {
-            "description": "The actions that triggers this webhook.",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "example": null,
-            "nullable": true
-          },
-          "collections": {
-            "nullable": false,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "headers": {
-            "nullable": true
-          },
-          "was_active_before_deprecation": {
-            "nullable": false,
-            "type": "boolean"
-          },
-          "migrated_flow": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "$ref": "#/components/schemas/Flows"
-              }
-            ]
-          }
-        },
-        "x-collection": "directus_webhooks"
-      },
       "Extensions": {
         "type": "object",
         "properties": {
@@ -21151,6 +21383,319 @@
           }
         },
         "x-collection": "directus_comments"
+      },
+      "ItemsUserAddresses": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          "user_id": {
+            "nullable": false,
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsUsers"
+              }
+            ]
+          },
+          "type": {
+            "nullable": false
+          },
+          "is_default": {
+            "nullable": false,
+            "type": "boolean"
+          },
+          "recipient_name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "address_text": {
+            "nullable": false,
+            "type": "string"
+          },
+          "postal_code": {
+            "nullable": false,
+            "type": "string"
+          },
+          "country_code": {
+            "nullable": false,
+            "type": "string"
+          },
+          "phone_au": {
+            "nullable": true,
+            "type": "string"
+          },
+          "created_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "updated_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          }
+        },
+        "x-collection": "user_addresses",
+        "required": [
+          "user_id",
+          "type",
+          "address_text",
+          "postal_code"
+        ]
+      },
+      "ItemsAccounts": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          "user_id": {
+            "nullable": false,
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsUsers"
+              }
+            ]
+          },
+          "provider": {
+            "nullable": false
+          },
+          "provider_account_id": {
+            "nullable": false,
+            "type": "string"
+          },
+          "email_at_link": {
+            "nullable": true,
+            "type": "string"
+          },
+          "created_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "raw_profile": {
+            "nullable": true,
+            "type": "string"
+          },
+          "updated_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          }
+        },
+        "x-collection": "accounts",
+        "required": [
+          "user_id",
+          "provider",
+          "provider_account_id"
+        ]
+      },
+      "ItemsRefProductCategory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "uuid": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          "slug": {
+            "nullable": true,
+            "type": "string"
+          },
+          "image": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/Files"
+              }
+            ]
+          },
+          "image_url": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "x-collection": "ref_product_category"
+      },
+      "ItemsProductInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "sort": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "description": {
+            "nullable": true,
+            "type": "string"
+          },
+          "title": {
+            "nullable": true,
+            "type": "string"
+          },
+          "subtitle": {
+            "nullable": true,
+            "type": "string"
+          },
+          "slug": {
+            "nullable": true,
+            "type": "string"
+          },
+          "is_featured": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "base_price": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "brand_rid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefBrand"
+              }
+            ]
+          },
+          "base_price_currency_rid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefCurrency"
+              }
+            ]
+          },
+          "attributes": {
+            "nullable": true
+          },
+          "category_rid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefProductCategory"
+              }
+            ]
+          },
+          "detail_information": {
+            "nullable": true,
+            "type": "string"
+          },
+          "species": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsProductInfoJxnSpecies"
+                }
+              ]
+            }
+          },
+          "product_varients": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsProductVariants"
+                }
+              ]
+            }
+          },
+          "product_info_files": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsProductInfoFiles"
+                }
+              ]
+            }
+          },
+          "detail_information_files": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsProductInfoDetailInformationFiles"
+                }
+              ]
+            }
+          }
+        },
+        "x-collection": "product_info"
       },
       "Settings": {
         "type": "object",
@@ -21463,164 +22008,29 @@
           "project_status": {
             "nullable": true,
             "type": "string"
+          },
+          "ai_openai_api_key": {
+            "nullable": true,
+            "type": "string"
+          },
+          "ai_anthropic_api_key": {
+            "nullable": true,
+            "type": "string"
+          },
+          "ai_system_prompt": {
+            "nullable": true,
+            "description": "$t:fields.directus_settings.ai_system_prompt_note",
+            "type": "string"
           }
         },
         "x-collection": "directus_settings"
       },
-      "ItemsDirectusSyncIDMap": {
+      "ItemsRefSpecies": {
         "type": "object",
         "properties": {
           "id": {
             "nullable": false,
             "type": "integer"
-          },
-          "table": {
-            "nullable": false,
-            "type": "string"
-          },
-          "sync_id": {
-            "nullable": false,
-            "type": "string"
-          },
-          "local_id": {
-            "nullable": false,
-            "type": "string"
-          },
-          "created_at": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          }
-        },
-        "x-collection": "directus_sync_id_map",
-        "required": [
-          "table",
-          "sync_id",
-          "local_id"
-        ]
-      },
-      "ItemsAccounts": {
-        "type": "object",
-        "properties": {
-          "created_at": {
-            "nullable": false,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "email_at_link": {
-            "nullable": true,
-            "type": "string"
-          },
-          "id": {
-            "nullable": false,
-            "type": "string",
-            "format": "uuid"
-          },
-          "provider": {
-            "nullable": true,
-            "type": "string"
-          },
-          "provider_account_id": {
-            "nullable": false,
-            "type": "string"
-          },
-          "raw_profile": {
-            "nullable": true,
-            "type": "string"
-          },
-          "updated_at": {
-            "nullable": false,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "user_id": {
-            "nullable": false,
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "x-collection": "accounts",
-        "required": [
-          "provider_account_id",
-          "user_id"
-        ]
-      },
-      "ItemsUserAddresses": {
-        "type": "object",
-        "properties": {
-          "address_text": {
-            "nullable": false,
-            "type": "string"
-          },
-          "country_code": {
-            "nullable": false,
-            "type": "string"
-          },
-          "created_at": {
-            "nullable": false,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "string",
-            "format": "uuid"
-          },
-          "is_default": {
-            "nullable": false,
-            "type": "boolean"
-          },
-          "phone_au": {
-            "nullable": true,
-            "type": "string"
-          },
-          "postal_code": {
-            "nullable": false,
-            "type": "string"
-          },
-          "recipient_name": {
-            "nullable": true,
-            "type": "string"
-          },
-          "updated_at": {
-            "nullable": false,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "user_id": {
-            "nullable": false,
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "x-collection": "user_addresses",
-        "required": [
-          "address_text",
-          "postal_code",
-          "user_id"
-        ]
-      },
-      "ItemsCarts": {
-        "type": "object",
-        "properties": {
-          "applied_coupon_code": {
-            "nullable": true,
-            "type": "string"
-          },
-          "coupon_discount_amt": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "currency": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefCurrency"
-              }
-            ]
           },
           "date_created": {
             "nullable": true,
@@ -21631,284 +22041,6 @@
             "nullable": true,
             "type": "string",
             "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "last_priced_at": {
-            "nullable": true,
-            "type": "string",
-            "format": "date-time"
-          },
-          "locked_at": {
-            "nullable": true,
-            "type": "string",
-            "format": "date-time"
-          },
-          "notes": {
-            "nullable": true,
-            "type": "string"
-          },
-          "sort": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "status": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefCartStatus"
-              }
-            ]
-          },
-          "user_id": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsUsers"
-              }
-            ]
-          },
-          "uuid": {
-            "nullable": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "x-collection": "carts"
-      },
-      "ItemsCartItems": {
-        "type": "object",
-        "properties": {
-          "cart_id": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsCarts"
-              }
-            ]
-          },
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "notes": {
-            "nullable": true,
-            "type": "string"
-          },
-          "product_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsProductInfo"
-              }
-            ]
-          },
-          "quantity": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "snapshot_currency": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefCurrency"
-              }
-            ]
-          },
-          "snapshot_unit_price_amt": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "uuid": {
-            "nullable": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          "variant_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsProductVariants"
-              }
-            ]
-          }
-        },
-        "x-collection": "cart_items"
-      },
-      "ItemsProductInfo": {
-        "type": "object",
-        "properties": {
-          "attributes": {
-            "nullable": true
-          },
-          "base_price": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "base_price_currency_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefCurrency"
-              }
-            ]
-          },
-          "brand_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefBrand"
-              }
-            ]
-          },
-          "category_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefProductCategory"
-              }
-            ]
-          },
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "description": {
-            "nullable": true,
-            "type": "string"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "is_featured": {
-            "nullable": true,
-            "type": "boolean"
-          },
-          "slug": {
-            "nullable": true,
-            "type": "string"
-          },
-          "sort": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "subtitle": {
-            "nullable": true,
-            "type": "string"
-          },
-          "title": {
-            "nullable": true,
-            "type": "string"
-          },
-          "product_info_files": {
-            "nullable": true,
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "$ref": "#/components/schemas/ItemsProductInfoFiles"
-                }
-              ]
-            }
-          },
-          "product_varients": {
-            "nullable": true,
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "$ref": "#/components/schemas/ItemsProductVariants"
-                }
-              ]
-            }
-          },
-          "species": {
-            "nullable": true,
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "$ref": "#/components/schemas/ItemsProductInfoJxnSpecies"
-                }
-              ]
-            }
-          }
-        },
-        "x-collection": "product_info"
-      },
-      "ItemsRefCurrency": {
-        "type": "object",
-        "properties": {
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
           },
           "name": {
             "nullable": true,
@@ -21924,770 +22056,7 @@
             "format": "uuid"
           }
         },
-        "x-collection": "ref_currency"
-      },
-      "ItemsProductVariants": {
-        "type": "object",
-        "properties": {
-          "attributes": {
-            "nullable": true
-          },
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "discounted_currency_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefCurrency"
-              }
-            ]
-          },
-          "discounted_price": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "height": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "height_unit": {
-            "nullable": true,
-            "type": "string"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "is_available": {
-            "nullable": true,
-            "type": "boolean"
-          },
-          "length": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "length_unit": {
-            "nullable": true,
-            "type": "string"
-          },
-          "original_currency_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefCurrency"
-              }
-            ]
-          },
-          "original_price": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "product_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsProductInfo"
-              }
-            ]
-          },
-          "sku": {
-            "nullable": true,
-            "type": "string"
-          },
-          "sort": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "stock_quantity": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "uuid": {
-            "nullable": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          "weight": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "weight_unit": {
-            "nullable": true,
-            "type": "string"
-          },
-          "width": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "width_unit": {
-            "nullable": true,
-            "type": "string"
-          },
-          "options": {
-            "nullable": true,
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "$ref": "#/components/schemas/ItemsProductVariantJxnOptionValues"
-                }
-              ]
-            }
-          },
-          "product_variant_files": {
-            "nullable": true,
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "$ref": "#/components/schemas/ItemsProductVariantFiles"
-                }
-              ]
-            }
-          }
-        },
-        "x-collection": "product_variants"
-      },
-      "ItemsRefCartStatus": {
-        "type": "object",
-        "properties": {
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "name": {
-            "nullable": true,
-            "type": "string"
-          }
-        },
-        "x-collection": "ref_cart_status"
-      },
-      "ItemsUsers": {
-        "type": "object",
-        "properties": {
-          "created_at": {
-            "nullable": false,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "deleted_at": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "display_name": {
-            "nullable": true,
-            "type": "string"
-          },
-          "email": {
-            "nullable": true,
-            "type": "string"
-          },
-          "first_name": {
-            "nullable": true,
-            "type": "string"
-          },
-          "id": {
-            "nullable": false,
-            "type": "string",
-            "format": "uuid"
-          },
-          "last_name": {
-            "nullable": true,
-            "type": "string"
-          },
-          "marketing_opt_in": {
-            "nullable": false,
-            "type": "boolean"
-          },
-          "phone_au": {
-            "nullable": true,
-            "type": "string"
-          },
-          "privacy_accepted": {
-            "nullable": false,
-            "type": "boolean"
-          },
-          "terms_accepted": {
-            "nullable": false,
-            "type": "boolean"
-          },
-          "updated_at": {
-            "nullable": false,
-            "type": "string",
-            "format": "timestamp"
-          }
-        },
-        "x-collection": "users"
-      },
-      "ItemsCheckoutIntents": {
-        "type": "object",
-        "properties": {
-          "applied_coupon_code": {
-            "nullable": true,
-            "type": "string"
-          },
-          "billing_address": {
-            "nullable": true
-          },
-          "cart_id": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsCarts"
-              }
-            ]
-          },
-          "cart_snapshot": {
-            "nullable": true
-          },
-          "completed_order_id": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsOrders"
-              }
-            ]
-          },
-          "coupon_discount_amt": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "currency": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefCurrency"
-              }
-            ]
-          },
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "discount_total_amt": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "expires_at": {
-            "nullable": true,
-            "type": "string",
-            "format": "date-time"
-          },
-          "grand_total_amt": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "ip_address": {
-            "nullable": true,
-            "type": "string"
-          },
-          "payment_method_code": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefPaymentMethod"
-              }
-            ]
-          },
-          "shipping_address": {
-            "nullable": true
-          },
-          "shipping_fee_amt": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "shipping_method_code": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRefShippingMethod"
-              }
-            ]
-          },
-          "subtotal_amt": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "tax_total_amt": {
-            "nullable": true,
-            "type": "number",
-            "format": "float"
-          },
-          "user_agent": {
-            "nullable": true,
-            "type": "string"
-          },
-          "user_id": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsUsers"
-              }
-            ]
-          },
-          "uuid": {
-            "nullable": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "x-collection": "checkout_intents"
-      },
-      "ItemsOrders": {
-        "type": "object",
-        "properties": {
-          "billing_address": {
-            "nullable": true
-          },
-          "cart_snapshot": {
-            "nullable": true
-          },
-          "currency": {
-            "nullable": false,
-            "type": "string"
-          },
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "delivery_method": {
-            "nullable": true,
-            "type": "string"
-          },
-          "discount_amt": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "email": {
-            "nullable": false,
-            "type": "string"
-          },
-          "grand_total_amt": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "notes": {
-            "nullable": true,
-            "type": "string"
-          },
-          "order_number": {
-            "nullable": false,
-            "type": "string"
-          },
-          "paid_at": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "shipped_at": {
-            "nullable": true,
-            "type": "string",
-            "format": "date-time"
-          },
-          "shipping_address": {
-            "nullable": true
-          },
-          "shipping_fee_amt": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "sort": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "status": {
-            "nullable": false,
-            "type": "string"
-          },
-          "stripe_payment_intent_id": {
-            "nullable": true,
-            "type": "string"
-          },
-          "stripe_session_id": {
-            "nullable": true,
-            "type": "string"
-          },
-          "subtotal_amt": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "tax_amt": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "user_id": {
-            "nullable": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          "uuid": {
-            "nullable": false,
-            "type": "string",
-            "format": "uuid"
-          },
-          "order_items": {
-            "nullable": true,
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "$ref": "#/components/schemas/ItemsOrderItems"
-                }
-              ]
-            }
-          }
-        },
-        "x-collection": "orders",
-        "required": [
-          "email",
-          "order_number",
-          "uuid"
-        ]
-      },
-      "ItemsRefPaymentMethod": {
-        "type": "object",
-        "properties": {
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "name": {
-            "nullable": true,
-            "type": "string"
-          }
-        },
-        "x-collection": "ref_payment_method"
-      },
-      "ItemsRefShippingMethod": {
-        "type": "object",
-        "properties": {
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "name": {
-            "nullable": true,
-            "type": "string"
-          }
-        },
-        "x-collection": "ref_shipping_method"
-      },
-      "ItemsOrderItems": {
-        "type": "object",
-        "properties": {
-          "currency": {
-            "nullable": true,
-            "type": "string"
-          },
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "image_url": {
-            "nullable": true,
-            "type": "string"
-          },
-          "line_total_cents": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "order_id": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsOrders"
-              }
-            ]
-          },
-          "product_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsProductInfo"
-              }
-            ]
-          },
-          "product_title": {
-            "nullable": true,
-            "type": "string"
-          },
-          "quantity": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "sort": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "unit_price_cents": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "variant_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsProductVariants"
-              }
-            ]
-          },
-          "variant_sku": {
-            "nullable": true,
-            "type": "string"
-          }
-        },
-        "x-collection": "order_items"
-      },
-      "ItemsRefBrand": {
-        "type": "object",
-        "properties": {
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "name": {
-            "nullable": true,
-            "type": "string"
-          },
-          "slug": {
-            "nullable": true,
-            "type": "string"
-          },
-          "uuid": {
-            "nullable": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "x-collection": "ref_brand"
-      },
-      "ItemsRefProductCategory": {
-        "type": "object",
-        "properties": {
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "image": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "$ref": "#/components/schemas/Files"
-              }
-            ]
-          },
-          "image_url": {
-            "nullable": true,
-            "type": "string"
-          },
-          "name": {
-            "nullable": true,
-            "type": "string"
-          },
-          "slug": {
-            "nullable": true,
-            "type": "string"
-          },
-          "uuid": {
-            "nullable": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "x-collection": "ref_product_category"
-      },
-      "ItemsProductInfoFiles": {
-        "type": "object",
-        "properties": {
-          "date_created": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "date_updated": {
-            "nullable": true,
-            "type": "string",
-            "format": "timestamp"
-          },
-          "external_url": {
-            "nullable": true,
-            "type": "string"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "product_info_rid": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsProductInfo"
-              }
-            ]
-          },
-          "sort": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "storage_provider": {
-            "nullable": true,
-            "type": "string"
-          }
-        },
-        "x-collection": "product_info_files"
+        "x-collection": "ref_species"
       },
       "ItemsProductInfoJxnSpecies": {
         "type": "object",
@@ -22721,9 +22090,13 @@
         },
         "x-collection": "product_info_jxn_species"
       },
-      "ItemsRefSpecies": {
+      "ItemsRefBrand": {
         "type": "object",
         "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
           "date_created": {
             "nullable": true,
             "type": "string",
@@ -22734,9 +22107,38 @@
             "type": "string",
             "format": "timestamp"
           },
+          "uuid": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "slug": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "x-collection": "ref_brand"
+      },
+      "ItemsRefCurrency": {
+        "type": "object",
+        "properties": {
           "id": {
             "nullable": false,
             "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
           },
           "name": {
             "nullable": true,
@@ -22752,11 +22154,15 @@
             "format": "uuid"
           }
         },
-        "x-collection": "ref_species"
+        "x-collection": "ref_currency"
       },
-      "ItemsProductOptions": {
+      "ItemsProductOptionValues": {
         "type": "object",
         "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
           "date_created": {
             "nullable": true,
             "type": "string",
@@ -22767,13 +22173,62 @@
             "type": "string",
             "format": "timestamp"
           },
+          "product_option_rid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsProductOptions"
+              }
+            ]
+          },
+          "value": {
+            "nullable": true,
+            "type": "string"
+          },
+          "color_hex": {
+            "nullable": true,
+            "type": "string"
+          },
+          "uuid": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "x-collection": "product_option_values"
+      },
+      "ItemsProductOptions": {
+        "type": "object",
+        "properties": {
           "id": {
             "nullable": false,
             "type": "integer"
           },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
           "name": {
             "nullable": true,
             "type": "string"
+          },
+          "slug": {
+            "nullable": true,
+            "type": "string"
+          },
+          "uuid": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid"
           },
           "product_rid": {
             "nullable": true,
@@ -22785,15 +22240,6 @@
                 "$ref": "#/components/schemas/ItemsProductInfo"
               }
             ]
-          },
-          "slug": {
-            "nullable": true,
-            "type": "string"
-          },
-          "uuid": {
-            "nullable": true,
-            "type": "string",
-            "format": "uuid"
           },
           "option_values_rid": {
             "nullable": true,
@@ -22812,12 +22258,16 @@
         },
         "x-collection": "product_options"
       },
-      "ItemsProductOptionValues": {
+      "ItemsProductVariants": {
         "type": "object",
         "properties": {
-          "color_hex": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "sort": {
             "nullable": true,
-            "type": "string"
+            "type": "integer"
           },
           "date_created": {
             "nullable": true,
@@ -22829,18 +22279,14 @@
             "type": "string",
             "format": "timestamp"
           },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "product_option_rid": {
+          "product_rid": {
             "nullable": true,
             "oneOf": [
               {
                 "type": "integer"
               },
               {
-                "$ref": "#/components/schemas/ItemsProductOptions"
+                "$ref": "#/components/schemas/ItemsProductInfo"
               }
             ]
           },
@@ -22849,16 +22295,141 @@
             "type": "string",
             "format": "uuid"
           },
-          "value": {
+          "sku": {
             "nullable": true,
             "type": "string"
+          },
+          "original_price": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "discounted_price": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "original_currency_rid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefCurrency"
+              }
+            ]
+          },
+          "discounted_currency_rid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefCurrency"
+              }
+            ]
+          },
+          "weight": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "weight_unit": {
+            "nullable": true,
+            "type": "string"
+          },
+          "length": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "width": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "height": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "length_unit": {
+            "nullable": true,
+            "type": "string"
+          },
+          "width_unit": {
+            "nullable": true,
+            "type": "string"
+          },
+          "height_unit": {
+            "nullable": true,
+            "type": "string"
+          },
+          "stock_quantity": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "is_available": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "attributes": {
+            "nullable": true
+          },
+          "product_variant_files": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsProductVariantFiles"
+                }
+              ]
+            }
+          },
+          "options": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsProductVariantJxnOptionValues"
+                }
+              ]
+            }
+          },
+          "reviews": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsProductVariantReviews"
+                }
+              ]
+            }
           }
         },
-        "x-collection": "product_option_values"
+        "x-collection": "product_variants"
       },
-      "ItemsProductVariantFiles": {
+      "ItemsProductVariantJxnOptionValues": {
         "type": "object",
         "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
           "date_created": {
             "nullable": true,
             "type": "string",
@@ -22869,15 +22440,7 @@
             "type": "string",
             "format": "timestamp"
           },
-          "external_url": {
-            "nullable": true,
-            "type": "string"
-          },
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "product_variant_rid": {
+          "variant_rid": {
             "nullable": true,
             "oneOf": [
               {
@@ -22888,20 +22451,27 @@
               }
             ]
           },
-          "sort": {
+          "option_value_rid": {
             "nullable": true,
-            "type": "integer"
-          },
-          "storage_provider": {
-            "nullable": true,
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsProductOptionValues"
+              }
+            ]
           }
         },
-        "x-collection": "product_variant_files"
+        "x-collection": "product_variant_jxn_option_values"
       },
-      "ItemsProductVariantJxnOptionValues": {
+      "ItemsCartItems": {
         "type": "object",
         "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
           "date_created": {
             "nullable": true,
             "type": "string",
@@ -22912,18 +22482,30 @@
             "type": "string",
             "format": "timestamp"
           },
-          "id": {
-            "nullable": false,
-            "type": "integer"
+          "uuid": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid"
           },
-          "option_value_rid": {
+          "cart_id": {
             "nullable": true,
             "oneOf": [
               {
                 "type": "integer"
               },
               {
-                "$ref": "#/components/schemas/ItemsProductOptionValues"
+                "$ref": "#/components/schemas/ItemsCarts"
+              }
+            ]
+          },
+          "product_rid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsProductInfo"
               }
             ]
           },
@@ -22937,13 +22519,44 @@
                 "$ref": "#/components/schemas/ItemsProductVariants"
               }
             ]
+          },
+          "quantity": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "snapshot_unit_price_amt": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "snapshot_currency": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefCurrency"
+              }
+            ]
+          },
+          "notes": {
+            "nullable": true,
+            "type": "string"
           }
         },
-        "x-collection": "product_variant_jxn_option_values"
+        "x-collection": "cart_items"
       },
-      "ItemsPromoCodeUsage": {
+      "ItemsProductInfoFiles": {
         "type": "object",
         "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "sort": {
+            "nullable": true,
+            "type": "integer"
+          },
           "date_created": {
             "nullable": true,
             "type": "string",
@@ -22954,15 +22567,341 @@
             "type": "string",
             "format": "timestamp"
           },
-          "discount_applied": {
+          "product_info_rid": {
             "nullable": true,
-            "type": "integer"
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsProductInfo"
+              }
+            ]
           },
+          "external_url": {
+            "nullable": true,
+            "type": "string"
+          },
+          "storage_provider": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "x-collection": "product_info_files"
+      },
+      "ItemsProductVariantFiles": {
+        "type": "object",
+        "properties": {
           "id": {
             "nullable": false,
             "type": "integer"
           },
-          "order_rid": {
+          "sort": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "product_variant_rid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsProductVariants"
+              }
+            ]
+          },
+          "external_url": {
+            "nullable": true,
+            "type": "string"
+          },
+          "storage_provider": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "x-collection": "product_variant_files"
+      },
+      "ItemsRefCartStatus": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "name": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "x-collection": "ref_cart_status"
+      },
+      "ItemsCarts": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "sort": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "uuid": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          "user_id": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsUsers"
+              }
+            ]
+          },
+          "currency": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefCurrency"
+              }
+            ]
+          },
+          "applied_coupon_code": {
+            "nullable": true,
+            "type": "string"
+          },
+          "coupon_discount_amt": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "notes": {
+            "nullable": true,
+            "type": "string"
+          },
+          "locked_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          "last_priced_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefCartStatus"
+              }
+            ]
+          }
+        },
+        "x-collection": "carts"
+      },
+      "ItemsRefPaymentMethod": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "name": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "x-collection": "ref_payment_method"
+      },
+      "ItemsRefShippingMethod": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "name": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "x-collection": "ref_shipping_method"
+      },
+      "ItemsCheckoutIntents": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "user_id": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsUsers"
+              }
+            ]
+          },
+          "uuid": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          "cart_id": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsCarts"
+              }
+            ]
+          },
+          "cart_snapshot": {
+            "nullable": true
+          },
+          "shipping_address": {
+            "nullable": true
+          },
+          "billing_address": {
+            "nullable": true
+          },
+          "applied_coupon_code": {
+            "nullable": true,
+            "type": "string"
+          },
+          "tax_total_amt": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "coupon_discount_amt": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "subtotal_amt": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "discount_total_amt": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "shipping_fee_amt": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "grand_total_amt": {
+            "nullable": true,
+            "type": "number",
+            "format": "float"
+          },
+          "currency": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefCurrency"
+              }
+            ]
+          },
+          "user_agent": {
+            "nullable": true,
+            "type": "string"
+          },
+          "ip_address": {
+            "nullable": true,
+            "type": "string"
+          },
+          "expires_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed_order_id": {
             "nullable": true,
             "oneOf": [
               {
@@ -22973,9 +22912,111 @@
               }
             ]
           },
-          "order_total_amount": {
+          "shipping_method_code": {
             "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefShippingMethod"
+              }
+            ]
+          },
+          "payment_method_code": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRefPaymentMethod"
+              }
+            ]
+          }
+        },
+        "x-collection": "checkout_intents"
+      },
+      "ItemsRefreshTokens": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
             "type": "integer"
+          },
+          "user_id": {
+            "nullable": false,
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsUsers"
+              }
+            ]
+          },
+          "refresh_token_hash": {
+            "nullable": false,
+            "type": "string"
+          },
+          "expires_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "revoked_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "rotated_from": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          "user_agent": {
+            "nullable": true,
+            "type": "string"
+          },
+          "ip": {
+            "nullable": true,
+            "type": "string"
+          },
+          "created_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "updated_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          }
+        },
+        "x-collection": "refresh_tokens",
+        "required": [
+          "user_id",
+          "refresh_token_hash",
+          "expires_at"
+        ]
+      },
+      "ItemsPromoCodeUsage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
           },
           "promo_code_rid": {
             "nullable": true,
@@ -22988,10 +23029,16 @@
               }
             ]
           },
-          "used_at": {
+          "order_rid": {
             "nullable": true,
-            "type": "string",
-            "format": "date-time"
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsOrders"
+              }
+            ]
           },
           "user_rid": {
             "nullable": true,
@@ -23004,20 +23051,191 @@
                 "$ref": "#/components/schemas/ItemsUsers"
               }
             ]
+          },
+          "discount_applied": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "order_total_amount": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "used_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time"
           }
         },
         "x-collection": "promo_code_usage"
       },
+      "ItemsEmailLoginTokens": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "user_id": {
+            "nullable": false,
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsUsers"
+              }
+            ]
+          },
+          "email": {
+            "nullable": false,
+            "type": "string"
+          },
+          "code_hash": {
+            "nullable": false,
+            "type": "string"
+          },
+          "purpose": {
+            "nullable": false,
+            "type": "string"
+          },
+          "expires_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "consumed_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "user_agent": {
+            "nullable": true,
+            "type": "string"
+          },
+          "ip": {
+            "nullable": true,
+            "type": "string"
+          },
+          "failed_attempts": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "created_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "updated_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          }
+        },
+        "x-collection": "email_login_tokens",
+        "required": [
+          "user_id",
+          "email",
+          "code_hash",
+          "expires_at"
+        ]
+      },
+      "ItemsDirectusSyncIDMap": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "table": {
+            "nullable": false,
+            "type": "string"
+          },
+          "sync_id": {
+            "nullable": false,
+            "type": "string"
+          },
+          "local_id": {
+            "nullable": false,
+            "type": "string"
+          },
+          "created_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          }
+        },
+        "x-collection": "directus_sync_id_map",
+        "required": [
+          "table",
+          "sync_id",
+          "local_id"
+        ]
+      },
+      "ItemsUsers": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "nullable": true,
+            "type": "string"
+          },
+          "phone_au": {
+            "nullable": true,
+            "type": "string"
+          },
+          "display_name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "marketing_opt_in": {
+            "nullable": false,
+            "type": "boolean"
+          },
+          "terms_accepted": {
+            "nullable": false,
+            "type": "boolean"
+          },
+          "privacy_accepted": {
+            "nullable": false,
+            "type": "boolean"
+          },
+          "deleted_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "created_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "updated_at": {
+            "nullable": false,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "first_name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "last_name": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "x-collection": "users"
+      },
       "ItemsPromoCodes": {
         "type": "object",
         "properties": {
-          "amount": {
-            "nullable": true,
+          "id": {
+            "nullable": false,
             "type": "integer"
-          },
-          "code": {
-            "nullable": true,
-            "type": "string"
           },
           "date_created": {
             "nullable": true,
@@ -23029,6 +23247,14 @@
             "type": "string",
             "format": "timestamp"
           },
+          "code": {
+            "nullable": true,
+            "type": "string"
+          },
+          "name": {
+            "nullable": true,
+            "type": "string"
+          },
           "description": {
             "nullable": true,
             "type": "string"
@@ -23037,18 +23263,13 @@
             "nullable": true,
             "type": "string"
           },
-          "expires_at": {
+          "amount": {
             "nullable": true,
-            "type": "string",
-            "format": "date-time"
-          },
-          "id": {
-            "nullable": false,
             "type": "integer"
           },
-          "is_active": {
+          "min_order_amount": {
             "nullable": true,
-            "type": "boolean"
+            "type": "integer"
           },
           "max_discount_amount": {
             "nullable": true,
@@ -23058,72 +23279,55 @@
             "nullable": true,
             "type": "integer"
           },
-          "min_order_amount": {
+          "used_count": {
             "nullable": true,
             "type": "integer"
-          },
-          "name": {
-            "nullable": true,
-            "type": "string"
           },
           "starts_at": {
             "nullable": true,
             "type": "string",
             "format": "date-time"
           },
-          "used_count": {
+          "expires_at": {
             "nullable": true,
-            "type": "integer"
+            "type": "string",
+            "format": "date-time"
+          },
+          "is_active": {
+            "nullable": true,
+            "type": "boolean"
           }
         },
         "x-collection": "promo_codes"
       },
-      "ItemsRefreshTokens": {
+      "ItemsOrders": {
         "type": "object",
         "properties": {
-          "created_at": {
-            "nullable": true,
-            "type": "string",
-            "format": "date-time"
-          },
-          "expires_at": {
-            "nullable": false,
-            "type": "string",
-            "format": "timestamp"
-          },
           "id": {
             "nullable": false,
             "type": "integer"
           },
-          "ip": {
+          "sort": {
             "nullable": true,
-            "type": "string"
+            "type": "integer"
           },
-          "refresh_token_hash": {
-            "nullable": false,
-            "type": "string"
-          },
-          "revoked_at": {
+          "date_created": {
             "nullable": true,
             "type": "string",
             "format": "timestamp"
           },
-          "rotated_from": {
+          "date_updated": {
             "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "uuid": {
+            "nullable": false,
             "type": "string",
             "format": "uuid"
           },
-          "updated_at": {
-            "nullable": true,
-            "type": "string",
-            "format": "date-time"
-          },
-          "user_agent": {
-            "nullable": true,
-            "type": "string"
-          },
           "user_id": {
-            "nullable": false,
+            "nullable": true,
             "oneOf": [
               {
                 "type": "string",
@@ -23133,75 +23337,163 @@
                 "$ref": "#/components/schemas/ItemsUsers"
               }
             ]
-          }
-        },
-        "x-collection": "refresh_tokens",
-        "required": [
-          "expires_at",
-          "refresh_token_hash",
-          "user_id"
-        ]
-      },
-      "ItemsEmailLoginTokens": {
-        "type": "object",
-        "properties": {
-          "code_hash": {
+          },
+          "order_number": {
             "nullable": false,
             "type": "string"
           },
-          "consumed_at": {
+          "status": {
+            "nullable": false,
+            "type": "string"
+          },
+          "stripe_session_id": {
             "nullable": true,
-            "type": "string",
-            "format": "timestamp"
+            "type": "string"
+          },
+          "stripe_payment_intent_id": {
+            "nullable": true,
+            "type": "string"
           },
           "email": {
             "nullable": false,
             "type": "string"
           },
-          "expires_at": {
+          "shipping_address": {
+            "nullable": true
+          },
+          "billing_address": {
+            "nullable": true
+          },
+          "subtotal_amt": {
             "nullable": false,
+            "type": "integer"
+          },
+          "shipping_fee_amt": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "tax_amt": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "discount_amt": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "grand_total_amt": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "currency": {
+            "nullable": false,
+            "type": "string"
+          },
+          "cart_snapshot": {
+            "nullable": true
+          },
+          "paid_at": {
+            "nullable": true,
             "type": "string",
             "format": "timestamp"
           },
+          "notes": {
+            "nullable": true,
+            "type": "string"
+          },
+          "delivery_method": {
+            "nullable": true,
+            "type": "string"
+          },
+          "shipped_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          "order_items": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsOrderItems"
+                }
+              ]
+            }
+          }
+        },
+        "x-collection": "orders",
+        "required": [
+          "uuid",
+          "order_number",
+          "email"
+        ]
+      },
+      "ItemsOrderItems": {
+        "type": "object",
+        "properties": {
           "id": {
             "nullable": false,
             "type": "integer"
           },
-          "ip": {
+          "sort": {
             "nullable": true,
-            "type": "string"
+            "type": "integer"
           },
-          "purpose": {
-            "nullable": false,
-            "type": "string"
-          },
-          "user_agent": {
+          "date_created": {
             "nullable": true,
-            "type": "string"
+            "type": "string",
+            "format": "timestamp"
           },
-          "user_id": {
-            "nullable": false,
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "order_id": {
+            "nullable": true,
             "oneOf": [
               {
-                "type": "string",
-                "format": "uuid"
+                "type": "integer"
               },
               {
-                "$ref": "#/components/schemas/ItemsUsers"
+                "$ref": "#/components/schemas/ItemsOrders"
               }
             ]
           },
-          "created_at": {
+          "product_rid": {
             "nullable": true,
-            "type": "string",
-            "format": "date-time"
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsProductInfo"
+              }
+            ]
           },
-          "updated_at": {
+          "variant_rid": {
             "nullable": true,
-            "type": "string",
-            "format": "date-time"
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsProductVariants"
+              }
+            ]
           },
-          "failed_attempts": {
+          "quantity": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "unit_price_cents": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "line_total_cents": {
             "nullable": true,
             "type": "integer"
           },
@@ -23223,6 +23515,58 @@
           }
         },
         "x-collection": "order_items"
+      },
+      "ItemsProductVariantReviews": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "sort": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "uuid": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          "customer_name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "content": {
+            "nullable": true,
+            "type": "string"
+          },
+          "image_url": {
+            "nullable": true,
+            "type": "string"
+          },
+          "variant_rid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsProductVariants"
+              }
+            ]
+          }
+        },
+        "x-collection": "product_variant_reviews"
       },
       "ItemsPickupLocations": {
         "type": "object",
@@ -23264,9 +23608,66 @@
           "is_active": {
             "nullable": true,
             "type": "boolean"
+          },
+          "time_slots": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsPickupSlots"
+                }
+              ]
+            }
           }
         },
         "x-collection": "pickup_locations"
+      },
+      "ItemsProductInfoDetailInformationFiles": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "sort": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "date_created": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "date_updated": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          },
+          "product_info_rid": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsProductInfo"
+              }
+            ]
+          },
+          "external_url": {
+            "nullable": true,
+            "type": "string"
+          },
+          "storage_provider": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "x-collection": "product_info_detail_information_files"
       },
       "ItemsPickupSlots": {
         "type": "object",
@@ -23443,13 +23844,14 @@
       },
       "Export": {
         "name": "export",
-        "description": "Saves the API response to a file. Accepts one of \"csv\", \"json\", \"xml\", \"yaml\".",
+        "description": "Saves the API response to a file. Accepts one of \"csv\", \"csv_utf8\", \"json\", \"xml\", \"yaml\".",
         "in": "query",
         "required": false,
         "schema": {
           "type": "string",
           "enum": [
             "csv",
+            "csv_utf8",
             "json",
             "xml",
             "yaml"

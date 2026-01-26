@@ -27,7 +27,7 @@
     "name": "created_at",
     "table": "users",
     "data_type": "timestamp with time zone",
-    "default_value": "CURRENT_TIMESTAMP",
+    "default_value": "now()",
     "max_length": null,
     "numeric_precision": null,
     "numeric_scale": null,

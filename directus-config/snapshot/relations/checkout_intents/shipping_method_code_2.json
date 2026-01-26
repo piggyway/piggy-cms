@@ -18,7 +18,7 @@
     "column": "shipping_method_code",
     "foreign_key_table": "ref_shipping_method",
     "foreign_key_column": "id",
-    "constraint_name": "checkout_intents_shipping_method_code_ref_shipping_method_id_fk",
+    "constraint_name": "checkout_intents_shipping_method_code_foreign",
     "on_update": "NO ACTION",
     "on_delete": "SET NULL"
   }

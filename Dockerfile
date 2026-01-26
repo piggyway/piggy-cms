@@ -9,7 +9,7 @@ RUN mkdir -p ./directus
 RUN cd node_modules && find . -maxdepth 1 -type d -name "directus-extension-*" -exec mv {} ../directus \;
 
 # Stage 2: Directus runtime image
-FROM directus/directus:11.13.2
+FROM directus/directus:11.14.1
 
 # Install directus-sync@3.4.0 globally
 # Switch to root to install global package, then switch back to node user

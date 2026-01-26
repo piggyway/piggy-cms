@@ -40,6 +40,9 @@
     "org_name": null,
     "product_updates": false,
     "project_status": null,
-    "_syncId": "_sync_default_settings"
+    "ai_openai_api_key": null,
+    "ai_anthropic_api_key": null,
+    "ai_system_prompt": null,
+    "_syncId": "5ba4dfe3-9136-473a-b5ac-7c8b852c8b81"
   }
 ]

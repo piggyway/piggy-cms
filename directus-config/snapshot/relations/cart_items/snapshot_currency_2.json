@@ -18,7 +18,7 @@
     "column": "snapshot_currency",
     "foreign_key_table": "ref_currency",
     "foreign_key_column": "id",
-    "constraint_name": "cart_items_snapshot_currency_ref_currency_id_fk",
+    "constraint_name": "cart_items_snapshot_currency_foreign",
     "on_update": "NO ACTION",
     "on_delete": "SET NULL"
   }

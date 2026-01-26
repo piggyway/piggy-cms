@@ -1,52 +1,72 @@
 type Query {
-  directus_sync_id_map(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_sync_id_map!]!
-  directus_sync_id_map_by_id(id: ID!, version: String): directus_sync_id_map
-  directus_sync_id_map_aggregated(groupBy: [String], filter: directus_sync_id_map_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_sync_id_map_aggregated!]!
-  directus_sync_id_map_by_version(version: String!, id: ID!): version_directus_sync_id_map
-  accounts(filter: accounts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [accounts!]!
-  accounts_by_id(id: ID!, version: String): accounts
-  accounts_aggregated(groupBy: [String], filter: accounts_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [accounts_aggregated!]!
-  accounts_by_version(version: String!, id: ID!): version_accounts
   user_addresses(filter: user_addresses_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [user_addresses!]!
   user_addresses_by_id(id: ID!, version: String): user_addresses
   user_addresses_aggregated(groupBy: [String], filter: user_addresses_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [user_addresses_aggregated!]!
   user_addresses_by_version(version: String!, id: ID!): version_user_addresses
-  carts(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [carts!]!
-  carts_by_id(id: ID!, version: String): carts
-  carts_aggregated(groupBy: [String], filter: carts_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [carts_aggregated!]!
-  carts_by_version(version: String!, id: ID!): version_carts
-  cart_items(filter: cart_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [cart_items!]!
-  cart_items_by_id(id: ID!, version: String): cart_items
-  cart_items_aggregated(groupBy: [String], filter: cart_items_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [cart_items_aggregated!]!
-  cart_items_by_version(version: String!, id: ID!): version_cart_items
+  accounts(filter: accounts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [accounts!]!
+  accounts_by_id(id: ID!, version: String): accounts
+  accounts_aggregated(groupBy: [String], filter: accounts_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [accounts_aggregated!]!
+  accounts_by_version(version: String!, id: ID!): version_accounts
+  ref_product_category(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [ref_product_category!]!
+  ref_product_category_by_id(id: ID!, version: String): ref_product_category
+  ref_product_category_aggregated(groupBy: [String], filter: ref_product_category_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [ref_product_category_aggregated!]!
+  ref_product_category_by_version(version: String!, id: ID!): version_ref_product_category
   product_info(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info!]!
   product_info_by_id(id: ID!, version: String): product_info
   product_info_aggregated(groupBy: [String], filter: product_info_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_info_aggregated!]!
   product_info_by_version(version: String!, id: ID!): version_product_info
+  ref_species(filter: ref_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [ref_species!]!
+  ref_species_by_id(id: ID!, version: String): ref_species
+  ref_species_aggregated(groupBy: [String], filter: ref_species_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [ref_species_aggregated!]!
+  ref_species_by_version(version: String!, id: ID!): version_ref_species
+  product_info_jxn_species(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_jxn_species!]!
+  product_info_jxn_species_by_id(id: ID!, version: String): product_info_jxn_species
+  product_info_jxn_species_aggregated(groupBy: [String], filter: product_info_jxn_species_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_info_jxn_species_aggregated!]!
+  product_info_jxn_species_by_version(version: String!, id: ID!): version_product_info_jxn_species
+  ref_brand(filter: ref_brand_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [ref_brand!]!
+  ref_brand_by_id(id: ID!, version: String): ref_brand
+  ref_brand_aggregated(groupBy: [String], filter: ref_brand_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [ref_brand_aggregated!]!
+  ref_brand_by_version(version: String!, id: ID!): version_ref_brand
   ref_currency(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [ref_currency!]!
   ref_currency_by_id(id: ID!, version: String): ref_currency
   ref_currency_aggregated(groupBy: [String], filter: ref_currency_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [ref_currency_aggregated!]!
   ref_currency_by_version(version: String!, id: ID!): version_ref_currency
+  product_option_values(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_option_values!]!
+  product_option_values_by_id(id: ID!, version: String): product_option_values
+  product_option_values_aggregated(groupBy: [String], filter: product_option_values_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_option_values_aggregated!]!
+  product_option_values_by_version(version: String!, id: ID!): version_product_option_values
+  product_options(filter: product_options_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_options!]!
+  product_options_by_id(id: ID!, version: String): product_options
+  product_options_aggregated(groupBy: [String], filter: product_options_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_options_aggregated!]!
+  product_options_by_version(version: String!, id: ID!): version_product_options
   product_variants(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variants!]!
   product_variants_by_id(id: ID!, version: String): product_variants
   product_variants_aggregated(groupBy: [String], filter: product_variants_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_variants_aggregated!]!
   product_variants_by_version(version: String!, id: ID!): version_product_variants
+  product_variant_jxn_option_values(filter: product_variant_jxn_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variant_jxn_option_values!]!
+  product_variant_jxn_option_values_by_id(id: ID!, version: String): product_variant_jxn_option_values
+  product_variant_jxn_option_values_aggregated(groupBy: [String], filter: product_variant_jxn_option_values_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_variant_jxn_option_values_aggregated!]!
+  product_variant_jxn_option_values_by_version(version: String!, id: ID!): version_product_variant_jxn_option_values
+  cart_items(filter: cart_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [cart_items!]!
+  cart_items_by_id(id: ID!, version: String): cart_items
+  cart_items_aggregated(groupBy: [String], filter: cart_items_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [cart_items_aggregated!]!
+  cart_items_by_version(version: String!, id: ID!): version_cart_items
+  product_info_files(filter: product_info_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_files!]!
+  product_info_files_by_id(id: ID!, version: String): product_info_files
+  product_info_files_aggregated(groupBy: [String], filter: product_info_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_info_files_aggregated!]!
+  product_info_files_by_version(version: String!, id: ID!): version_product_info_files
+  product_variant_files(filter: product_variant_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variant_files!]!
+  product_variant_files_by_id(id: ID!, version: String): product_variant_files
+  product_variant_files_aggregated(groupBy: [String], filter: product_variant_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_variant_files_aggregated!]!
+  product_variant_files_by_version(version: String!, id: ID!): version_product_variant_files
   ref_cart_status(filter: ref_cart_status_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [ref_cart_status!]!
   ref_cart_status_by_id(id: ID!, version: String): ref_cart_status
   ref_cart_status_aggregated(groupBy: [String], filter: ref_cart_status_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [ref_cart_status_aggregated!]!
   ref_cart_status_by_version(version: String!, id: ID!): version_ref_cart_status
-  users(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [users!]!
-  users_by_id(id: ID!, version: String): users
-  users_aggregated(groupBy: [String], filter: users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [users_aggregated!]!
-  users_by_version(version: String!, id: ID!): version_users
-  checkout_intents(filter: checkout_intents_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [checkout_intents!]!
-  checkout_intents_by_id(id: ID!, version: String): checkout_intents
-  checkout_intents_aggregated(groupBy: [String], filter: checkout_intents_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [checkout_intents_aggregated!]!
-  checkout_intents_by_version(version: String!, id: ID!): version_checkout_intents
-  orders(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [orders!]!
-  orders_by_id(id: ID!, version: String): orders
-  orders_aggregated(groupBy: [String], filter: orders_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [orders_aggregated!]!
-  orders_by_version(version: String!, id: ID!): version_orders
+  carts(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [carts!]!
+  carts_by_id(id: ID!, version: String): carts
+  carts_aggregated(groupBy: [String], filter: carts_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [carts_aggregated!]!
+  carts_by_version(version: String!, id: ID!): version_carts
   ref_payment_method(filter: ref_payment_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [ref_payment_method!]!
   ref_payment_method_by_id(id: ID!, version: String): ref_payment_method
   ref_payment_method_aggregated(groupBy: [String], filter: ref_payment_method_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [ref_payment_method_aggregated!]!
@@ -55,50 +75,30 @@ type Query {
   ref_shipping_method_by_id(id: ID!, version: String): ref_shipping_method
   ref_shipping_method_aggregated(groupBy: [String], filter: ref_shipping_method_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [ref_shipping_method_aggregated!]!
   ref_shipping_method_by_version(version: String!, id: ID!): version_ref_shipping_method
-  order_items(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [order_items!]!
-  order_items_by_id(id: ID!, version: String): order_items
-  order_items_aggregated(groupBy: [String], filter: order_items_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [order_items_aggregated!]!
-  order_items_by_version(version: String!, id: ID!): version_order_items
-  ref_brand(filter: ref_brand_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [ref_brand!]!
-  ref_brand_by_id(id: ID!, version: String): ref_brand
-  ref_brand_aggregated(groupBy: [String], filter: ref_brand_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [ref_brand_aggregated!]!
-  ref_brand_by_version(version: String!, id: ID!): version_ref_brand
-  ref_product_category(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [ref_product_category!]!
-  ref_product_category_by_id(id: ID!, version: String): ref_product_category
-  ref_product_category_aggregated(groupBy: [String], filter: ref_product_category_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [ref_product_category_aggregated!]!
-  ref_product_category_by_version(version: String!, id: ID!): version_ref_product_category
-  product_info_files(filter: product_info_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_files!]!
-  product_info_files_by_id(id: ID!, version: String): product_info_files
-  product_info_files_aggregated(groupBy: [String], filter: product_info_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_info_files_aggregated!]!
-  product_info_files_by_version(version: String!, id: ID!): version_product_info_files
-  product_info_jxn_species(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_jxn_species!]!
-  product_info_jxn_species_by_id(id: ID!, version: String): product_info_jxn_species
-  product_info_jxn_species_aggregated(groupBy: [String], filter: product_info_jxn_species_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_info_jxn_species_aggregated!]!
-  product_info_jxn_species_by_version(version: String!, id: ID!): version_product_info_jxn_species
-  ref_species(filter: ref_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [ref_species!]!
-  ref_species_by_id(id: ID!, version: String): ref_species
-  ref_species_aggregated(groupBy: [String], filter: ref_species_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [ref_species_aggregated!]!
-  ref_species_by_version(version: String!, id: ID!): version_ref_species
-  product_options(filter: product_options_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_options!]!
-  product_options_by_id(id: ID!, version: String): product_options
-  product_options_aggregated(groupBy: [String], filter: product_options_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_options_aggregated!]!
-  product_options_by_version(version: String!, id: ID!): version_product_options
-  product_option_values(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_option_values!]!
-  product_option_values_by_id(id: ID!, version: String): product_option_values
-  product_option_values_aggregated(groupBy: [String], filter: product_option_values_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_option_values_aggregated!]!
-  product_option_values_by_version(version: String!, id: ID!): version_product_option_values
-  product_variant_files(filter: product_variant_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variant_files!]!
-  product_variant_files_by_id(id: ID!, version: String): product_variant_files
-  product_variant_files_aggregated(groupBy: [String], filter: product_variant_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_variant_files_aggregated!]!
-  product_variant_files_by_version(version: String!, id: ID!): version_product_variant_files
-  product_variant_jxn_option_values(filter: product_variant_jxn_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variant_jxn_option_values!]!
-  product_variant_jxn_option_values_by_id(id: ID!, version: String): product_variant_jxn_option_values
-  product_variant_jxn_option_values_aggregated(groupBy: [String], filter: product_variant_jxn_option_values_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_variant_jxn_option_values_aggregated!]!
-  product_variant_jxn_option_values_by_version(version: String!, id: ID!): version_product_variant_jxn_option_values
+  checkout_intents(filter: checkout_intents_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [checkout_intents!]!
+  checkout_intents_by_id(id: ID!, version: String): checkout_intents
+  checkout_intents_aggregated(groupBy: [String], filter: checkout_intents_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [checkout_intents_aggregated!]!
+  checkout_intents_by_version(version: String!, id: ID!): version_checkout_intents
+  refresh_tokens(filter: refresh_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [refresh_tokens!]!
+  refresh_tokens_by_id(id: ID!, version: String): refresh_tokens
+  refresh_tokens_aggregated(groupBy: [String], filter: refresh_tokens_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [refresh_tokens_aggregated!]!
+  refresh_tokens_by_version(version: String!, id: ID!): version_refresh_tokens
   promo_code_usage(filter: promo_code_usage_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [promo_code_usage!]!
   promo_code_usage_by_id(id: ID!, version: String): promo_code_usage
   promo_code_usage_aggregated(groupBy: [String], filter: promo_code_usage_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [promo_code_usage_aggregated!]!
   promo_code_usage_by_version(version: String!, id: ID!): version_promo_code_usage
+  email_login_tokens(filter: email_login_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [email_login_tokens!]!
+  email_login_tokens_by_id(id: ID!, version: String): email_login_tokens
+  email_login_tokens_aggregated(groupBy: [String], filter: email_login_tokens_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [email_login_tokens_aggregated!]!
+  email_login_tokens_by_version(version: String!, id: ID!): version_email_login_tokens
+  directus_sync_id_map(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_sync_id_map!]!
+  directus_sync_id_map_by_id(id: ID!, version: String): directus_sync_id_map
+  directus_sync_id_map_aggregated(groupBy: [String], filter: directus_sync_id_map_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_sync_id_map_aggregated!]!
+  directus_sync_id_map_by_version(version: String!, id: ID!): version_directus_sync_id_map
+  users(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [users!]!
+  users_by_id(id: ID!, version: String): users
+  users_aggregated(groupBy: [String], filter: users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [users_aggregated!]!
+  users_by_version(version: String!, id: ID!): version_users
   promo_codes(filter: promo_codes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [promo_codes!]!
   promo_codes_by_id(id: ID!, version: String): promo_codes
   promo_codes_aggregated(groupBy: [String], filter: promo_codes_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [promo_codes_aggregated!]!
@@ -111,10 +111,18 @@ type Query {
   order_items_by_id(id: ID!, version: String): order_items
   order_items_aggregated(groupBy: [String], filter: order_items_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [order_items_aggregated!]!
   order_items_by_version(version: String!, id: ID!): version_order_items
+  product_variant_reviews(filter: product_variant_reviews_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variant_reviews!]!
+  product_variant_reviews_by_id(id: ID!, version: String): product_variant_reviews
+  product_variant_reviews_aggregated(groupBy: [String], filter: product_variant_reviews_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_variant_reviews_aggregated!]!
+  product_variant_reviews_by_version(version: String!, id: ID!): version_product_variant_reviews
   pickup_locations(filter: pickup_locations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pickup_locations!]!
   pickup_locations_by_id(id: ID!, version: String): pickup_locations
   pickup_locations_aggregated(groupBy: [String], filter: pickup_locations_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [pickup_locations_aggregated!]!
   pickup_locations_by_version(version: String!, id: ID!): version_pickup_locations
+  product_info_detail_information_files(filter: product_info_detail_information_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_detail_information_files!]!
+  product_info_detail_information_files_by_id(id: ID!, version: String): product_info_detail_information_files
+  product_info_detail_information_files_aggregated(groupBy: [String], filter: product_info_detail_information_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_info_detail_information_files_aggregated!]!
+  product_info_detail_information_files_by_version(version: String!, id: ID!): version_product_info_detail_information_files
   pickup_slots(filter: pickup_slots_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pickup_slots!]!
   pickup_slots_by_id(id: ID!, version: String): pickup_slots
   pickup_slots_aggregated(groupBy: [String], filter: pickup_slots_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [pickup_slots_aggregated!]!
@@ -122,64 +130,68 @@ type Query {
 }
 
 type Mutation {
-  create_directus_sync_id_map_items(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_sync_id_map_input!]): [directus_sync_id_map!]!
-  create_directus_sync_id_map_item(data: create_directus_sync_id_map_input!): directus_sync_id_map
-  create_accounts_items(filter: accounts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_accounts_input!]): [accounts!]!
-  create_accounts_item(data: create_accounts_input!): accounts
   create_user_addresses_items(filter: user_addresses_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_user_addresses_input!]): [user_addresses!]!
   create_user_addresses_item(data: create_user_addresses_input!): user_addresses
-  create_carts_items(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_carts_input!]): [carts!]!
-  create_carts_item(data: create_carts_input!): carts
-  create_cart_items_items(filter: cart_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_cart_items_input!]): [cart_items!]!
-  create_cart_items_item(data: create_cart_items_input!): cart_items
+  create_accounts_items(filter: accounts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_accounts_input!]): [accounts!]!
+  create_accounts_item(data: create_accounts_input!): accounts
+  create_ref_product_category_items(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ref_product_category_input!]): [ref_product_category!]!
+  create_ref_product_category_item(data: create_ref_product_category_input!): ref_product_category
   create_product_info_items(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_info_input!]): [product_info!]!
   create_product_info_item(data: create_product_info_input!): product_info
+  create_ref_species_items(filter: ref_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ref_species_input!]): [ref_species!]!
+  create_ref_species_item(data: create_ref_species_input!): ref_species
+  create_product_info_jxn_species_items(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_info_jxn_species_input!]): [product_info_jxn_species!]!
+  create_product_info_jxn_species_item(data: create_product_info_jxn_species_input!): product_info_jxn_species
+  create_ref_brand_items(filter: ref_brand_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ref_brand_input!]): [ref_brand!]!
+  create_ref_brand_item(data: create_ref_brand_input!): ref_brand
   create_ref_currency_items(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ref_currency_input!]): [ref_currency!]!
   create_ref_currency_item(data: create_ref_currency_input!): ref_currency
+  create_product_option_values_items(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_option_values_input!]): [product_option_values!]!
+  create_product_option_values_item(data: create_product_option_values_input!): product_option_values
+  create_product_options_items(filter: product_options_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_options_input!]): [product_options!]!
+  create_product_options_item(data: create_product_options_input!): product_options
   create_product_variants_items(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_variants_input!]): [product_variants!]!
   create_product_variants_item(data: create_product_variants_input!): product_variants
+  create_product_variant_jxn_option_values_items(filter: product_variant_jxn_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_variant_jxn_option_values_input!]): [product_variant_jxn_option_values!]!
+  create_product_variant_jxn_option_values_item(data: create_product_variant_jxn_option_values_input!): product_variant_jxn_option_values
+  create_cart_items_items(filter: cart_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_cart_items_input!]): [cart_items!]!
+  create_cart_items_item(data: create_cart_items_input!): cart_items
+  create_product_info_files_items(filter: product_info_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_info_files_input!]): [product_info_files!]!
+  create_product_info_files_item(data: create_product_info_files_input!): product_info_files
+  create_product_variant_files_items(filter: product_variant_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_variant_files_input!]): [product_variant_files!]!
+  create_product_variant_files_item(data: create_product_variant_files_input!): product_variant_files
   create_ref_cart_status_items(filter: ref_cart_status_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ref_cart_status_input!]): [ref_cart_status!]!
   create_ref_cart_status_item(data: create_ref_cart_status_input!): ref_cart_status
-  create_users_items(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_users_input!]): [users!]!
-  create_users_item(data: create_users_input!): users
-  create_checkout_intents_items(filter: checkout_intents_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_checkout_intents_input!]): [checkout_intents!]!
-  create_checkout_intents_item(data: create_checkout_intents_input!): checkout_intents
-  create_orders_items(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_orders_input!]): [orders!]!
-  create_orders_item(data: create_orders_input!): orders
+  create_carts_items(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_carts_input!]): [carts!]!
+  create_carts_item(data: create_carts_input!): carts
   create_ref_payment_method_items(filter: ref_payment_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ref_payment_method_input!]): [ref_payment_method!]!
   create_ref_payment_method_item(data: create_ref_payment_method_input!): ref_payment_method
   create_ref_shipping_method_items(filter: ref_shipping_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ref_shipping_method_input!]): [ref_shipping_method!]!
   create_ref_shipping_method_item(data: create_ref_shipping_method_input!): ref_shipping_method
-  create_order_items_items(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_order_items_input!]): [order_items!]!
-  create_order_items_item(data: create_order_items_input!): order_items
-  create_ref_brand_items(filter: ref_brand_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ref_brand_input!]): [ref_brand!]!
-  create_ref_brand_item(data: create_ref_brand_input!): ref_brand
-  create_ref_product_category_items(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ref_product_category_input!]): [ref_product_category!]!
-  create_ref_product_category_item(data: create_ref_product_category_input!): ref_product_category
-  create_product_info_files_items(filter: product_info_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_info_files_input!]): [product_info_files!]!
-  create_product_info_files_item(data: create_product_info_files_input!): product_info_files
-  create_product_info_jxn_species_items(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_info_jxn_species_input!]): [product_info_jxn_species!]!
-  create_product_info_jxn_species_item(data: create_product_info_jxn_species_input!): product_info_jxn_species
-  create_ref_species_items(filter: ref_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ref_species_input!]): [ref_species!]!
-  create_ref_species_item(data: create_ref_species_input!): ref_species
-  create_product_options_items(filter: product_options_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_options_input!]): [product_options!]!
-  create_product_options_item(data: create_product_options_input!): product_options
-  create_product_option_values_items(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_option_values_input!]): [product_option_values!]!
-  create_product_option_values_item(data: create_product_option_values_input!): product_option_values
-  create_product_variant_files_items(filter: product_variant_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_variant_files_input!]): [product_variant_files!]!
-  create_product_variant_files_item(data: create_product_variant_files_input!): product_variant_files
-  create_product_variant_jxn_option_values_items(filter: product_variant_jxn_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_variant_jxn_option_values_input!]): [product_variant_jxn_option_values!]!
-  create_product_variant_jxn_option_values_item(data: create_product_variant_jxn_option_values_input!): product_variant_jxn_option_values
+  create_checkout_intents_items(filter: checkout_intents_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_checkout_intents_input!]): [checkout_intents!]!
+  create_checkout_intents_item(data: create_checkout_intents_input!): checkout_intents
+  create_refresh_tokens_items(filter: refresh_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_refresh_tokens_input!]): [refresh_tokens!]!
+  create_refresh_tokens_item(data: create_refresh_tokens_input!): refresh_tokens
   create_promo_code_usage_items(filter: promo_code_usage_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_promo_code_usage_input!]): [promo_code_usage!]!
   create_promo_code_usage_item(data: create_promo_code_usage_input!): promo_code_usage
+  create_email_login_tokens_items(filter: email_login_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_email_login_tokens_input!]): [email_login_tokens!]!
+  create_email_login_tokens_item(data: create_email_login_tokens_input!): email_login_tokens
+  create_directus_sync_id_map_items(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_sync_id_map_input!]): [directus_sync_id_map!]!
+  create_directus_sync_id_map_item(data: create_directus_sync_id_map_input!): directus_sync_id_map
+  create_users_items(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_users_input!]): [users!]!
+  create_users_item(data: create_users_input!): users
   create_promo_codes_items(filter: promo_codes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_promo_codes_input!]): [promo_codes!]!
   create_promo_codes_item(data: create_promo_codes_input!): promo_codes
   create_orders_items(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_orders_input!]): [orders!]!
   create_orders_item(data: create_orders_input!): orders
   create_order_items_items(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_order_items_input!]): [order_items!]!
   create_order_items_item(data: create_order_items_input!): order_items
+  create_product_variant_reviews_items(filter: product_variant_reviews_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_variant_reviews_input!]): [product_variant_reviews!]!
+  create_product_variant_reviews_item(data: create_product_variant_reviews_input!): product_variant_reviews
   create_pickup_locations_items(filter: pickup_locations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_pickup_locations_input!]): [pickup_locations!]!
   create_pickup_locations_item(data: create_pickup_locations_input!): pickup_locations
+  create_product_info_detail_information_files_items(filter: product_info_detail_information_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_product_info_detail_information_files_input!]): [product_info_detail_information_files!]!
+  create_product_info_detail_information_files_item(data: create_product_info_detail_information_files_input!): product_info_detail_information_files
   create_pickup_slots_items(filter: pickup_slots_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_pickup_slots_input!]): [pickup_slots!]!
   create_pickup_slots_item(data: create_pickup_slots_input!): pickup_slots
   update_user_addresses_items(filter: user_addresses_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_user_addresses_input!): [user_addresses!]!
@@ -188,75 +200,75 @@ type Mutation {
   update_accounts_items(filter: accounts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_accounts_input!): [accounts!]!
   update_accounts_batch(filter: accounts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_accounts_input!]): [accounts!]!
   update_accounts_item(id: ID!, data: update_accounts_input!): accounts
-  update_user_addresses_items(filter: user_addresses_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_user_addresses_input!): [user_addresses!]!
-  update_user_addresses_batch(filter: user_addresses_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_user_addresses_input!]): [user_addresses!]!
-  update_user_addresses_item(id: ID!, data: update_user_addresses_input!): user_addresses
-  update_carts_items(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_carts_input!): [carts!]!
-  update_carts_batch(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_carts_input!]): [carts!]!
-  update_carts_item(id: ID!, data: update_carts_input!): carts
-  update_cart_items_items(filter: cart_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_cart_items_input!): [cart_items!]!
-  update_cart_items_batch(filter: cart_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_cart_items_input!]): [cart_items!]!
-  update_cart_items_item(id: ID!, data: update_cart_items_input!): cart_items
+  update_ref_product_category_items(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ref_product_category_input!): [ref_product_category!]!
+  update_ref_product_category_batch(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ref_product_category_input!]): [ref_product_category!]!
+  update_ref_product_category_item(id: ID!, data: update_ref_product_category_input!): ref_product_category
   update_product_info_items(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_info_input!): [product_info!]!
   update_product_info_batch(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_info_input!]): [product_info!]!
   update_product_info_item(id: ID!, data: update_product_info_input!): product_info
+  update_ref_species_items(filter: ref_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ref_species_input!): [ref_species!]!
+  update_ref_species_batch(filter: ref_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ref_species_input!]): [ref_species!]!
+  update_ref_species_item(id: ID!, data: update_ref_species_input!): ref_species
+  update_product_info_jxn_species_items(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_info_jxn_species_input!): [product_info_jxn_species!]!
+  update_product_info_jxn_species_batch(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_info_jxn_species_input!]): [product_info_jxn_species!]!
+  update_product_info_jxn_species_item(id: ID!, data: update_product_info_jxn_species_input!): product_info_jxn_species
+  update_ref_brand_items(filter: ref_brand_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ref_brand_input!): [ref_brand!]!
+  update_ref_brand_batch(filter: ref_brand_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ref_brand_input!]): [ref_brand!]!
+  update_ref_brand_item(id: ID!, data: update_ref_brand_input!): ref_brand
   update_ref_currency_items(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ref_currency_input!): [ref_currency!]!
   update_ref_currency_batch(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ref_currency_input!]): [ref_currency!]!
   update_ref_currency_item(id: ID!, data: update_ref_currency_input!): ref_currency
+  update_product_option_values_items(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_option_values_input!): [product_option_values!]!
+  update_product_option_values_batch(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_option_values_input!]): [product_option_values!]!
+  update_product_option_values_item(id: ID!, data: update_product_option_values_input!): product_option_values
+  update_product_options_items(filter: product_options_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_options_input!): [product_options!]!
+  update_product_options_batch(filter: product_options_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_options_input!]): [product_options!]!
+  update_product_options_item(id: ID!, data: update_product_options_input!): product_options
   update_product_variants_items(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_variants_input!): [product_variants!]!
   update_product_variants_batch(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_variants_input!]): [product_variants!]!
   update_product_variants_item(id: ID!, data: update_product_variants_input!): product_variants
+  update_product_variant_jxn_option_values_items(filter: product_variant_jxn_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_variant_jxn_option_values_input!): [product_variant_jxn_option_values!]!
+  update_product_variant_jxn_option_values_batch(filter: product_variant_jxn_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_variant_jxn_option_values_input!]): [product_variant_jxn_option_values!]!
+  update_product_variant_jxn_option_values_item(id: ID!, data: update_product_variant_jxn_option_values_input!): product_variant_jxn_option_values
+  update_cart_items_items(filter: cart_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_cart_items_input!): [cart_items!]!
+  update_cart_items_batch(filter: cart_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_cart_items_input!]): [cart_items!]!
+  update_cart_items_item(id: ID!, data: update_cart_items_input!): cart_items
+  update_product_info_files_items(filter: product_info_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_info_files_input!): [product_info_files!]!
+  update_product_info_files_batch(filter: product_info_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_info_files_input!]): [product_info_files!]!
+  update_product_info_files_item(id: ID!, data: update_product_info_files_input!): product_info_files
+  update_product_variant_files_items(filter: product_variant_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_variant_files_input!): [product_variant_files!]!
+  update_product_variant_files_batch(filter: product_variant_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_variant_files_input!]): [product_variant_files!]!
+  update_product_variant_files_item(id: ID!, data: update_product_variant_files_input!): product_variant_files
   update_ref_cart_status_items(filter: ref_cart_status_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ref_cart_status_input!): [ref_cart_status!]!
   update_ref_cart_status_batch(filter: ref_cart_status_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ref_cart_status_input!]): [ref_cart_status!]!
   update_ref_cart_status_item(id: ID!, data: update_ref_cart_status_input!): ref_cart_status
-  update_users_items(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_users_input!): [users!]!
-  update_users_batch(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_users_input!]): [users!]!
-  update_users_item(id: ID!, data: update_users_input!): users
-  update_checkout_intents_items(filter: checkout_intents_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_checkout_intents_input!): [checkout_intents!]!
-  update_checkout_intents_batch(filter: checkout_intents_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_checkout_intents_input!]): [checkout_intents!]!
-  update_checkout_intents_item(id: ID!, data: update_checkout_intents_input!): checkout_intents
-  update_orders_items(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_orders_input!): [orders!]!
-  update_orders_batch(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_orders_input!]): [orders!]!
-  update_orders_item(id: ID!, data: update_orders_input!): orders
+  update_carts_items(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_carts_input!): [carts!]!
+  update_carts_batch(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_carts_input!]): [carts!]!
+  update_carts_item(id: ID!, data: update_carts_input!): carts
   update_ref_payment_method_items(filter: ref_payment_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ref_payment_method_input!): [ref_payment_method!]!
   update_ref_payment_method_batch(filter: ref_payment_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ref_payment_method_input!]): [ref_payment_method!]!
   update_ref_payment_method_item(id: ID!, data: update_ref_payment_method_input!): ref_payment_method
   update_ref_shipping_method_items(filter: ref_shipping_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ref_shipping_method_input!): [ref_shipping_method!]!
   update_ref_shipping_method_batch(filter: ref_shipping_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ref_shipping_method_input!]): [ref_shipping_method!]!
   update_ref_shipping_method_item(id: ID!, data: update_ref_shipping_method_input!): ref_shipping_method
-  update_order_items_items(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_order_items_input!): [order_items!]!
-  update_order_items_batch(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_order_items_input!]): [order_items!]!
-  update_order_items_item(id: ID!, data: update_order_items_input!): order_items
-  update_ref_brand_items(filter: ref_brand_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ref_brand_input!): [ref_brand!]!
-  update_ref_brand_batch(filter: ref_brand_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ref_brand_input!]): [ref_brand!]!
-  update_ref_brand_item(id: ID!, data: update_ref_brand_input!): ref_brand
-  update_ref_product_category_items(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ref_product_category_input!): [ref_product_category!]!
-  update_ref_product_category_batch(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ref_product_category_input!]): [ref_product_category!]!
-  update_ref_product_category_item(id: ID!, data: update_ref_product_category_input!): ref_product_category
-  update_product_info_files_items(filter: product_info_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_info_files_input!): [product_info_files!]!
-  update_product_info_files_batch(filter: product_info_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_info_files_input!]): [product_info_files!]!
-  update_product_info_files_item(id: ID!, data: update_product_info_files_input!): product_info_files
-  update_product_info_jxn_species_items(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_info_jxn_species_input!): [product_info_jxn_species!]!
-  update_product_info_jxn_species_batch(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_info_jxn_species_input!]): [product_info_jxn_species!]!
-  update_product_info_jxn_species_item(id: ID!, data: update_product_info_jxn_species_input!): product_info_jxn_species
-  update_ref_species_items(filter: ref_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ref_species_input!): [ref_species!]!
-  update_ref_species_batch(filter: ref_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ref_species_input!]): [ref_species!]!
-  update_ref_species_item(id: ID!, data: update_ref_species_input!): ref_species
-  update_product_options_items(filter: product_options_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_options_input!): [product_options!]!
-  update_product_options_batch(filter: product_options_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_options_input!]): [product_options!]!
-  update_product_options_item(id: ID!, data: update_product_options_input!): product_options
-  update_product_option_values_items(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_option_values_input!): [product_option_values!]!
-  update_product_option_values_batch(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_option_values_input!]): [product_option_values!]!
-  update_product_option_values_item(id: ID!, data: update_product_option_values_input!): product_option_values
-  update_product_variant_files_items(filter: product_variant_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_variant_files_input!): [product_variant_files!]!
-  update_product_variant_files_batch(filter: product_variant_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_variant_files_input!]): [product_variant_files!]!
-  update_product_variant_files_item(id: ID!, data: update_product_variant_files_input!): product_variant_files
-  update_product_variant_jxn_option_values_items(filter: product_variant_jxn_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_variant_jxn_option_values_input!): [product_variant_jxn_option_values!]!
-  update_product_variant_jxn_option_values_batch(filter: product_variant_jxn_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_variant_jxn_option_values_input!]): [product_variant_jxn_option_values!]!
-  update_product_variant_jxn_option_values_item(id: ID!, data: update_product_variant_jxn_option_values_input!): product_variant_jxn_option_values
+  update_checkout_intents_items(filter: checkout_intents_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_checkout_intents_input!): [checkout_intents!]!
+  update_checkout_intents_batch(filter: checkout_intents_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_checkout_intents_input!]): [checkout_intents!]!
+  update_checkout_intents_item(id: ID!, data: update_checkout_intents_input!): checkout_intents
+  update_refresh_tokens_items(filter: refresh_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_refresh_tokens_input!): [refresh_tokens!]!
+  update_refresh_tokens_batch(filter: refresh_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_refresh_tokens_input!]): [refresh_tokens!]!
+  update_refresh_tokens_item(id: ID!, data: update_refresh_tokens_input!): refresh_tokens
   update_promo_code_usage_items(filter: promo_code_usage_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_promo_code_usage_input!): [promo_code_usage!]!
   update_promo_code_usage_batch(filter: promo_code_usage_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_promo_code_usage_input!]): [promo_code_usage!]!
   update_promo_code_usage_item(id: ID!, data: update_promo_code_usage_input!): promo_code_usage
+  update_email_login_tokens_items(filter: email_login_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_email_login_tokens_input!): [email_login_tokens!]!
+  update_email_login_tokens_batch(filter: email_login_tokens_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_email_login_tokens_input!]): [email_login_tokens!]!
+  update_email_login_tokens_item(id: ID!, data: update_email_login_tokens_input!): email_login_tokens
+  update_directus_sync_id_map_items(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_sync_id_map_input!): [directus_sync_id_map!]!
+  update_directus_sync_id_map_batch(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_sync_id_map_input!]): [directus_sync_id_map!]!
+  update_directus_sync_id_map_item(id: ID!, data: update_directus_sync_id_map_input!): directus_sync_id_map
+  update_users_items(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_users_input!): [users!]!
+  update_users_batch(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_users_input!]): [users!]!
+  update_users_item(id: ID!, data: update_users_input!): users
   update_promo_codes_items(filter: promo_codes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_promo_codes_input!): [promo_codes!]!
   update_promo_codes_batch(filter: promo_codes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_promo_codes_input!]): [promo_codes!]!
   update_promo_codes_item(id: ID!, data: update_promo_codes_input!): promo_codes
@@ -266,9 +278,15 @@ type Mutation {
   update_order_items_items(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_order_items_input!): [order_items!]!
   update_order_items_batch(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_order_items_input!]): [order_items!]!
   update_order_items_item(id: ID!, data: update_order_items_input!): order_items
+  update_product_variant_reviews_items(filter: product_variant_reviews_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_variant_reviews_input!): [product_variant_reviews!]!
+  update_product_variant_reviews_batch(filter: product_variant_reviews_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_variant_reviews_input!]): [product_variant_reviews!]!
+  update_product_variant_reviews_item(id: ID!, data: update_product_variant_reviews_input!): product_variant_reviews
   update_pickup_locations_items(filter: pickup_locations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_pickup_locations_input!): [pickup_locations!]!
   update_pickup_locations_batch(filter: pickup_locations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_pickup_locations_input!]): [pickup_locations!]!
   update_pickup_locations_item(id: ID!, data: update_pickup_locations_input!): pickup_locations
+  update_product_info_detail_information_files_items(filter: product_info_detail_information_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_product_info_detail_information_files_input!): [product_info_detail_information_files!]!
+  update_product_info_detail_information_files_batch(filter: product_info_detail_information_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_product_info_detail_information_files_input!]): [product_info_detail_information_files!]!
+  update_product_info_detail_information_files_item(id: ID!, data: update_product_info_detail_information_files_input!): product_info_detail_information_files
   update_pickup_slots_items(filter: pickup_slots_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_pickup_slots_input!): [pickup_slots!]!
   update_pickup_slots_batch(filter: pickup_slots_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_pickup_slots_input!]): [pickup_slots!]!
   update_pickup_slots_item(id: ID!, data: update_pickup_slots_input!): pickup_slots
@@ -276,60 +294,64 @@ type Mutation {
   delete_user_addresses_item(id: ID!): delete_one
   delete_accounts_items(ids: [ID]!): delete_many
   delete_accounts_item(id: ID!): delete_one
-  delete_user_addresses_items(ids: [ID]!): delete_many
-  delete_user_addresses_item(id: ID!): delete_one
-  delete_carts_items(ids: [ID]!): delete_many
-  delete_carts_item(id: ID!): delete_one
-  delete_cart_items_items(ids: [ID]!): delete_many
-  delete_cart_items_item(id: ID!): delete_one
+  delete_ref_product_category_items(ids: [ID]!): delete_many
+  delete_ref_product_category_item(id: ID!): delete_one
   delete_product_info_items(ids: [ID]!): delete_many
   delete_product_info_item(id: ID!): delete_one
+  delete_ref_species_items(ids: [ID]!): delete_many
+  delete_ref_species_item(id: ID!): delete_one
+  delete_product_info_jxn_species_items(ids: [ID]!): delete_many
+  delete_product_info_jxn_species_item(id: ID!): delete_one
+  delete_ref_brand_items(ids: [ID]!): delete_many
+  delete_ref_brand_item(id: ID!): delete_one
   delete_ref_currency_items(ids: [ID]!): delete_many
   delete_ref_currency_item(id: ID!): delete_one
+  delete_product_option_values_items(ids: [ID]!): delete_many
+  delete_product_option_values_item(id: ID!): delete_one
+  delete_product_options_items(ids: [ID]!): delete_many
+  delete_product_options_item(id: ID!): delete_one
   delete_product_variants_items(ids: [ID]!): delete_many
   delete_product_variants_item(id: ID!): delete_one
+  delete_product_variant_jxn_option_values_items(ids: [ID]!): delete_many
+  delete_product_variant_jxn_option_values_item(id: ID!): delete_one
+  delete_cart_items_items(ids: [ID]!): delete_many
+  delete_cart_items_item(id: ID!): delete_one
+  delete_product_info_files_items(ids: [ID]!): delete_many
+  delete_product_info_files_item(id: ID!): delete_one
+  delete_product_variant_files_items(ids: [ID]!): delete_many
+  delete_product_variant_files_item(id: ID!): delete_one
   delete_ref_cart_status_items(ids: [ID]!): delete_many
   delete_ref_cart_status_item(id: ID!): delete_one
-  delete_users_items(ids: [ID]!): delete_many
-  delete_users_item(id: ID!): delete_one
-  delete_checkout_intents_items(ids: [ID]!): delete_many
-  delete_checkout_intents_item(id: ID!): delete_one
-  delete_orders_items(ids: [ID]!): delete_many
-  delete_orders_item(id: ID!): delete_one
+  delete_carts_items(ids: [ID]!): delete_many
+  delete_carts_item(id: ID!): delete_one
   delete_ref_payment_method_items(ids: [ID]!): delete_many
   delete_ref_payment_method_item(id: ID!): delete_one
   delete_ref_shipping_method_items(ids: [ID]!): delete_many
   delete_ref_shipping_method_item(id: ID!): delete_one
-  delete_order_items_items(ids: [ID]!): delete_many
-  delete_order_items_item(id: ID!): delete_one
-  delete_ref_brand_items(ids: [ID]!): delete_many
-  delete_ref_brand_item(id: ID!): delete_one
-  delete_ref_product_category_items(ids: [ID]!): delete_many
-  delete_ref_product_category_item(id: ID!): delete_one
-  delete_product_info_files_items(ids: [ID]!): delete_many
-  delete_product_info_files_item(id: ID!): delete_one
-  delete_product_info_jxn_species_items(ids: [ID]!): delete_many
-  delete_product_info_jxn_species_item(id: ID!): delete_one
-  delete_ref_species_items(ids: [ID]!): delete_many
-  delete_ref_species_item(id: ID!): delete_one
-  delete_product_options_items(ids: [ID]!): delete_many
-  delete_product_options_item(id: ID!): delete_one
-  delete_product_option_values_items(ids: [ID]!): delete_many
-  delete_product_option_values_item(id: ID!): delete_one
-  delete_product_variant_files_items(ids: [ID]!): delete_many
-  delete_product_variant_files_item(id: ID!): delete_one
-  delete_product_variant_jxn_option_values_items(ids: [ID]!): delete_many
-  delete_product_variant_jxn_option_values_item(id: ID!): delete_one
+  delete_checkout_intents_items(ids: [ID]!): delete_many
+  delete_checkout_intents_item(id: ID!): delete_one
+  delete_refresh_tokens_items(ids: [ID]!): delete_many
+  delete_refresh_tokens_item(id: ID!): delete_one
   delete_promo_code_usage_items(ids: [ID]!): delete_many
   delete_promo_code_usage_item(id: ID!): delete_one
+  delete_email_login_tokens_items(ids: [ID]!): delete_many
+  delete_email_login_tokens_item(id: ID!): delete_one
+  delete_directus_sync_id_map_items(ids: [ID]!): delete_many
+  delete_directus_sync_id_map_item(id: ID!): delete_one
+  delete_users_items(ids: [ID]!): delete_many
+  delete_users_item(id: ID!): delete_one
   delete_promo_codes_items(ids: [ID]!): delete_many
   delete_promo_codes_item(id: ID!): delete_one
   delete_orders_items(ids: [ID]!): delete_many
   delete_orders_item(id: ID!): delete_one
   delete_order_items_items(ids: [ID]!): delete_many
   delete_order_items_item(id: ID!): delete_one
+  delete_product_variant_reviews_items(ids: [ID]!): delete_many
+  delete_product_variant_reviews_item(id: ID!): delete_one
   delete_pickup_locations_items(ids: [ID]!): delete_many
   delete_pickup_locations_item(id: ID!): delete_one
+  delete_product_info_detail_information_files_items(ids: [ID]!): delete_many
+  delete_product_info_detail_information_files_item(id: ID!): delete_one
   delete_pickup_slots_items(ids: [ID]!): delete_many
   delete_pickup_slots_item(id: ID!): delete_one
 }
@@ -350,41 +372,42 @@ type Subscription {
   directus_dashboards_mutated(event: EventEnum): directus_dashboards_mutated
   directus_operations_mutated(event: EventEnum): directus_operations_mutated
   directus_translations_mutated(event: EventEnum): directus_translations_mutated
-  directus_webhooks_mutated(event: EventEnum): directus_webhooks_mutated
   directus_policies_mutated(event: EventEnum): directus_policies_mutated
   directus_access_mutated(event: EventEnum): directus_access_mutated
   directus_versions_mutated(event: EventEnum): directus_versions_mutated
   directus_comments_mutated(event: EventEnum): directus_comments_mutated
-  directus_settings_mutated(event: EventEnum): directus_settings_mutated
-  directus_sync_id_map_mutated(event: EventEnum): directus_sync_id_map_mutated
-  accounts_mutated(event: EventEnum): accounts_mutated
   user_addresses_mutated(event: EventEnum): user_addresses_mutated
-  carts_mutated(event: EventEnum): carts_mutated
-  cart_items_mutated(event: EventEnum): cart_items_mutated
+  accounts_mutated(event: EventEnum): accounts_mutated
+  ref_product_category_mutated(event: EventEnum): ref_product_category_mutated
   product_info_mutated(event: EventEnum): product_info_mutated
+  directus_settings_mutated(event: EventEnum): directus_settings_mutated
+  ref_species_mutated(event: EventEnum): ref_species_mutated
+  product_info_jxn_species_mutated(event: EventEnum): product_info_jxn_species_mutated
+  ref_brand_mutated(event: EventEnum): ref_brand_mutated
   ref_currency_mutated(event: EventEnum): ref_currency_mutated
+  product_option_values_mutated(event: EventEnum): product_option_values_mutated
+  product_options_mutated(event: EventEnum): product_options_mutated
   product_variants_mutated(event: EventEnum): product_variants_mutated
+  product_variant_jxn_option_values_mutated(event: EventEnum): product_variant_jxn_option_values_mutated
+  cart_items_mutated(event: EventEnum): cart_items_mutated
+  product_info_files_mutated(event: EventEnum): product_info_files_mutated
+  product_variant_files_mutated(event: EventEnum): product_variant_files_mutated
   ref_cart_status_mutated(event: EventEnum): ref_cart_status_mutated
-  users_mutated(event: EventEnum): users_mutated
-  checkout_intents_mutated(event: EventEnum): checkout_intents_mutated
-  orders_mutated(event: EventEnum): orders_mutated
+  carts_mutated(event: EventEnum): carts_mutated
   ref_payment_method_mutated(event: EventEnum): ref_payment_method_mutated
   ref_shipping_method_mutated(event: EventEnum): ref_shipping_method_mutated
-  order_items_mutated(event: EventEnum): order_items_mutated
-  ref_brand_mutated(event: EventEnum): ref_brand_mutated
-  ref_product_category_mutated(event: EventEnum): ref_product_category_mutated
-  product_info_files_mutated(event: EventEnum): product_info_files_mutated
-  product_info_jxn_species_mutated(event: EventEnum): product_info_jxn_species_mutated
-  ref_species_mutated(event: EventEnum): ref_species_mutated
-  product_options_mutated(event: EventEnum): product_options_mutated
-  product_option_values_mutated(event: EventEnum): product_option_values_mutated
-  product_variant_files_mutated(event: EventEnum): product_variant_files_mutated
-  product_variant_jxn_option_values_mutated(event: EventEnum): product_variant_jxn_option_values_mutated
+  checkout_intents_mutated(event: EventEnum): checkout_intents_mutated
+  refresh_tokens_mutated(event: EventEnum): refresh_tokens_mutated
   promo_code_usage_mutated(event: EventEnum): promo_code_usage_mutated
+  email_login_tokens_mutated(event: EventEnum): email_login_tokens_mutated
+  directus_sync_id_map_mutated(event: EventEnum): directus_sync_id_map_mutated
+  users_mutated(event: EventEnum): users_mutated
   promo_codes_mutated(event: EventEnum): promo_codes_mutated
   orders_mutated(event: EventEnum): orders_mutated
   order_items_mutated(event: EventEnum): order_items_mutated
+  product_variant_reviews_mutated(event: EventEnum): product_variant_reviews_mutated
   pickup_locations_mutated(event: EventEnum): pickup_locations_mutated
+  product_info_detail_information_files_mutated(event: EventEnum): product_info_detail_information_files_mutated
   pickup_slots_mutated(event: EventEnum): pickup_slots_mutated
 }
 
@@ -435,16 +458,16 @@ enum EventEnum {
 }
 
 type accounts {
+  id: ID!
+  user_id(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
+  provider: String!
+  provider_account_id: String!
+  email_at_link: String
   created_at: Date
   created_at_func: datetime_functions
-  email_at_link: String
-  id: ID!
-  provider: String
-  provider_account_id: String!
   raw_profile: String
   updated_at: Date
   updated_at_func: datetime_functions
-  user_id: ID
 }
 
 type accounts_aggregated {
@@ -455,14 +478,14 @@ type accounts_aggregated {
 }
 
 type accounts_aggregated_count {
-  created_at: Int
-  email_at_link: Int
   id: Int
+  user_id: Int
   provider: Int
   provider_account_id: Int
+  email_at_link: Int
+  created_at: Int
   raw_profile: Int
   updated_at: Int
-  user_id: Int
 }
 
 type accounts_mutated {
@@ -472,19 +495,19 @@ type accounts_mutated {
 }
 
 type cart_items {
-  cart_id(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): carts
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
-  notes: String
-  product_rid(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_info
-  quantity: Int
-  snapshot_currency(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
-  snapshot_unit_price_amt: Int
   uuid: ID
+  cart_id(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): carts
+  product_rid(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_info
   variant_rid(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_variants
+  quantity: Int
+  snapshot_unit_price_amt: Int
+  snapshot_currency(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
+  notes: String
 }
 
 type cart_items_aggregated {
@@ -501,27 +524,27 @@ type cart_items_aggregated {
 }
 
 type cart_items_aggregated_count {
-  cart_id: Int
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
-  notes: Int
-  product_rid: Int
-  quantity: Int
-  snapshot_currency: Int
-  snapshot_unit_price_amt: Int
   uuid: Int
+  cart_id: Int
+  product_rid: Int
   variant_rid: Int
+  quantity: Int
+  snapshot_unit_price_amt: Int
+  snapshot_currency: Int
+  notes: Int
 }
 
 type cart_items_aggregated_fields {
-  cart_id: Float
   id: Float
+  cart_id: Float
   product_rid: Float
-  quantity: Float
-  snapshot_currency: Float
-  snapshot_unit_price_amt: Float
   variant_rid: Float
+  quantity: Float
+  snapshot_unit_price_amt: Float
+  snapshot_currency: Float
 }
 
 type cart_items_mutated {
@@ -531,23 +554,23 @@ type cart_items_mutated {
 }
 
 type carts {
-  applied_coupon_code: String
-  coupon_discount_amt: Int
-  currency(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
+  id: ID!
+  sort: Int
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
-  last_priced_at: Date
-  last_priced_at_func: datetime_functions
+  uuid: ID
+  user_id(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
+  currency(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
+  applied_coupon_code: String
+  coupon_discount_amt: Int
+  notes: String
   locked_at: Date
   locked_at_func: datetime_functions
-  notes: String
-  sort: Int
+  last_priced_at: Date
+  last_priced_at_func: datetime_functions
   status(filter: ref_cart_status_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_cart_status
-  user_id(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
-  uuid: ID
 }
 
 type carts_aggregated {
@@ -564,26 +587,26 @@ type carts_aggregated {
 }
 
 type carts_aggregated_count {
-  applied_coupon_code: Int
-  coupon_discount_amt: Int
-  currency: Int
+  id: Int
+  sort: Int
   date_created: Int
   date_updated: Int
-  id: Int
-  last_priced_at: Int
-  locked_at: Int
-  notes: Int
-  sort: Int
-  status: Int
-  user_id: Int
   uuid: Int
+  user_id: Int
+  currency: Int
+  applied_coupon_code: Int
+  coupon_discount_amt: Int
+  notes: Int
+  locked_at: Int
+  last_priced_at: Int
+  status: Int
 }
 
 type carts_aggregated_fields {
-  coupon_discount_amt: Float
-  currency: Float
   id: Float
   sort: Float
+  currency: Float
+  coupon_discount_amt: Float
   status: Float
 }
 
@@ -594,35 +617,35 @@ type carts_mutated {
 }
 
 type checkout_intents {
-  applied_coupon_code: String
-  billing_address: JSON
-  billing_address_func: count_functions
-  cart_id(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): carts
-  cart_snapshot: JSON
-  cart_snapshot_func: count_functions
-  completed_order_id(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): orders
-  coupon_discount_amt: Float
-  currency(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  discount_total_amt: Float
-  expires_at: Date
-  expires_at_func: datetime_functions
-  grand_total_amt: Float
-  id: ID!
-  ip_address: String
-  payment_method_code(filter: ref_payment_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_payment_method
-  shipping_address: JSON
-  shipping_address_func: count_functions
-  shipping_fee_amt: Float
-  shipping_method_code(filter: ref_shipping_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_shipping_method
-  subtotal_amt: Float
-  tax_total_amt: Float
-  user_agent: String
   user_id(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
   uuid: ID
+  cart_id(filter: carts_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): carts
+  cart_snapshot: JSON
+  cart_snapshot_func: count_functions
+  shipping_address: JSON
+  shipping_address_func: count_functions
+  billing_address: JSON
+  billing_address_func: count_functions
+  applied_coupon_code: String
+  tax_total_amt: Float
+  coupon_discount_amt: Float
+  subtotal_amt: Float
+  discount_total_amt: Float
+  shipping_fee_amt: Float
+  grand_total_amt: Float
+  currency(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
+  user_agent: String
+  ip_address: String
+  expires_at: Date
+  expires_at_func: datetime_functions
+  completed_order_id(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): orders
+  shipping_method_code(filter: ref_shipping_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_shipping_method
+  payment_method_code(filter: ref_payment_method_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_payment_method
 }
 
 type checkout_intents_aggregated {
@@ -639,44 +662,44 @@ type checkout_intents_aggregated {
 }
 
 type checkout_intents_aggregated_count {
-  applied_coupon_code: Int
-  billing_address: Int
-  cart_id: Int
-  cart_snapshot: Int
-  completed_order_id: Int
-  coupon_discount_amt: Int
-  currency: Int
+  id: Int
   date_created: Int
   date_updated: Int
-  discount_total_amt: Int
-  expires_at: Int
-  grand_total_amt: Int
-  id: Int
-  ip_address: Int
-  payment_method_code: Int
-  shipping_address: Int
-  shipping_fee_amt: Int
-  shipping_method_code: Int
-  subtotal_amt: Int
-  tax_total_amt: Int
-  user_agent: Int
   user_id: Int
   uuid: Int
+  cart_id: Int
+  cart_snapshot: Int
+  shipping_address: Int
+  billing_address: Int
+  applied_coupon_code: Int
+  tax_total_amt: Int
+  coupon_discount_amt: Int
+  subtotal_amt: Int
+  discount_total_amt: Int
+  shipping_fee_amt: Int
+  grand_total_amt: Int
+  currency: Int
+  user_agent: Int
+  ip_address: Int
+  expires_at: Int
+  completed_order_id: Int
+  shipping_method_code: Int
+  payment_method_code: Int
 }
 
 type checkout_intents_aggregated_fields {
-  cart_id: Float
-  completed_order_id: Float
-  coupon_discount_amt: Float
-  currency: Float
-  discount_total_amt: Float
-  grand_total_amt: Float
   id: Float
-  payment_method_code: Float
-  shipping_fee_amt: Float
-  shipping_method_code: Float
-  subtotal_amt: Float
+  cart_id: Float
   tax_total_amt: Float
+  coupon_discount_amt: Float
+  subtotal_amt: Float
+  discount_total_amt: Float
+  shipping_fee_amt: Float
+  grand_total_amt: Float
+  currency: Float
+  completed_order_id: Float
+  shipping_method_code: Float
+  payment_method_code: Float
 }
 
 type checkout_intents_mutated {
@@ -1116,6 +1139,11 @@ type directus_settings {
   org_name: String
   product_updates: Boolean
   project_status: String
+  ai_openai_api_key: String
+  ai_anthropic_api_key: String
+
+  """$t:fields.directus_settings.ai_system_prompt_note"""
+  ai_system_prompt: String
 }
 
 type directus_settings_mutated {
@@ -1275,44 +1303,23 @@ type directus_versions_mutated {
   data: directus_versions
 }
 
-type directus_webhooks {
-  id: ID!
-  name: String!
-  method: String
-  url: String!
-  status: String
-  data: Boolean
-  actions: [String]!
-  collections: [String]!
-  headers: JSON
-  headers_func: count_functions
-  was_active_before_deprecation: Boolean!
-  migrated_flow(filter: directus_flows_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_flows
-}
-
-type directus_webhooks_mutated {
-  key: ID!
-  event: EventEnum
-  data: directus_webhooks
-}
-
 type email_login_tokens {
-  code_hash: String!
-  consumed_at: Date
-  consumed_at_func: datetime_functions
+  id: ID!
+  user_id(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
   email: String!
+  code_hash: String!
+  purpose: String
   expires_at: Date!
   expires_at_func: datetime_functions
-  id: ID!
-  ip: String
-  purpose: String
+  consumed_at: Date
+  consumed_at_func: datetime_functions
   user_agent: String
-  user_id(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
+  ip: String
+  failed_attempts: Int!
   created_at: Date
   created_at_func: datetime_functions
   updated_at: Date
   updated_at_func: datetime_functions
-  failed_attempts: Int
 }
 
 type email_login_tokens_aggregated {
@@ -1329,18 +1336,18 @@ type email_login_tokens_aggregated {
 }
 
 type email_login_tokens_aggregated_count {
-  code_hash: Int
-  consumed_at: Int
-  email: Int
-  expires_at: Int
   id: Int
-  ip: Int
-  purpose: Int
-  user_agent: Int
   user_id: Int
+  email: Int
+  code_hash: Int
+  purpose: Int
+  expires_at: Int
+  consumed_at: Int
+  user_agent: Int
+  ip: Int
+  failed_attempts: Int
   created_at: Int
   updated_at: Int
-  failed_attempts: Int
 }
 
 type email_login_tokens_aggregated_fields {
@@ -1355,22 +1362,22 @@ type email_login_tokens_mutated {
 }
 
 type order_items {
-  currency: String
+  id: ID!
+  sort: Int
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
-  image_url: String
-  line_total_cents: Int
   order_id(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): orders
   product_rid(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_info
-  product_title: String
-  quantity: Int
-  sort: Int
-  unit_price_cents: Int
   variant_rid(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_variants
+  quantity: Int
+  unit_price_cents: Int
+  line_total_cents: Int
+  currency: String
+  product_title: String
   variant_sku: String
+  image_url: String
 }
 
 type order_items_aggregated {
@@ -1387,31 +1394,31 @@ type order_items_aggregated {
 }
 
 type order_items_aggregated_count {
-  currency: Int
+  id: Int
+  sort: Int
   date_created: Int
   date_updated: Int
-  id: Int
-  image_url: Int
-  line_total_cents: Int
   order_id: Int
   product_rid: Int
-  product_title: Int
-  quantity: Int
-  sort: Int
-  unit_price_cents: Int
   variant_rid: Int
+  quantity: Int
+  unit_price_cents: Int
+  line_total_cents: Int
+  currency: Int
+  product_title: Int
   variant_sku: Int
+  image_url: Int
 }
 
 type order_items_aggregated_fields {
   id: Float
-  line_total_cents: Float
+  sort: Float
   order_id: Float
   product_rid: Float
-  quantity: Float
-  sort: Float
-  unit_price_cents: Float
   variant_rid: Float
+  quantity: Float
+  unit_price_cents: Float
+  line_total_cents: Float
 }
 
 type order_items_mutated {
@@ -1421,37 +1428,37 @@ type order_items_mutated {
 }
 
 type orders {
-  billing_address: JSON
-  billing_address_func: count_functions
-  cart_snapshot: JSON
-  cart_snapshot_func: count_functions
-  currency: String
+  id: ID!
+  sort: Int
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  delivery_method: String
-  discount_amt: Int!
-  email: String!
-  grand_total_amt: Int!
-  id: ID!
-  notes: String
+  uuid: ID!
+  user_id(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
   order_number: String!
-  paid_at: Date
-  paid_at_func: datetime_functions
-  shipped_at: Date
-  shipped_at_func: datetime_functions
+  status: String
+  stripe_session_id: String
+  stripe_payment_intent_id: String
+  email: String!
   shipping_address: JSON
   shipping_address_func: count_functions
-  shipping_fee_amt: Int!
-  sort: Int
-  status: String
-  stripe_payment_intent_id: String
-  stripe_session_id: String
+  billing_address: JSON
+  billing_address_func: count_functions
   subtotal_amt: Int!
+  shipping_fee_amt: Int!
   tax_amt: Int!
-  user_id: ID
-  uuid: ID!
+  discount_amt: Int!
+  grand_total_amt: Int!
+  currency: String
+  cart_snapshot: JSON
+  cart_snapshot_func: count_functions
+  paid_at: Date
+  paid_at_func: datetime_functions
+  notes: String
+  delivery_method: String
+  shipped_at: Date
+  shipped_at_func: datetime_functions
   order_items(filter: order_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [order_items]
   order_items_func: count_functions
 }
@@ -1470,41 +1477,41 @@ type orders_aggregated {
 }
 
 type orders_aggregated_count {
-  billing_address: Int
-  cart_snapshot: Int
-  currency: Int
+  id: Int
+  sort: Int
   date_created: Int
   date_updated: Int
-  delivery_method: Int
-  discount_amt: Int
-  email: Int
-  grand_total_amt: Int
-  id: Int
-  notes: Int
-  order_number: Int
-  paid_at: Int
-  shipped_at: Int
-  shipping_address: Int
-  shipping_fee_amt: Int
-  sort: Int
-  status: Int
-  stripe_payment_intent_id: Int
-  stripe_session_id: Int
-  subtotal_amt: Int
-  tax_amt: Int
-  user_id: Int
   uuid: Int
+  user_id: Int
+  order_number: Int
+  status: Int
+  stripe_session_id: Int
+  stripe_payment_intent_id: Int
+  email: Int
+  shipping_address: Int
+  billing_address: Int
+  subtotal_amt: Int
+  shipping_fee_amt: Int
+  tax_amt: Int
+  discount_amt: Int
+  grand_total_amt: Int
+  currency: Int
+  cart_snapshot: Int
+  paid_at: Int
+  notes: Int
+  delivery_method: Int
+  shipped_at: Int
   order_items: Int
 }
 
 type orders_aggregated_fields {
-  discount_amt: Float
-  grand_total_amt: Float
   id: Float
-  shipping_fee_amt: Float
   sort: Float
   subtotal_amt: Float
+  shipping_fee_amt: Float
   tax_amt: Float
+  discount_amt: Float
+  grand_total_amt: Float
 }
 
 type orders_mutated {
@@ -1525,6 +1532,8 @@ type pickup_locations {
   timezone: String
   inventory: Int
   is_active: Boolean
+  time_slots(filter: pickup_slots_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pickup_slots]
+  time_slots_func: count_functions
 }
 
 type pickup_locations_aggregated {
@@ -1550,6 +1559,7 @@ type pickup_locations_aggregated_count {
   timezone: Int
   inventory: Int
   is_active: Int
+  time_slots: Int
 }
 
 type pickup_locations_aggregated_fields {
@@ -1635,16 +1645,15 @@ type product_info {
   attributes: JSON
   attributes_func: count_functions
   category_rid(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_product_category
+  detail_information: String
   species(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_jxn_species]
   species_func: count_functions
   product_varients(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variants]
   product_varients_func: count_functions
   product_info_files(filter: product_info_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_files]
   product_info_files_func: count_functions
-  product_varients(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variants]
-  product_varients_func: count_functions
-  species(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_jxn_species]
-  species_func: count_functions
+  detail_information_files(filter: product_info_detail_information_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_detail_information_files]
+  detail_information_files_func: count_functions
 }
 
 type product_info_aggregated {
@@ -1661,43 +1670,92 @@ type product_info_aggregated {
 }
 
 type product_info_aggregated_count {
-  attributes: Int
-  base_price: Int
-  base_price_currency_rid: Int
-  brand_rid: Int
-  category_rid: Int
+  id: Int
+  sort: Int
   date_created: Int
   date_updated: Int
   description: Int
-  id: Int
-  is_featured: Int
-  slug: Int
-  sort: Int
-  subtitle: Int
   title: Int
-  product_info_files: Int
-  product_varients: Int
+  subtitle: Int
+  slug: Int
+  is_featured: Int
+  base_price: Int
+  brand_rid: Int
+  base_price_currency_rid: Int
+  attributes: Int
+  category_rid: Int
+  detail_information: Int
   species: Int
+  product_varients: Int
+  product_info_files: Int
+  detail_information_files: Int
 }
 
 type product_info_aggregated_fields {
-  base_price: Float
-  base_price_currency_rid: Float
-  brand_rid: Float
-  category_rid: Float
   id: Float
   sort: Float
+  base_price: Float
+  brand_rid: Float
+  base_price_currency_rid: Float
+  category_rid: Float
 }
 
-type product_info_files {
+type product_info_detail_information_files {
+  id: ID!
+  sort: Int
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  external_url: String
-  id: ID!
   product_info_rid(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_info
+  external_url: String
+  storage_provider: String
+}
+
+type product_info_detail_information_files_aggregated {
+  group: JSON
+  countAll: Int
+  count: product_info_detail_information_files_aggregated_count
+  countDistinct: product_info_detail_information_files_aggregated_count
+  avg: product_info_detail_information_files_aggregated_fields
+  sum: product_info_detail_information_files_aggregated_fields
+  avgDistinct: product_info_detail_information_files_aggregated_fields
+  sumDistinct: product_info_detail_information_files_aggregated_fields
+  min: product_info_detail_information_files_aggregated_fields
+  max: product_info_detail_information_files_aggregated_fields
+}
+
+type product_info_detail_information_files_aggregated_count {
+  id: Int
   sort: Int
+  date_created: Int
+  date_updated: Int
+  product_info_rid: Int
+  external_url: Int
+  storage_provider: Int
+}
+
+type product_info_detail_information_files_aggregated_fields {
+  id: Float
+  sort: Float
+  product_info_rid: Float
+}
+
+type product_info_detail_information_files_mutated {
+  key: ID!
+  event: EventEnum
+  data: product_info_detail_information_files
+}
+
+type product_info_files {
+  id: ID!
+  sort: Int
+  date_created: Date
+  date_created_func: datetime_functions
+  date_updated: Date
+  date_updated_func: datetime_functions
+  product_info_rid(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_info
+  external_url: String
   storage_provider: String
 }
 
@@ -1715,19 +1773,19 @@ type product_info_files_aggregated {
 }
 
 type product_info_files_aggregated_count {
+  id: Int
+  sort: Int
   date_created: Int
   date_updated: Int
-  external_url: Int
-  id: Int
   product_info_rid: Int
-  sort: Int
+  external_url: Int
   storage_provider: Int
 }
 
 type product_info_files_aggregated_fields {
   id: Float
-  product_info_rid: Float
   sort: Float
+  product_info_rid: Float
 }
 
 type product_info_files_mutated {
@@ -1780,15 +1838,15 @@ type product_info_mutated {
 }
 
 type product_option_values {
-  color_hex: String
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
   product_option_rid(filter: product_options_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_options
-  uuid: ID
   value: String
+  color_hex: String
+  uuid: ID
 }
 
 type product_option_values_aggregated {
@@ -1805,13 +1863,13 @@ type product_option_values_aggregated {
 }
 
 type product_option_values_aggregated_count {
-  color_hex: Int
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
   product_option_rid: Int
-  uuid: Int
   value: Int
+  color_hex: Int
+  uuid: Int
 }
 
 type product_option_values_aggregated_fields {
@@ -1826,15 +1884,15 @@ type product_option_values_mutated {
 }
 
 type product_options {
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
   name: String
-  product_rid(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_info
   slug: String
   uuid: ID
+  product_rid(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_info
   option_values_rid(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_option_values]
   option_values_rid_func: count_functions
 }
@@ -1853,13 +1911,13 @@ type product_options_aggregated {
 }
 
 type product_options_aggregated_count {
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
   name: Int
-  product_rid: Int
   slug: Int
   uuid: Int
+  product_rid: Int
   option_values_rid: Int
 }
 
@@ -1875,14 +1933,14 @@ type product_options_mutated {
 }
 
 type product_variant_files {
+  id: ID!
+  sort: Int
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  external_url: String
-  id: ID!
   product_variant_rid(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_variants
-  sort: Int
+  external_url: String
   storage_provider: String
 }
 
@@ -1900,19 +1958,19 @@ type product_variant_files_aggregated {
 }
 
 type product_variant_files_aggregated_count {
+  id: Int
+  sort: Int
   date_created: Int
   date_updated: Int
-  external_url: Int
-  id: Int
   product_variant_rid: Int
-  sort: Int
+  external_url: Int
   storage_provider: Int
 }
 
 type product_variant_files_aggregated_fields {
   id: Float
-  product_variant_rid: Float
   sort: Float
+  product_variant_rid: Float
 }
 
 type product_variant_files_mutated {
@@ -1922,13 +1980,13 @@ type product_variant_files_mutated {
 }
 
 type product_variant_jxn_option_values {
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
-  option_value_rid(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_option_values
   variant_rid(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_variants
+  option_value_rid(filter: product_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_option_values
 }
 
 type product_variant_jxn_option_values_aggregated {
@@ -1945,17 +2003,17 @@ type product_variant_jxn_option_values_aggregated {
 }
 
 type product_variant_jxn_option_values_aggregated_count {
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
-  option_value_rid: Int
   variant_rid: Int
+  option_value_rid: Int
 }
 
 type product_variant_jxn_option_values_aggregated_fields {
   id: Float
-  option_value_rid: Float
   variant_rid: Float
+  option_value_rid: Float
 }
 
 type product_variant_jxn_option_values_mutated {
@@ -1964,36 +2022,89 @@ type product_variant_jxn_option_values_mutated {
   data: product_variant_jxn_option_values
 }
 
-type product_variants {
-  attributes: JSON
-  attributes_func: count_functions
+type product_variant_reviews {
+  id: ID!
+  sort: Int
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  discounted_currency_rid(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
-  discounted_price: Float
-  height: Float
-  height_unit: String
-  id: ID!
-  is_available: Boolean
-  length: Float
-  length_unit: String
-  original_currency_rid(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
-  original_price: Float
-  product_rid(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_info
-  sku: String
-  sort: Int
-  stock_quantity: Int
   uuid: ID
+  customer_name: String
+  content: String
+  image_url: String
+  variant_rid(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_variants
+}
+
+type product_variant_reviews_aggregated {
+  group: JSON
+  countAll: Int
+  count: product_variant_reviews_aggregated_count
+  countDistinct: product_variant_reviews_aggregated_count
+  avg: product_variant_reviews_aggregated_fields
+  sum: product_variant_reviews_aggregated_fields
+  avgDistinct: product_variant_reviews_aggregated_fields
+  sumDistinct: product_variant_reviews_aggregated_fields
+  min: product_variant_reviews_aggregated_fields
+  max: product_variant_reviews_aggregated_fields
+}
+
+type product_variant_reviews_aggregated_count {
+  id: Int
+  sort: Int
+  date_created: Int
+  date_updated: Int
+  uuid: Int
+  customer_name: Int
+  content: Int
+  image_url: Int
+  variant_rid: Int
+}
+
+type product_variant_reviews_aggregated_fields {
+  id: Float
+  sort: Float
+  variant_rid: Float
+}
+
+type product_variant_reviews_mutated {
+  key: ID!
+  event: EventEnum
+  data: product_variant_reviews
+}
+
+type product_variants {
+  id: ID!
+  sort: Int
+  date_created: Date
+  date_created_func: datetime_functions
+  date_updated: Date
+  date_updated_func: datetime_functions
+  product_rid(filter: product_info_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): product_info
+  uuid: ID
+  sku: String
+  original_price: Float
+  discounted_price: Float
+  original_currency_rid(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
+  discounted_currency_rid(filter: ref_currency_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_currency
   weight: Float
   weight_unit: String
+  length: Float
   width: Float
+  height: Float
+  length_unit: String
   width_unit: String
-  options(filter: product_variant_jxn_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variant_jxn_option_values]
-  options_func: count_functions
+  height_unit: String
+  stock_quantity: Int
+  is_available: Boolean
+  attributes: JSON
+  attributes_func: count_functions
   product_variant_files(filter: product_variant_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variant_files]
   product_variant_files_func: count_functions
+  options(filter: product_variant_jxn_option_values_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variant_jxn_option_values]
+  options_func: count_functions
+  reviews(filter: product_variant_reviews_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variant_reviews]
+  reviews_func: count_functions
 }
 
 type product_variants_aggregated {
@@ -2010,45 +2121,46 @@ type product_variants_aggregated {
 }
 
 type product_variants_aggregated_count {
-  attributes: Int
+  id: Int
+  sort: Int
   date_created: Int
   date_updated: Int
-  discounted_currency_rid: Int
-  discounted_price: Int
-  height: Int
-  height_unit: Int
-  id: Int
-  is_available: Int
-  length: Int
-  length_unit: Int
-  original_currency_rid: Int
-  original_price: Int
   product_rid: Int
-  sku: Int
-  sort: Int
-  stock_quantity: Int
   uuid: Int
+  sku: Int
+  original_price: Int
+  discounted_price: Int
+  original_currency_rid: Int
+  discounted_currency_rid: Int
   weight: Int
   weight_unit: Int
+  length: Int
   width: Int
+  height: Int
+  length_unit: Int
   width_unit: Int
-  options: Int
+  height_unit: Int
+  stock_quantity: Int
+  is_available: Int
+  attributes: Int
   product_variant_files: Int
+  options: Int
+  reviews: Int
 }
 
 type product_variants_aggregated_fields {
-  discounted_currency_rid: Float
-  discounted_price: Float
-  height: Float
   id: Float
-  length: Float
-  original_currency_rid: Float
-  original_price: Float
-  product_rid: Float
   sort: Float
-  stock_quantity: Float
+  product_rid: Float
+  original_price: Float
+  discounted_price: Float
+  original_currency_rid: Float
+  discounted_currency_rid: Float
   weight: Float
+  length: Float
   width: Float
+  height: Float
+  stock_quantity: Float
 }
 
 type product_variants_mutated {
@@ -2058,18 +2170,18 @@ type product_variants_mutated {
 }
 
 type promo_code_usage {
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  discount_applied: Int
-  id: ID!
-  order_rid(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): orders
-  order_total_amount: Int
   promo_code_rid(filter: promo_codes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): promo_codes
+  order_rid(filter: orders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): orders
+  user_rid(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
+  discount_applied: Int
+  order_total_amount: Int
   used_at: Date
   used_at_func: datetime_functions
-  user_rid(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
 }
 
 type promo_code_usage_aggregated {
@@ -2086,23 +2198,23 @@ type promo_code_usage_aggregated {
 }
 
 type promo_code_usage_aggregated_count {
+  id: Int
   date_created: Int
   date_updated: Int
-  discount_applied: Int
-  id: Int
-  order_rid: Int
-  order_total_amount: Int
   promo_code_rid: Int
-  used_at: Int
+  order_rid: Int
   user_rid: Int
+  discount_applied: Int
+  order_total_amount: Int
+  used_at: Int
 }
 
 type promo_code_usage_aggregated_fields {
-  discount_applied: Float
   id: Float
-  order_rid: Float
-  order_total_amount: Float
   promo_code_rid: Float
+  order_rid: Float
+  discount_applied: Float
+  order_total_amount: Float
 }
 
 type promo_code_usage_mutated {
@@ -2112,25 +2224,25 @@ type promo_code_usage_mutated {
 }
 
 type promo_codes {
-  amount: Int
-  code: String
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
+  code: String
+  name: String
   description: String
   discount_type: String
-  expires_at: Date
-  expires_at_func: datetime_functions
-  id: ID!
-  is_active: Boolean
+  amount: Int
+  min_order_amount: Int
   max_discount_amount: Int
   max_usage: Int
-  min_order_amount: Int
-  name: String
+  used_count: Int
   starts_at: Date
   starts_at_func: datetime_functions
-  used_count: Int
+  expires_at: Date
+  expires_at_func: datetime_functions
+  is_active: Boolean
 }
 
 type promo_codes_aggregated {
@@ -2147,29 +2259,29 @@ type promo_codes_aggregated {
 }
 
 type promo_codes_aggregated_count {
-  amount: Int
-  code: Int
+  id: Int
   date_created: Int
   date_updated: Int
+  code: Int
+  name: Int
   description: Int
   discount_type: Int
-  expires_at: Int
-  id: Int
-  is_active: Int
+  amount: Int
+  min_order_amount: Int
   max_discount_amount: Int
   max_usage: Int
-  min_order_amount: Int
-  name: Int
-  starts_at: Int
   used_count: Int
+  starts_at: Int
+  expires_at: Int
+  is_active: Int
 }
 
 type promo_codes_aggregated_fields {
-  amount: Float
   id: Float
+  amount: Float
+  min_order_amount: Float
   max_discount_amount: Float
   max_usage: Float
-  min_order_amount: Float
   used_count: Float
 }
 
@@ -2180,14 +2292,14 @@ type promo_codes_mutated {
 }
 
 type ref_brand {
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
+  uuid: ID
   name: String
   slug: String
-  uuid: ID
 }
 
 type ref_brand_aggregated {
@@ -2204,12 +2316,12 @@ type ref_brand_aggregated {
 }
 
 type ref_brand_aggregated_count {
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
+  uuid: Int
   name: Int
   slug: Int
-  uuid: Int
 }
 
 type ref_brand_aggregated_fields {
@@ -2223,11 +2335,11 @@ type ref_brand_mutated {
 }
 
 type ref_cart_status {
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
   name: String
 }
 
@@ -2245,9 +2357,9 @@ type ref_cart_status_aggregated {
 }
 
 type ref_cart_status_aggregated_count {
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
   name: Int
 }
 
@@ -2262,11 +2374,11 @@ type ref_cart_status_mutated {
 }
 
 type ref_currency {
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
   name: String
   slug: String
   uuid: ID
@@ -2286,9 +2398,9 @@ type ref_currency_aggregated {
 }
 
 type ref_currency_aggregated_count {
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
   name: Int
   slug: Int
   uuid: Int
@@ -2305,11 +2417,11 @@ type ref_currency_mutated {
 }
 
 type ref_payment_method {
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
   name: String
 }
 
@@ -2327,9 +2439,9 @@ type ref_payment_method_aggregated {
 }
 
 type ref_payment_method_aggregated_count {
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
   name: Int
 }
 
@@ -2344,16 +2456,16 @@ type ref_payment_method_mutated {
 }
 
 type ref_product_category {
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
+  name: String
+  uuid: ID
+  slug: String
   image(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
   image_url: String
-  name: String
-  slug: String
-  uuid: ID
 }
 
 type ref_product_category_aggregated {
@@ -2370,14 +2482,14 @@ type ref_product_category_aggregated {
 }
 
 type ref_product_category_aggregated_count {
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
+  name: Int
+  uuid: Int
+  slug: Int
   image: Int
   image_url: Int
-  name: Int
-  slug: Int
-  uuid: Int
 }
 
 type ref_product_category_aggregated_fields {
@@ -2391,11 +2503,11 @@ type ref_product_category_mutated {
 }
 
 type ref_shipping_method {
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
   name: String
 }
 
@@ -2413,9 +2525,9 @@ type ref_shipping_method_aggregated {
 }
 
 type ref_shipping_method_aggregated_count {
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
   name: Int
 }
 
@@ -2430,11 +2542,11 @@ type ref_shipping_method_mutated {
 }
 
 type ref_species {
+  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  id: ID!
   name: String
   slug: String
   uuid: ID
@@ -2454,9 +2566,9 @@ type ref_species_aggregated {
 }
 
 type ref_species_aggregated_count {
+  id: Int
   date_created: Int
   date_updated: Int
-  id: Int
   name: Int
   slug: Int
   uuid: Int
@@ -2473,20 +2585,20 @@ type ref_species_mutated {
 }
 
 type refresh_tokens {
-  created_at: Date
-  created_at_func: datetime_functions
+  id: ID!
+  user_id(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
+  refresh_token_hash: String!
   expires_at: Date!
   expires_at_func: datetime_functions
-  id: ID!
-  ip: String
-  refresh_token_hash: String!
   revoked_at: Date
   revoked_at_func: datetime_functions
   rotated_from: ID
+  user_agent: String
+  ip: String
+  created_at: Date
+  created_at_func: datetime_functions
   updated_at: Date
   updated_at_func: datetime_functions
-  user_agent: String
-  user_id(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
 }
 
 type refresh_tokens_aggregated {
@@ -2503,16 +2615,16 @@ type refresh_tokens_aggregated {
 }
 
 type refresh_tokens_aggregated_count {
-  created_at: Int
-  expires_at: Int
   id: Int
-  ip: Int
+  user_id: Int
   refresh_token_hash: Int
+  expires_at: Int
   revoked_at: Int
   rotated_from: Int
-  updated_at: Int
   user_agent: Int
-  user_id: Int
+  ip: Int
+  created_at: Int
+  updated_at: Int
 }
 
 type refresh_tokens_aggregated_fields {
@@ -2532,18 +2644,19 @@ type time_functions {
 }
 
 type user_addresses {
+  id: ID!
+  user_id(filter: users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): users
+  type: String!
+  is_default: Boolean!
+  recipient_name: String
   address_text: String!
+  postal_code: String!
   country_code: String
+  phone_au: String
   created_at: Date
   created_at_func: datetime_functions
-  id: ID!
-  is_default: Boolean!
-  phone_au: String
-  postal_code: String!
-  recipient_name: String
   updated_at: Date
   updated_at_func: datetime_functions
-  user_id: ID
 }
 
 type user_addresses_aggregated {
@@ -2554,16 +2667,17 @@ type user_addresses_aggregated {
 }
 
 type user_addresses_aggregated_count {
-  address_text: Int
-  country_code: Int
-  created_at: Int
   id: Int
-  is_default: Int
-  phone_au: Int
-  postal_code: Int
-  recipient_name: Int
-  updated_at: Int
   user_id: Int
+  type: Int
+  is_default: Int
+  recipient_name: Int
+  address_text: Int
+  postal_code: Int
+  country_code: Int
+  phone_au: Int
+  created_at: Int
+  updated_at: Int
 }
 
 type user_addresses_mutated {
@@ -2573,21 +2687,21 @@ type user_addresses_mutated {
 }
 
 type users {
-  created_at: Date
-  created_at_func: datetime_functions
+  id: ID!
+  email: String
+  phone_au: String
+  display_name: String
+  marketing_opt_in: Boolean!
+  terms_accepted: Boolean!
+  privacy_accepted: Boolean!
   deleted_at: Date
   deleted_at_func: datetime_functions
-  display_name: String
-  email: String
-  first_name: String
-  id: ID!
-  last_name: String
-  marketing_opt_in: Boolean!
-  phone_au: String
-  privacy_accepted: Boolean!
-  terms_accepted: Boolean!
+  created_at: Date
+  created_at_func: datetime_functions
   updated_at: Date
   updated_at_func: datetime_functions
+  first_name: String
+  last_name: String
 }
 
 type users_aggregated {
@@ -2598,18 +2712,18 @@ type users_aggregated {
 }
 
 type users_aggregated_count {
-  created_at: Int
-  deleted_at: Int
-  display_name: Int
-  email: Int
-  first_name: Int
   id: Int
-  last_name: Int
-  marketing_opt_in: Int
+  email: Int
   phone_au: Int
-  privacy_accepted: Int
+  display_name: Int
+  marketing_opt_in: Int
   terms_accepted: Int
+  privacy_accepted: Int
+  deleted_at: Int
+  created_at: Int
   updated_at: Int
+  first_name: Int
+  last_name: Int
 }
 
 type users_mutated {
@@ -2620,73 +2734,73 @@ type users_mutated {
 
 """"""
 type version_accounts {
-  created_at: Date
-  email_at_link: String
   id: ID
+  user_id: JSON
   provider: String
   provider_account_id: String
+  email_at_link: String
+  created_at: Date
   raw_profile: String
   updated_at: Date
-  user_id: ID
 }
 
 """"""
 type version_cart_items {
-  cart_id: JSON
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
-  notes: String
-  product_rid: JSON
-  quantity: Int
-  snapshot_currency: JSON
-  snapshot_unit_price_amt: Int
   uuid: ID
+  cart_id: JSON
+  product_rid: JSON
   variant_rid: JSON
+  quantity: Int
+  snapshot_unit_price_amt: Int
+  snapshot_currency: JSON
+  notes: String
 }
 
 """"""
 type version_carts {
-  applied_coupon_code: String
-  coupon_discount_amt: Int
-  currency: JSON
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  id: ID
-  last_priced_at: Date
-  locked_at: Date
-  notes: String
-  sort: Int
-  status: JSON
-  user_id: JSON
   uuid: ID
+  user_id: JSON
+  currency: JSON
+  applied_coupon_code: String
+  coupon_discount_amt: Int
+  notes: String
+  locked_at: Date
+  last_priced_at: Date
+  status: JSON
 }
 
 """"""
 type version_checkout_intents {
-  applied_coupon_code: String
-  billing_address: JSON
-  cart_id: JSON
-  cart_snapshot: JSON
-  completed_order_id: JSON
-  coupon_discount_amt: Float
-  currency: JSON
+  id: ID
   date_created: Date
   date_updated: Date
-  discount_total_amt: Float
-  expires_at: Date
-  grand_total_amt: Float
-  id: ID
-  ip_address: String
-  payment_method_code: JSON
-  shipping_address: JSON
-  shipping_fee_amt: Float
-  shipping_method_code: JSON
-  subtotal_amt: Float
-  tax_total_amt: Float
-  user_agent: String
   user_id: JSON
   uuid: ID
+  cart_id: JSON
+  cart_snapshot: JSON
+  shipping_address: JSON
+  billing_address: JSON
+  applied_coupon_code: String
+  tax_total_amt: Float
+  coupon_discount_amt: Float
+  subtotal_amt: Float
+  discount_total_amt: Float
+  shipping_fee_amt: Float
+  grand_total_amt: Float
+  currency: JSON
+  user_agent: String
+  ip_address: String
+  expires_at: Date
+  completed_order_id: JSON
+  shipping_method_code: JSON
+  payment_method_code: JSON
 }
 
 """"""
@@ -2700,64 +2814,64 @@ type version_directus_sync_id_map {
 
 """"""
 type version_email_login_tokens {
-  code_hash: String
-  consumed_at: Date
-  email: String
-  expires_at: Date
   id: ID
-  ip: String
-  purpose: String
-  user_agent: String
   user_id: JSON
+  email: String
+  code_hash: String
+  purpose: String
+  expires_at: Date
+  consumed_at: Date
+  user_agent: String
+  ip: String
+  failed_attempts: Int
   created_at: Date
   updated_at: Date
-  failed_attempts: Int
 }
 
 """"""
 type version_order_items {
-  currency: String
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  id: ID
-  image_url: String
-  line_total_cents: Int
   order_id: JSON
   product_rid: JSON
-  product_title: String
-  quantity: Int
-  sort: Int
-  unit_price_cents: Int
   variant_rid: JSON
+  quantity: Int
+  unit_price_cents: Int
+  line_total_cents: Int
+  currency: String
+  product_title: String
   variant_sku: String
+  image_url: String
 }
 
 """"""
 type version_orders {
-  billing_address: JSON
-  cart_snapshot: JSON
-  currency: String
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  delivery_method: String
-  discount_amt: Int
-  email: String
-  grand_total_amt: Int
-  id: ID
-  notes: String
-  order_number: String
-  paid_at: Date
-  shipped_at: Date
-  shipping_address: JSON
-  shipping_fee_amt: Int
-  sort: Int
-  status: String
-  stripe_payment_intent_id: String
-  stripe_session_id: String
-  subtotal_amt: Int
-  tax_amt: Int
-  user_id: ID
   uuid: ID
+  user_id: JSON
+  order_number: String
+  status: String
+  stripe_session_id: String
+  stripe_payment_intent_id: String
+  email: String
+  shipping_address: JSON
+  billing_address: JSON
+  subtotal_amt: Int
+  shipping_fee_amt: Int
+  tax_amt: Int
+  discount_amt: Int
+  grand_total_amt: Int
+  currency: String
+  cart_snapshot: JSON
+  paid_at: Date
+  notes: String
+  delivery_method: String
+  shipped_at: Date
   order_items: JSON
 }
 
@@ -2772,6 +2886,7 @@ type version_pickup_locations {
   timezone: String
   inventory: Int
   is_active: Boolean
+  time_slots: JSON
 }
 
 """"""
@@ -2803,21 +2918,32 @@ type version_product_info {
   base_price_currency_rid: JSON
   attributes: JSON
   category_rid: JSON
+  detail_information: String
   species: JSON
   product_varients: JSON
   product_info_files: JSON
-  product_varients: JSON
-  species: JSON
+  detail_information_files: JSON
+}
+
+""""""
+type version_product_info_detail_information_files {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  product_info_rid: JSON
+  external_url: String
+  storage_provider: String
 }
 
 """"""
 type version_product_info_files {
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  external_url: String
-  id: ID
   product_info_rid: JSON
-  sort: Int
+  external_url: String
   storage_provider: String
 }
 
@@ -2830,130 +2956,144 @@ type version_product_info_jxn_species {
 
 """"""
 type version_product_option_values {
-  color_hex: String
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   product_option_rid: JSON
-  uuid: ID
   value: String
+  color_hex: String
+  uuid: ID
 }
 
 """"""
 type version_product_options {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
-  product_rid: JSON
   slug: String
   uuid: ID
+  product_rid: JSON
   option_values_rid: JSON
 }
 
 """"""
 type version_product_variant_files {
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  external_url: String
-  id: ID
   product_variant_rid: JSON
-  sort: Int
+  external_url: String
   storage_provider: String
 }
 
 """"""
 type version_product_variant_jxn_option_values {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
+  variant_rid: JSON
   option_value_rid: JSON
+}
+
+""""""
+type version_product_variant_reviews {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  uuid: ID
+  customer_name: String
+  content: String
+  image_url: String
   variant_rid: JSON
 }
 
 """"""
 type version_product_variants {
-  attributes: JSON
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  discounted_currency_rid: JSON
-  discounted_price: Float
-  height: Float
-  height_unit: String
-  id: ID
-  is_available: Boolean
-  length: Float
-  length_unit: String
-  original_currency_rid: JSON
-  original_price: Float
   product_rid: JSON
-  sku: String
-  sort: Int
-  stock_quantity: Int
   uuid: ID
+  sku: String
+  original_price: Float
+  discounted_price: Float
+  original_currency_rid: JSON
+  discounted_currency_rid: JSON
   weight: Float
   weight_unit: String
+  length: Float
   width: Float
+  height: Float
+  length_unit: String
   width_unit: String
-  options: JSON
+  height_unit: String
+  stock_quantity: Int
+  is_available: Boolean
+  attributes: JSON
   product_variant_files: JSON
+  options: JSON
+  reviews: JSON
 }
 
 """"""
 type version_promo_code_usage {
+  id: ID
   date_created: Date
   date_updated: Date
-  discount_applied: Int
-  id: ID
-  order_rid: JSON
-  order_total_amount: Int
   promo_code_rid: JSON
-  used_at: Date
+  order_rid: JSON
   user_rid: JSON
+  discount_applied: Int
+  order_total_amount: Int
+  used_at: Date
 }
 
 """"""
 type version_promo_codes {
-  amount: Int
-  code: String
+  id: ID
   date_created: Date
   date_updated: Date
+  code: String
+  name: String
   description: String
   discount_type: String
-  expires_at: Date
-  id: ID
-  is_active: Boolean
+  amount: Int
+  min_order_amount: Int
   max_discount_amount: Int
   max_usage: Int
-  min_order_amount: Int
-  name: String
-  starts_at: Date
   used_count: Int
+  starts_at: Date
+  expires_at: Date
+  is_active: Boolean
 }
 
 """"""
 type version_ref_brand {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
+  uuid: ID
   name: String
   slug: String
-  uuid: ID
 }
 
 """"""
 type version_ref_cart_status {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
 }
 
 """"""
 type version_ref_currency {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
   slug: String
   uuid: ID
@@ -2961,37 +3101,37 @@ type version_ref_currency {
 
 """"""
 type version_ref_payment_method {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
 }
 
 """"""
 type version_ref_product_category {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
+  name: String
+  uuid: ID
+  slug: String
   image: JSON
   image_url: String
-  name: String
-  slug: String
-  uuid: ID
 }
 
 """"""
 type version_ref_shipping_method {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
 }
 
 """"""
 type version_ref_species {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
   slug: String
   uuid: ID
@@ -2999,59 +3139,60 @@ type version_ref_species {
 
 """"""
 type version_refresh_tokens {
-  created_at: Date
-  expires_at: Date
   id: ID
-  ip: String
+  user_id: JSON
   refresh_token_hash: String
+  expires_at: Date
   revoked_at: Date
   rotated_from: ID
-  updated_at: Date
   user_agent: String
-  user_id: JSON
+  ip: String
+  created_at: Date
+  updated_at: Date
 }
 
 """"""
 type version_user_addresses {
-  address_text: String
-  country_code: String
-  created_at: Date
   id: ID
+  user_id: JSON
+  type: String
   is_default: Boolean
-  phone_au: String
-  postal_code: String
   recipient_name: String
+  address_text: String
+  postal_code: String
+  country_code: String
+  phone_au: String
+  created_at: Date
   updated_at: Date
-  user_id: ID
 }
 
 """"""
 type version_users {
-  created_at: Date
-  deleted_at: Date
-  display_name: String
-  email: String
-  first_name: String
   id: ID
-  last_name: String
-  marketing_opt_in: Boolean
+  email: String
   phone_au: String
-  privacy_accepted: Boolean
+  display_name: String
+  marketing_opt_in: Boolean
   terms_accepted: Boolean
+  privacy_accepted: Boolean
+  deleted_at: Date
+  created_at: Date
   updated_at: Date
+  first_name: String
+  last_name: String
 }
 
 input accounts_filter {
-  created_at: date_filter_operators
-  created_at_func: datetime_function_filter_operators
-  email_at_link: string_filter_operators
   id: id_filter_operators
+  user_id: users_filter
   provider: string_filter_operators
   provider_account_id: string_filter_operators
+  email_at_link: string_filter_operators
+  created_at: date_filter_operators
+  created_at_func: datetime_function_filter_operators
   raw_profile: string_filter_operators
   updated_at: date_filter_operators
   updated_at_func: datetime_function_filter_operators
-  user_id: id_filter_operators
   _and: [accounts_filter]
   _or: [accounts_filter]
 }
@@ -3079,75 +3220,75 @@ input boolean_filter_operators {
 }
 
 input cart_items_filter {
-  cart_id: carts_filter
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
-  notes: string_filter_operators
-  product_rid: product_info_filter
-  quantity: number_filter_operators
-  snapshot_currency: ref_currency_filter
-  snapshot_unit_price_amt: number_filter_operators
   uuid: id_filter_operators
+  cart_id: carts_filter
+  product_rid: product_info_filter
   variant_rid: product_variants_filter
+  quantity: number_filter_operators
+  snapshot_unit_price_amt: number_filter_operators
+  snapshot_currency: ref_currency_filter
+  notes: string_filter_operators
   _and: [cart_items_filter]
   _or: [cart_items_filter]
 }
 
 input carts_filter {
-  applied_coupon_code: string_filter_operators
-  coupon_discount_amt: number_filter_operators
-  currency: ref_currency_filter
+  id: number_filter_operators
+  sort: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
-  last_priced_at: date_filter_operators
-  last_priced_at_func: datetime_function_filter_operators
+  uuid: id_filter_operators
+  user_id: users_filter
+  currency: ref_currency_filter
+  applied_coupon_code: string_filter_operators
+  coupon_discount_amt: number_filter_operators
+  notes: string_filter_operators
   locked_at: date_filter_operators
   locked_at_func: datetime_function_filter_operators
-  notes: string_filter_operators
-  sort: number_filter_operators
+  last_priced_at: date_filter_operators
+  last_priced_at_func: datetime_function_filter_operators
   status: ref_cart_status_filter
-  user_id: users_filter
-  uuid: id_filter_operators
   _and: [carts_filter]
   _or: [carts_filter]
 }
 
 input checkout_intents_filter {
-  applied_coupon_code: string_filter_operators
-  billing_address: string_filter_operators
-  billing_address_func: count_function_filter_operators
-  cart_id: carts_filter
-  cart_snapshot: string_filter_operators
-  cart_snapshot_func: count_function_filter_operators
-  completed_order_id: orders_filter
-  coupon_discount_amt: number_filter_operators
-  currency: ref_currency_filter
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  discount_total_amt: number_filter_operators
-  expires_at: date_filter_operators
-  expires_at_func: datetime_function_filter_operators
-  grand_total_amt: number_filter_operators
-  id: number_filter_operators
-  ip_address: string_filter_operators
-  payment_method_code: ref_payment_method_filter
-  shipping_address: string_filter_operators
-  shipping_address_func: count_function_filter_operators
-  shipping_fee_amt: number_filter_operators
-  shipping_method_code: ref_shipping_method_filter
-  subtotal_amt: number_filter_operators
-  tax_total_amt: number_filter_operators
-  user_agent: string_filter_operators
   user_id: users_filter
   uuid: id_filter_operators
+  cart_id: carts_filter
+  cart_snapshot: string_filter_operators
+  cart_snapshot_func: count_function_filter_operators
+  shipping_address: string_filter_operators
+  shipping_address_func: count_function_filter_operators
+  billing_address: string_filter_operators
+  billing_address_func: count_function_filter_operators
+  applied_coupon_code: string_filter_operators
+  tax_total_amt: number_filter_operators
+  coupon_discount_amt: number_filter_operators
+  subtotal_amt: number_filter_operators
+  discount_total_amt: number_filter_operators
+  shipping_fee_amt: number_filter_operators
+  grand_total_amt: number_filter_operators
+  currency: ref_currency_filter
+  user_agent: string_filter_operators
+  ip_address: string_filter_operators
+  expires_at: date_filter_operators
+  expires_at_func: datetime_function_filter_operators
+  completed_order_id: orders_filter
+  shipping_method_code: ref_shipping_method_filter
+  payment_method_code: ref_payment_method_filter
   _and: [checkout_intents_filter]
   _or: [checkout_intents_filter]
 }
@@ -3157,70 +3298,70 @@ input count_function_filter_operators {
 }
 
 input create_accounts_input {
-  created_at: Date
-  email_at_link: String
   id: ID
-  provider: String
+  user_id: create_users_input
+  provider: String!
   provider_account_id: String!
+  email_at_link: String
+  created_at: Date
   raw_profile: String
   updated_at: Date
-  user_id: ID
 }
 
 input create_cart_items_input {
-  cart_id: create_carts_input
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
-  notes: String
-  product_rid: create_product_info_input
-  quantity: Int
-  snapshot_currency: create_ref_currency_input
-  snapshot_unit_price_amt: Int
   uuid: ID
+  cart_id: create_carts_input
+  product_rid: create_product_info_input
   variant_rid: create_product_variants_input
+  quantity: Int
+  snapshot_unit_price_amt: Int
+  snapshot_currency: create_ref_currency_input
+  notes: String
 }
 
 input create_carts_input {
-  applied_coupon_code: String
-  coupon_discount_amt: Int
-  currency: create_ref_currency_input
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  id: ID
-  last_priced_at: Date
-  locked_at: Date
-  notes: String
-  sort: Int
-  status: create_ref_cart_status_input
-  user_id: create_users_input
   uuid: ID
+  user_id: create_users_input
+  currency: create_ref_currency_input
+  applied_coupon_code: String
+  coupon_discount_amt: Int
+  notes: String
+  locked_at: Date
+  last_priced_at: Date
+  status: create_ref_cart_status_input
 }
 
 input create_checkout_intents_input {
-  applied_coupon_code: String
-  billing_address: JSON
-  cart_id: create_carts_input
-  cart_snapshot: JSON
-  completed_order_id: create_orders_input
-  coupon_discount_amt: Float
-  currency: create_ref_currency_input
+  id: ID
   date_created: Date
   date_updated: Date
-  discount_total_amt: Float
-  expires_at: Date
-  grand_total_amt: Float
-  id: ID
-  ip_address: String
-  payment_method_code: create_ref_payment_method_input
-  shipping_address: JSON
-  shipping_fee_amt: Float
-  shipping_method_code: create_ref_shipping_method_input
-  subtotal_amt: Float
-  tax_total_amt: Float
-  user_agent: String
   user_id: create_users_input
   uuid: ID
+  cart_id: create_carts_input
+  cart_snapshot: JSON
+  shipping_address: JSON
+  billing_address: JSON
+  applied_coupon_code: String
+  tax_total_amt: Float
+  coupon_discount_amt: Float
+  subtotal_amt: Float
+  discount_total_amt: Float
+  shipping_fee_amt: Float
+  grand_total_amt: Float
+  currency: create_ref_currency_input
+  user_agent: String
+  ip_address: String
+  expires_at: Date
+  completed_order_id: create_orders_input
+  shipping_method_code: create_ref_shipping_method_input
+  payment_method_code: create_ref_payment_method_input
 }
 
 input create_directus_access_input {
@@ -3344,62 +3485,62 @@ input create_directus_users_input {
 }
 
 input create_email_login_tokens_input {
-  code_hash: String!
-  consumed_at: Date
-  email: String!
-  expires_at: Date!
   id: ID
-  ip: String
-  purpose: String
-  user_agent: String
   user_id: create_users_input
+  email: String!
+  code_hash: String!
+  purpose: String
+  expires_at: Date!
+  consumed_at: Date
+  user_agent: String
+  ip: String
+  failed_attempts: Int!
   created_at: Date
   updated_at: Date
-  failed_attempts: Int
 }
 
 input create_order_items_input {
-  currency: String
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  id: ID
-  image_url: String
-  line_total_cents: Int
   order_id: create_orders_input
   product_rid: create_product_info_input
-  product_title: String
-  quantity: Int
-  sort: Int
-  unit_price_cents: Int
   variant_rid: create_product_variants_input
+  quantity: Int
+  unit_price_cents: Int
+  line_total_cents: Int
+  currency: String
+  product_title: String
   variant_sku: String
+  image_url: String
 }
 
 input create_orders_input {
-  billing_address: JSON
-  cart_snapshot: JSON
-  currency: String
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  delivery_method: String
-  discount_amt: Int!
-  email: String!
-  grand_total_amt: Int!
-  id: ID
-  notes: String
-  order_number: String!
-  paid_at: Date
-  shipped_at: Date
-  shipping_address: JSON
-  shipping_fee_amt: Int!
-  sort: Int
-  status: String
-  stripe_payment_intent_id: String
-  stripe_session_id: String
-  subtotal_amt: Int!
-  tax_amt: Int!
-  user_id: ID
   uuid: ID!
+  user_id: create_users_input
+  order_number: String!
+  status: String
+  stripe_session_id: String
+  stripe_payment_intent_id: String
+  email: String!
+  shipping_address: JSON
+  billing_address: JSON
+  subtotal_amt: Int!
+  shipping_fee_amt: Int!
+  tax_amt: Int!
+  discount_amt: Int!
+  grand_total_amt: Int!
+  currency: String
+  cart_snapshot: JSON
+  paid_at: Date
+  notes: String
+  delivery_method: String
+  shipped_at: Date
   order_items: [create_order_items_input]
 }
 
@@ -3413,6 +3554,7 @@ input create_pickup_locations_input {
   timezone: String
   inventory: Int
   is_active: Boolean
+  time_slots: [create_pickup_slots_input]
 }
 
 input create_pickup_slots_input {
@@ -3427,6 +3569,16 @@ input create_pickup_slots_input {
   is_active: Boolean
 }
 
+input create_product_info_detail_information_files_input {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  product_info_rid: create_product_info_input
+  external_url: String
+  storage_provider: String
+}
+
 input create_product_info_files_input {
   id: ID
   sort: Int
@@ -3434,30 +3586,29 @@ input create_product_info_files_input {
   date_updated: Date
   product_info_rid: create_product_info_input
   external_url: String
-  id: ID
-  product_info_rid: create_product_info_input
-  sort: Int
   storage_provider: String
 }
 
 input create_product_info_input {
-  attributes: JSON
-  base_price: Float
-  base_price_currency_rid: create_ref_currency_input
-  brand_rid: create_ref_brand_input
-  category_rid: create_ref_product_category_input
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
   description: String
-  id: ID
-  is_featured: Boolean
-  slug: String
-  sort: Int
-  subtitle: String
   title: String
-  product_info_files: [create_product_info_files_input]
-  product_varients: [create_product_variants_input]
+  subtitle: String
+  slug: String
+  is_featured: Boolean
+  base_price: Float
+  brand_rid: create_ref_brand_input
+  base_price_currency_rid: create_ref_currency_input
+  attributes: JSON
+  category_rid: create_ref_product_category_input
+  detail_information: String
   species: [create_product_info_jxn_species_input]
+  product_varients: [create_product_variants_input]
+  product_info_files: [create_product_info_files_input]
+  detail_information_files: [create_product_info_detail_information_files_input]
 }
 
 input create_product_info_jxn_species_input {
@@ -3467,199 +3618,213 @@ input create_product_info_jxn_species_input {
 }
 
 input create_product_option_values_input {
-  color_hex: String
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   product_option_rid: create_product_options_input
-  uuid: ID
   value: String
+  color_hex: String
+  uuid: ID
 }
 
 input create_product_options_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
-  product_rid: create_product_info_input
   slug: String
   uuid: ID
+  product_rid: create_product_info_input
   option_values_rid: [create_product_option_values_input]
 }
 
 input create_product_variant_files_input {
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  external_url: String
-  id: ID
   product_variant_rid: create_product_variants_input
-  sort: Int
+  external_url: String
   storage_provider: String
 }
 
 input create_product_variant_jxn_option_values_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
+  variant_rid: create_product_variants_input
   option_value_rid: create_product_option_values_input
+}
+
+input create_product_variant_reviews_input {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  uuid: ID
+  customer_name: String
+  content: String
+  image_url: String
   variant_rid: create_product_variants_input
 }
 
 input create_product_variants_input {
-  attributes: JSON
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  discounted_currency_rid: create_ref_currency_input
-  discounted_price: Float
-  height: Float
-  height_unit: String
-  id: ID
-  is_available: Boolean
-  length: Float
-  length_unit: String
-  original_currency_rid: create_ref_currency_input
-  original_price: Float
   product_rid: create_product_info_input
-  sku: String
-  sort: Int
-  stock_quantity: Int
   uuid: ID
+  sku: String
+  original_price: Float
+  discounted_price: Float
+  original_currency_rid: create_ref_currency_input
+  discounted_currency_rid: create_ref_currency_input
   weight: Float
   weight_unit: String
+  length: Float
   width: Float
+  height: Float
+  length_unit: String
   width_unit: String
-  options: [create_product_variant_jxn_option_values_input]
+  height_unit: String
+  stock_quantity: Int
+  is_available: Boolean
+  attributes: JSON
   product_variant_files: [create_product_variant_files_input]
+  options: [create_product_variant_jxn_option_values_input]
+  reviews: [create_product_variant_reviews_input]
 }
 
 input create_promo_code_usage_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  discount_applied: Int
-  id: ID
-  order_rid: create_orders_input
-  order_total_amount: Int
   promo_code_rid: create_promo_codes_input
-  used_at: Date
+  order_rid: create_orders_input
   user_rid: create_users_input
+  discount_applied: Int
+  order_total_amount: Int
+  used_at: Date
 }
 
 input create_promo_codes_input {
-  amount: Int
-  code: String
+  id: ID
   date_created: Date
   date_updated: Date
+  code: String
+  name: String
   description: String
   discount_type: String
-  expires_at: Date
-  id: ID
-  is_active: Boolean
+  amount: Int
+  min_order_amount: Int
   max_discount_amount: Int
   max_usage: Int
-  min_order_amount: Int
-  name: String
-  starts_at: Date
   used_count: Int
+  starts_at: Date
+  expires_at: Date
+  is_active: Boolean
 }
 
 input create_ref_brand_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
+  uuid: ID
   name: String
   slug: String
-  uuid: ID
 }
 
 input create_ref_cart_status_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
 }
 
 input create_ref_currency_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
   slug: String
   uuid: ID
 }
 
 input create_ref_payment_method_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
 }
 
 input create_ref_product_category_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
+  name: String
+  uuid: ID
+  slug: String
   image: create_directus_files_input
   image_url: String
-  name: String
-  slug: String
-  uuid: ID
 }
 
 input create_ref_shipping_method_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
 }
 
 input create_ref_species_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
   slug: String
   uuid: ID
 }
 
 input create_refresh_tokens_input {
-  created_at: Date
-  expires_at: Date!
   id: ID
-  ip: String
+  user_id: create_users_input
   refresh_token_hash: String!
+  expires_at: Date!
   revoked_at: Date
   rotated_from: ID
-  updated_at: Date
   user_agent: String
-  user_id: create_users_input
+  ip: String
+  created_at: Date
+  updated_at: Date
 }
 
 input create_user_addresses_input {
-  address_text: String!
-  country_code: String
-  created_at: Date
   id: ID
+  user_id: create_users_input
+  type: String!
   is_default: Boolean!
-  phone_au: String
-  postal_code: String!
   recipient_name: String
+  address_text: String!
+  postal_code: String!
+  country_code: String
+  phone_au: String
+  created_at: Date
   updated_at: Date
-  user_id: ID
 }
 
 input create_users_input {
-  created_at: Date
-  deleted_at: Date
-  display_name: String
-  email: String
-  first_name: String
   id: ID
-  last_name: String
-  marketing_opt_in: Boolean!
+  email: String
   phone_au: String
-  privacy_accepted: Boolean!
+  display_name: String
+  marketing_opt_in: Boolean!
   terms_accepted: Boolean!
+  privacy_accepted: Boolean!
+  deleted_at: Date
+  created_at: Date
   updated_at: Date
+  first_name: String
+  last_name: String
 }
 
 input date_filter_operators {
@@ -4139,22 +4304,22 @@ input directus_versions_filter {
 }
 
 input email_login_tokens_filter {
-  code_hash: string_filter_operators
-  consumed_at: date_filter_operators
-  consumed_at_func: datetime_function_filter_operators
+  id: number_filter_operators
+  user_id: users_filter
   email: string_filter_operators
+  code_hash: string_filter_operators
+  purpose: string_filter_operators
   expires_at: date_filter_operators
   expires_at_func: datetime_function_filter_operators
-  id: number_filter_operators
-  ip: string_filter_operators
-  purpose: string_filter_operators
+  consumed_at: date_filter_operators
+  consumed_at_func: datetime_function_filter_operators
   user_agent: string_filter_operators
-  user_id: users_filter
+  ip: string_filter_operators
+  failed_attempts: number_filter_operators
   created_at: date_filter_operators
   created_at_func: datetime_function_filter_operators
   updated_at: date_filter_operators
   updated_at_func: datetime_function_filter_operators
-  failed_attempts: number_filter_operators
   _and: [email_login_tokens_filter]
   _or: [email_login_tokens_filter]
 }
@@ -4204,44 +4369,44 @@ input number_filter_operators {
 }
 
 input order_items_filter {
-  currency: string_filter_operators
+  id: number_filter_operators
+  sort: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
-  image_url: string_filter_operators
-  line_total_cents: number_filter_operators
   order_id: orders_filter
   product_rid: product_info_filter
-  product_title: string_filter_operators
-  quantity: number_filter_operators
-  sort: number_filter_operators
-  unit_price_cents: number_filter_operators
   variant_rid: product_variants_filter
+  quantity: number_filter_operators
+  unit_price_cents: number_filter_operators
+  line_total_cents: number_filter_operators
+  currency: string_filter_operators
+  product_title: string_filter_operators
   variant_sku: string_filter_operators
+  image_url: string_filter_operators
   _and: [order_items_filter]
   _or: [order_items_filter]
 }
 
 """"""
 input order_items_quantifier_filter {
-  currency: string_filter_operators
+  id: number_filter_operators
+  sort: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
-  image_url: string_filter_operators
-  line_total_cents: number_filter_operators
   order_id: orders_filter
   product_rid: product_info_filter
-  product_title: string_filter_operators
-  quantity: number_filter_operators
-  sort: number_filter_operators
-  unit_price_cents: number_filter_operators
   variant_rid: product_variants_filter
+  quantity: number_filter_operators
+  unit_price_cents: number_filter_operators
+  line_total_cents: number_filter_operators
+  currency: string_filter_operators
+  product_title: string_filter_operators
   variant_sku: string_filter_operators
+  image_url: string_filter_operators
   _and: [order_items_filter]
   _or: [order_items_filter]
   _some: order_items_filter
@@ -4249,37 +4414,37 @@ input order_items_quantifier_filter {
 }
 
 input orders_filter {
-  billing_address: string_filter_operators
-  billing_address_func: count_function_filter_operators
-  cart_snapshot: string_filter_operators
-  cart_snapshot_func: count_function_filter_operators
-  currency: string_filter_operators
+  id: number_filter_operators
+  sort: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  delivery_method: string_filter_operators
-  discount_amt: number_filter_operators
-  email: string_filter_operators
-  grand_total_amt: number_filter_operators
-  id: number_filter_operators
-  notes: string_filter_operators
+  uuid: id_filter_operators
+  user_id: users_filter
   order_number: string_filter_operators
-  paid_at: date_filter_operators
-  paid_at_func: datetime_function_filter_operators
-  shipped_at: date_filter_operators
-  shipped_at_func: datetime_function_filter_operators
+  status: string_filter_operators
+  stripe_session_id: string_filter_operators
+  stripe_payment_intent_id: string_filter_operators
+  email: string_filter_operators
   shipping_address: string_filter_operators
   shipping_address_func: count_function_filter_operators
-  shipping_fee_amt: number_filter_operators
-  sort: number_filter_operators
-  status: string_filter_operators
-  stripe_payment_intent_id: string_filter_operators
-  stripe_session_id: string_filter_operators
+  billing_address: string_filter_operators
+  billing_address_func: count_function_filter_operators
   subtotal_amt: number_filter_operators
+  shipping_fee_amt: number_filter_operators
   tax_amt: number_filter_operators
-  user_id: id_filter_operators
-  uuid: id_filter_operators
+  discount_amt: number_filter_operators
+  grand_total_amt: number_filter_operators
+  currency: string_filter_operators
+  cart_snapshot: string_filter_operators
+  cart_snapshot_func: count_function_filter_operators
+  paid_at: date_filter_operators
+  paid_at_func: datetime_function_filter_operators
+  notes: string_filter_operators
+  delivery_method: string_filter_operators
+  shipped_at: date_filter_operators
+  shipped_at_func: datetime_function_filter_operators
   order_items: order_items_quantifier_filter
   order_items_func: count_function_filter_operators
   _and: [orders_filter]
@@ -4298,6 +4463,8 @@ input pickup_locations_filter {
   timezone: string_filter_operators
   inventory: number_filter_operators
   is_active: boolean_filter_operators
+  time_slots: pickup_slots_quantifier_filter
+  time_slots_func: count_function_filter_operators
   _and: [pickup_locations_filter]
   _or: [pickup_locations_filter]
 }
@@ -4321,6 +4488,59 @@ input pickup_slots_filter {
   _or: [pickup_slots_filter]
 }
 
+""""""
+input pickup_slots_quantifier_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  location_id: pickup_locations_filter
+  slot_date: date_filter_operators
+  slot_date_func: date_function_filter_operators
+  start_at: date_filter_operators
+  start_at_func: time_function_filter_operators
+  end_at: date_filter_operators
+  end_at_func: time_function_filter_operators
+  is_active: boolean_filter_operators
+  _and: [pickup_slots_filter]
+  _or: [pickup_slots_filter]
+  _some: pickup_slots_filter
+  _none: pickup_slots_filter
+}
+
+input product_info_detail_information_files_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  product_info_rid: product_info_filter
+  external_url: string_filter_operators
+  storage_provider: string_filter_operators
+  _and: [product_info_detail_information_files_filter]
+  _or: [product_info_detail_information_files_filter]
+}
+
+""""""
+input product_info_detail_information_files_quantifier_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  product_info_rid: product_info_filter
+  external_url: string_filter_operators
+  storage_provider: string_filter_operators
+  _and: [product_info_detail_information_files_filter]
+  _or: [product_info_detail_information_files_filter]
+  _some: product_info_detail_information_files_filter
+  _none: product_info_detail_information_files_filter
+}
+
 input product_info_files_filter {
   id: number_filter_operators
   sort: number_filter_operators
@@ -4330,9 +4550,6 @@ input product_info_files_filter {
   date_updated_func: datetime_function_filter_operators
   product_info_rid: product_info_filter
   external_url: string_filter_operators
-  id: number_filter_operators
-  product_info_rid: product_info_filter
-  sort: number_filter_operators
   storage_provider: string_filter_operators
   _and: [product_info_files_filter]
   _or: [product_info_files_filter]
@@ -4340,14 +4557,14 @@ input product_info_files_filter {
 
 """"""
 input product_info_files_quantifier_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  external_url: string_filter_operators
-  id: number_filter_operators
   product_info_rid: product_info_filter
-  sort: number_filter_operators
+  external_url: string_filter_operators
   storage_provider: string_filter_operators
   _and: [product_info_files_filter]
   _or: [product_info_files_filter]
@@ -4356,29 +4573,32 @@ input product_info_files_quantifier_filter {
 }
 
 input product_info_filter {
-  attributes: string_filter_operators
-  attributes_func: count_function_filter_operators
-  base_price: number_filter_operators
-  base_price_currency_rid: ref_currency_filter
-  brand_rid: ref_brand_filter
-  category_rid: ref_product_category_filter
+  id: number_filter_operators
+  sort: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
   description: string_filter_operators
-  id: number_filter_operators
-  is_featured: boolean_filter_operators
-  slug: string_filter_operators
-  sort: number_filter_operators
-  subtitle: string_filter_operators
   title: string_filter_operators
-  product_info_files: product_info_files_quantifier_filter
-  product_info_files_func: count_function_filter_operators
-  product_varients: product_variants_quantifier_filter
-  product_varients_func: count_function_filter_operators
+  subtitle: string_filter_operators
+  slug: string_filter_operators
+  is_featured: boolean_filter_operators
+  base_price: number_filter_operators
+  brand_rid: ref_brand_filter
+  base_price_currency_rid: ref_currency_filter
+  attributes: string_filter_operators
+  attributes_func: count_function_filter_operators
+  category_rid: ref_product_category_filter
+  detail_information: string_filter_operators
   species: product_info_jxn_species_quantifier_filter
   species_func: count_function_filter_operators
+  product_varients: product_variants_quantifier_filter
+  product_varients_func: count_function_filter_operators
+  product_info_files: product_info_files_quantifier_filter
+  product_info_files_func: count_function_filter_operators
+  detail_information_files: product_info_detail_information_files_quantifier_filter
+  detail_information_files_func: count_function_filter_operators
   _and: [product_info_filter]
   _or: [product_info_filter]
 }
@@ -4403,30 +4623,30 @@ input product_info_jxn_species_quantifier_filter {
 }
 
 input product_option_values_filter {
-  color_hex: string_filter_operators
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
   product_option_rid: product_options_filter
-  uuid: id_filter_operators
   value: string_filter_operators
+  color_hex: string_filter_operators
+  uuid: id_filter_operators
   _and: [product_option_values_filter]
   _or: [product_option_values_filter]
 }
 
 """"""
 input product_option_values_quantifier_filter {
-  color_hex: string_filter_operators
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
   product_option_rid: product_options_filter
-  uuid: id_filter_operators
   value: string_filter_operators
+  color_hex: string_filter_operators
+  uuid: id_filter_operators
   _and: [product_option_values_filter]
   _or: [product_option_values_filter]
   _some: product_option_values_filter
@@ -4434,15 +4654,15 @@ input product_option_values_quantifier_filter {
 }
 
 input product_options_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
   name: string_filter_operators
-  product_rid: product_info_filter
   slug: string_filter_operators
   uuid: id_filter_operators
+  product_rid: product_info_filter
   option_values_rid: product_option_values_quantifier_filter
   option_values_rid_func: count_function_filter_operators
   _and: [product_options_filter]
@@ -4450,14 +4670,14 @@ input product_options_filter {
 }
 
 input product_variant_files_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  external_url: string_filter_operators
-  id: number_filter_operators
   product_variant_rid: product_variants_filter
-  sort: number_filter_operators
+  external_url: string_filter_operators
   storage_provider: string_filter_operators
   _and: [product_variant_files_filter]
   _or: [product_variant_files_filter]
@@ -4465,14 +4685,14 @@ input product_variant_files_filter {
 
 """"""
 input product_variant_files_quantifier_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  external_url: string_filter_operators
-  id: number_filter_operators
   product_variant_rid: product_variants_filter
-  sort: number_filter_operators
+  external_url: string_filter_operators
   storage_provider: string_filter_operators
   _and: [product_variant_files_filter]
   _or: [product_variant_files_filter]
@@ -4481,97 +4701,136 @@ input product_variant_files_quantifier_filter {
 }
 
 input product_variant_jxn_option_values_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
-  option_value_rid: product_option_values_filter
   variant_rid: product_variants_filter
+  option_value_rid: product_option_values_filter
   _and: [product_variant_jxn_option_values_filter]
   _or: [product_variant_jxn_option_values_filter]
 }
 
 """"""
 input product_variant_jxn_option_values_quantifier_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
-  option_value_rid: product_option_values_filter
   variant_rid: product_variants_filter
+  option_value_rid: product_option_values_filter
   _and: [product_variant_jxn_option_values_filter]
   _or: [product_variant_jxn_option_values_filter]
   _some: product_variant_jxn_option_values_filter
   _none: product_variant_jxn_option_values_filter
 }
 
-input product_variants_filter {
-  attributes: string_filter_operators
-  attributes_func: count_function_filter_operators
+input product_variant_reviews_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  discounted_currency_rid: ref_currency_filter
-  discounted_price: number_filter_operators
-  height: number_filter_operators
-  height_unit: string_filter_operators
-  id: number_filter_operators
-  is_available: boolean_filter_operators
-  length: number_filter_operators
-  length_unit: string_filter_operators
-  original_currency_rid: ref_currency_filter
-  original_price: number_filter_operators
-  product_rid: product_info_filter
-  sku: string_filter_operators
-  sort: number_filter_operators
-  stock_quantity: number_filter_operators
   uuid: id_filter_operators
+  customer_name: string_filter_operators
+  content: string_filter_operators
+  image_url: string_filter_operators
+  variant_rid: product_variants_filter
+  _and: [product_variant_reviews_filter]
+  _or: [product_variant_reviews_filter]
+}
+
+""""""
+input product_variant_reviews_quantifier_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  uuid: id_filter_operators
+  customer_name: string_filter_operators
+  content: string_filter_operators
+  image_url: string_filter_operators
+  variant_rid: product_variants_filter
+  _and: [product_variant_reviews_filter]
+  _or: [product_variant_reviews_filter]
+  _some: product_variant_reviews_filter
+  _none: product_variant_reviews_filter
+}
+
+input product_variants_filter {
+  id: number_filter_operators
+  sort: number_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  product_rid: product_info_filter
+  uuid: id_filter_operators
+  sku: string_filter_operators
+  original_price: number_filter_operators
+  discounted_price: number_filter_operators
+  original_currency_rid: ref_currency_filter
+  discounted_currency_rid: ref_currency_filter
   weight: number_filter_operators
   weight_unit: string_filter_operators
+  length: number_filter_operators
   width: number_filter_operators
+  height: number_filter_operators
+  length_unit: string_filter_operators
   width_unit: string_filter_operators
-  options: product_variant_jxn_option_values_quantifier_filter
-  options_func: count_function_filter_operators
+  height_unit: string_filter_operators
+  stock_quantity: number_filter_operators
+  is_available: boolean_filter_operators
+  attributes: string_filter_operators
+  attributes_func: count_function_filter_operators
   product_variant_files: product_variant_files_quantifier_filter
   product_variant_files_func: count_function_filter_operators
+  options: product_variant_jxn_option_values_quantifier_filter
+  options_func: count_function_filter_operators
+  reviews: product_variant_reviews_quantifier_filter
+  reviews_func: count_function_filter_operators
   _and: [product_variants_filter]
   _or: [product_variants_filter]
 }
 
 """"""
 input product_variants_quantifier_filter {
-  attributes: string_filter_operators
-  attributes_func: count_function_filter_operators
+  id: number_filter_operators
+  sort: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  discounted_currency_rid: ref_currency_filter
-  discounted_price: number_filter_operators
-  height: number_filter_operators
-  height_unit: string_filter_operators
-  id: number_filter_operators
-  is_available: boolean_filter_operators
-  length: number_filter_operators
-  length_unit: string_filter_operators
-  original_currency_rid: ref_currency_filter
-  original_price: number_filter_operators
   product_rid: product_info_filter
-  sku: string_filter_operators
-  sort: number_filter_operators
-  stock_quantity: number_filter_operators
   uuid: id_filter_operators
+  sku: string_filter_operators
+  original_price: number_filter_operators
+  discounted_price: number_filter_operators
+  original_currency_rid: ref_currency_filter
+  discounted_currency_rid: ref_currency_filter
   weight: number_filter_operators
   weight_unit: string_filter_operators
+  length: number_filter_operators
   width: number_filter_operators
+  height: number_filter_operators
+  length_unit: string_filter_operators
   width_unit: string_filter_operators
-  options: product_variant_jxn_option_values_quantifier_filter
-  options_func: count_function_filter_operators
+  height_unit: string_filter_operators
+  stock_quantity: number_filter_operators
+  is_available: boolean_filter_operators
+  attributes: string_filter_operators
+  attributes_func: count_function_filter_operators
   product_variant_files: product_variant_files_quantifier_filter
   product_variant_files_func: count_function_filter_operators
+  options: product_variant_jxn_option_values_quantifier_filter
+  options_func: count_function_filter_operators
+  reviews: product_variant_reviews_quantifier_filter
+  reviews_func: count_function_filter_operators
   _and: [product_variants_filter]
   _or: [product_variants_filter]
   _some: product_variants_filter
@@ -4579,76 +4838,76 @@ input product_variants_quantifier_filter {
 }
 
 input promo_code_usage_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  discount_applied: number_filter_operators
-  id: number_filter_operators
-  order_rid: orders_filter
-  order_total_amount: number_filter_operators
   promo_code_rid: promo_codes_filter
+  order_rid: orders_filter
+  user_rid: users_filter
+  discount_applied: number_filter_operators
+  order_total_amount: number_filter_operators
   used_at: date_filter_operators
   used_at_func: datetime_function_filter_operators
-  user_rid: users_filter
   _and: [promo_code_usage_filter]
   _or: [promo_code_usage_filter]
 }
 
 input promo_codes_filter {
-  amount: number_filter_operators
-  code: string_filter_operators
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
+  code: string_filter_operators
+  name: string_filter_operators
   description: string_filter_operators
   discount_type: string_filter_operators
-  expires_at: date_filter_operators
-  expires_at_func: datetime_function_filter_operators
-  id: number_filter_operators
-  is_active: boolean_filter_operators
+  amount: number_filter_operators
+  min_order_amount: number_filter_operators
   max_discount_amount: number_filter_operators
   max_usage: number_filter_operators
-  min_order_amount: number_filter_operators
-  name: string_filter_operators
+  used_count: number_filter_operators
   starts_at: date_filter_operators
   starts_at_func: datetime_function_filter_operators
-  used_count: number_filter_operators
+  expires_at: date_filter_operators
+  expires_at_func: datetime_function_filter_operators
+  is_active: boolean_filter_operators
   _and: [promo_codes_filter]
   _or: [promo_codes_filter]
 }
 
 input ref_brand_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
+  uuid: id_filter_operators
   name: string_filter_operators
   slug: string_filter_operators
-  uuid: id_filter_operators
   _and: [ref_brand_filter]
   _or: [ref_brand_filter]
 }
 
 input ref_cart_status_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
   name: string_filter_operators
   _and: [ref_cart_status_filter]
   _or: [ref_cart_status_filter]
 }
 
 input ref_currency_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
   name: string_filter_operators
   slug: string_filter_operators
   uuid: id_filter_operators
@@ -4657,48 +4916,48 @@ input ref_currency_filter {
 }
 
 input ref_payment_method_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
   name: string_filter_operators
   _and: [ref_payment_method_filter]
   _or: [ref_payment_method_filter]
 }
 
 input ref_product_category_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
+  name: string_filter_operators
+  uuid: id_filter_operators
+  slug: string_filter_operators
   image: directus_files_filter
   image_url: string_filter_operators
-  name: string_filter_operators
-  slug: string_filter_operators
-  uuid: id_filter_operators
   _and: [ref_product_category_filter]
   _or: [ref_product_category_filter]
 }
 
 input ref_shipping_method_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
   name: string_filter_operators
   _and: [ref_shipping_method_filter]
   _or: [ref_shipping_method_filter]
 }
 
 input ref_species_filter {
+  id: number_filter_operators
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
   name: string_filter_operators
   slug: string_filter_operators
   uuid: id_filter_operators
@@ -4707,20 +4966,20 @@ input ref_species_filter {
 }
 
 input refresh_tokens_filter {
-  created_at: date_filter_operators
-  created_at_func: datetime_function_filter_operators
+  id: number_filter_operators
+  user_id: users_filter
+  refresh_token_hash: string_filter_operators
   expires_at: date_filter_operators
   expires_at_func: datetime_function_filter_operators
-  id: number_filter_operators
-  ip: string_filter_operators
-  refresh_token_hash: string_filter_operators
   revoked_at: date_filter_operators
   revoked_at_func: datetime_function_filter_operators
   rotated_from: id_filter_operators
+  user_agent: string_filter_operators
+  ip: string_filter_operators
+  created_at: date_filter_operators
+  created_at_func: datetime_function_filter_operators
   updated_at: date_filter_operators
   updated_at_func: datetime_function_filter_operators
-  user_agent: string_filter_operators
-  user_id: users_filter
   _and: [refresh_tokens_filter]
   _or: [refresh_tokens_filter]
 }
@@ -4754,70 +5013,70 @@ input time_function_filter_operators {
 }
 
 input update_accounts_input {
-  created_at: Date
-  email_at_link: String
   id: ID
+  user_id: update_users_input
   provider: String
   provider_account_id: String
+  email_at_link: String
+  created_at: Date
   raw_profile: String
   updated_at: Date
-  user_id: ID
 }
 
 input update_cart_items_input {
-  cart_id: update_carts_input
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
-  notes: String
-  product_rid: update_product_info_input
-  quantity: Int
-  snapshot_currency: update_ref_currency_input
-  snapshot_unit_price_amt: Int
   uuid: ID
+  cart_id: update_carts_input
+  product_rid: update_product_info_input
   variant_rid: update_product_variants_input
+  quantity: Int
+  snapshot_unit_price_amt: Int
+  snapshot_currency: update_ref_currency_input
+  notes: String
 }
 
 input update_carts_input {
-  applied_coupon_code: String
-  coupon_discount_amt: Int
-  currency: update_ref_currency_input
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  id: ID
-  last_priced_at: Date
-  locked_at: Date
-  notes: String
-  sort: Int
-  status: update_ref_cart_status_input
-  user_id: update_users_input
   uuid: ID
+  user_id: update_users_input
+  currency: update_ref_currency_input
+  applied_coupon_code: String
+  coupon_discount_amt: Int
+  notes: String
+  locked_at: Date
+  last_priced_at: Date
+  status: update_ref_cart_status_input
 }
 
 input update_checkout_intents_input {
-  applied_coupon_code: String
-  billing_address: JSON
-  cart_id: update_carts_input
-  cart_snapshot: JSON
-  completed_order_id: update_orders_input
-  coupon_discount_amt: Float
-  currency: update_ref_currency_input
+  id: ID
   date_created: Date
   date_updated: Date
-  discount_total_amt: Float
-  expires_at: Date
-  grand_total_amt: Float
-  id: ID
-  ip_address: String
-  payment_method_code: update_ref_payment_method_input
-  shipping_address: JSON
-  shipping_fee_amt: Float
-  shipping_method_code: update_ref_shipping_method_input
-  subtotal_amt: Float
-  tax_total_amt: Float
-  user_agent: String
   user_id: update_users_input
   uuid: ID
+  cart_id: update_carts_input
+  cart_snapshot: JSON
+  shipping_address: JSON
+  billing_address: JSON
+  applied_coupon_code: String
+  tax_total_amt: Float
+  coupon_discount_amt: Float
+  subtotal_amt: Float
+  discount_total_amt: Float
+  shipping_fee_amt: Float
+  grand_total_amt: Float
+  currency: update_ref_currency_input
+  user_agent: String
+  ip_address: String
+  expires_at: Date
+  completed_order_id: update_orders_input
+  shipping_method_code: update_ref_shipping_method_input
+  payment_method_code: update_ref_payment_method_input
 }
 
 input update_directus_access_input {
@@ -4941,62 +5200,62 @@ input update_directus_users_input {
 }
 
 input update_email_login_tokens_input {
-  code_hash: String
-  consumed_at: Date
-  email: String
-  expires_at: Date
   id: ID
-  ip: String
-  purpose: String
-  user_agent: String
   user_id: update_users_input
+  email: String
+  code_hash: String
+  purpose: String
+  expires_at: Date
+  consumed_at: Date
+  user_agent: String
+  ip: String
+  failed_attempts: Int
   created_at: Date
   updated_at: Date
-  failed_attempts: Int
 }
 
 input update_order_items_input {
-  currency: String
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  id: ID
-  image_url: String
-  line_total_cents: Int
   order_id: update_orders_input
   product_rid: update_product_info_input
-  product_title: String
-  quantity: Int
-  sort: Int
-  unit_price_cents: Int
   variant_rid: update_product_variants_input
+  quantity: Int
+  unit_price_cents: Int
+  line_total_cents: Int
+  currency: String
+  product_title: String
   variant_sku: String
+  image_url: String
 }
 
 input update_orders_input {
-  billing_address: JSON
-  cart_snapshot: JSON
-  currency: String
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  delivery_method: String
-  discount_amt: Int
-  email: String
-  grand_total_amt: Int
-  id: ID
-  notes: String
-  order_number: String
-  paid_at: Date
-  shipped_at: Date
-  shipping_address: JSON
-  shipping_fee_amt: Int
-  sort: Int
-  status: String
-  stripe_payment_intent_id: String
-  stripe_session_id: String
-  subtotal_amt: Int
-  tax_amt: Int
-  user_id: ID
   uuid: ID
+  user_id: update_users_input
+  order_number: String
+  status: String
+  stripe_session_id: String
+  stripe_payment_intent_id: String
+  email: String
+  shipping_address: JSON
+  billing_address: JSON
+  subtotal_amt: Int
+  shipping_fee_amt: Int
+  tax_amt: Int
+  discount_amt: Int
+  grand_total_amt: Int
+  currency: String
+  cart_snapshot: JSON
+  paid_at: Date
+  notes: String
+  delivery_method: String
+  shipped_at: Date
   order_items: [update_order_items_input]
 }
 
@@ -5010,6 +5269,7 @@ input update_pickup_locations_input {
   timezone: String
   inventory: Int
   is_active: Boolean
+  time_slots: [update_pickup_slots_input]
 }
 
 input update_pickup_slots_input {
@@ -5024,6 +5284,16 @@ input update_pickup_slots_input {
   is_active: Boolean
 }
 
+input update_product_info_detail_information_files_input {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  product_info_rid: update_product_info_input
+  external_url: String
+  storage_provider: String
+}
+
 input update_product_info_files_input {
   id: ID
   sort: Int
@@ -5031,30 +5301,29 @@ input update_product_info_files_input {
   date_updated: Date
   product_info_rid: update_product_info_input
   external_url: String
-  id: ID
-  product_info_rid: update_product_info_input
-  sort: Int
   storage_provider: String
 }
 
 input update_product_info_input {
-  attributes: JSON
-  base_price: Float
-  base_price_currency_rid: update_ref_currency_input
-  brand_rid: update_ref_brand_input
-  category_rid: update_ref_product_category_input
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
   description: String
-  id: ID
-  is_featured: Boolean
-  slug: String
-  sort: Int
-  subtitle: String
   title: String
-  product_info_files: [update_product_info_files_input]
-  product_varients: [update_product_variants_input]
+  subtitle: String
+  slug: String
+  is_featured: Boolean
+  base_price: Float
+  brand_rid: update_ref_brand_input
+  base_price_currency_rid: update_ref_currency_input
+  attributes: JSON
+  category_rid: update_ref_product_category_input
+  detail_information: String
   species: [update_product_info_jxn_species_input]
+  product_varients: [update_product_variants_input]
+  product_info_files: [update_product_info_files_input]
+  detail_information_files: [update_product_info_detail_information_files_input]
 }
 
 input update_product_info_jxn_species_input {
@@ -5064,234 +5333,249 @@ input update_product_info_jxn_species_input {
 }
 
 input update_product_option_values_input {
-  color_hex: String
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   product_option_rid: update_product_options_input
-  uuid: ID
   value: String
+  color_hex: String
+  uuid: ID
 }
 
 input update_product_options_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
-  product_rid: update_product_info_input
   slug: String
   uuid: ID
+  product_rid: update_product_info_input
   option_values_rid: [update_product_option_values_input]
 }
 
 input update_product_variant_files_input {
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  external_url: String
-  id: ID
   product_variant_rid: update_product_variants_input
-  sort: Int
+  external_url: String
   storage_provider: String
 }
 
 input update_product_variant_jxn_option_values_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
+  variant_rid: update_product_variants_input
   option_value_rid: update_product_option_values_input
+}
+
+input update_product_variant_reviews_input {
+  id: ID
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  uuid: ID
+  customer_name: String
+  content: String
+  image_url: String
   variant_rid: update_product_variants_input
 }
 
 input update_product_variants_input {
-  attributes: JSON
+  id: ID
+  sort: Int
   date_created: Date
   date_updated: Date
-  discounted_currency_rid: update_ref_currency_input
-  discounted_price: Float
-  height: Float
-  height_unit: String
-  id: ID
-  is_available: Boolean
-  length: Float
-  length_unit: String
-  original_currency_rid: update_ref_currency_input
-  original_price: Float
   product_rid: update_product_info_input
-  sku: String
-  sort: Int
-  stock_quantity: Int
   uuid: ID
+  sku: String
+  original_price: Float
+  discounted_price: Float
+  original_currency_rid: update_ref_currency_input
+  discounted_currency_rid: update_ref_currency_input
   weight: Float
   weight_unit: String
+  length: Float
   width: Float
+  height: Float
+  length_unit: String
   width_unit: String
-  options: [update_product_variant_jxn_option_values_input]
+  height_unit: String
+  stock_quantity: Int
+  is_available: Boolean
+  attributes: JSON
   product_variant_files: [update_product_variant_files_input]
+  options: [update_product_variant_jxn_option_values_input]
+  reviews: [update_product_variant_reviews_input]
 }
 
 input update_promo_code_usage_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  discount_applied: Int
-  id: ID
-  order_rid: update_orders_input
-  order_total_amount: Int
   promo_code_rid: update_promo_codes_input
-  used_at: Date
+  order_rid: update_orders_input
   user_rid: update_users_input
+  discount_applied: Int
+  order_total_amount: Int
+  used_at: Date
 }
 
 input update_promo_codes_input {
-  amount: Int
-  code: String
+  id: ID
   date_created: Date
   date_updated: Date
+  code: String
+  name: String
   description: String
   discount_type: String
-  expires_at: Date
-  id: ID
-  is_active: Boolean
+  amount: Int
+  min_order_amount: Int
   max_discount_amount: Int
   max_usage: Int
-  min_order_amount: Int
-  name: String
-  starts_at: Date
   used_count: Int
+  starts_at: Date
+  expires_at: Date
+  is_active: Boolean
 }
 
 input update_ref_brand_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
+  uuid: ID
   name: String
   slug: String
-  uuid: ID
 }
 
 input update_ref_cart_status_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
 }
 
 input update_ref_currency_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
   slug: String
   uuid: ID
 }
 
 input update_ref_payment_method_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
 }
 
 input update_ref_product_category_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
+  name: String
+  uuid: ID
+  slug: String
   image: update_directus_files_input
   image_url: String
-  name: String
-  slug: String
-  uuid: ID
 }
 
 input update_ref_shipping_method_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
 }
 
 input update_ref_species_input {
+  id: ID
   date_created: Date
   date_updated: Date
-  id: ID
   name: String
   slug: String
   uuid: ID
 }
 
 input update_refresh_tokens_input {
-  created_at: Date
-  expires_at: Date
   id: ID
-  ip: String
+  user_id: update_users_input
   refresh_token_hash: String
+  expires_at: Date
   revoked_at: Date
   rotated_from: ID
-  updated_at: Date
   user_agent: String
-  user_id: update_users_input
+  ip: String
+  created_at: Date
+  updated_at: Date
 }
 
 input update_user_addresses_input {
-  address_text: String
-  country_code: String
-  created_at: Date
   id: ID
+  user_id: update_users_input
+  type: String
   is_default: Boolean
-  phone_au: String
-  postal_code: String
   recipient_name: String
+  address_text: String
+  postal_code: String
+  country_code: String
+  phone_au: String
+  created_at: Date
   updated_at: Date
-  user_id: ID
 }
 
 input update_users_input {
-  created_at: Date
-  deleted_at: Date
-  display_name: String
-  email: String
-  first_name: String
   id: ID
-  last_name: String
-  marketing_opt_in: Boolean
+  email: String
   phone_au: String
-  privacy_accepted: Boolean
+  display_name: String
+  marketing_opt_in: Boolean
   terms_accepted: Boolean
+  privacy_accepted: Boolean
+  deleted_at: Date
+  created_at: Date
   updated_at: Date
+  first_name: String
+  last_name: String
 }
 
 input user_addresses_filter {
+  id: id_filter_operators
+  user_id: users_filter
+  type: string_filter_operators
+  is_default: boolean_filter_operators
+  recipient_name: string_filter_operators
   address_text: string_filter_operators
+  postal_code: string_filter_operators
   country_code: string_filter_operators
+  phone_au: string_filter_operators
   created_at: date_filter_operators
   created_at_func: datetime_function_filter_operators
-  id: id_filter_operators
-  is_default: boolean_filter_operators
-  phone_au: string_filter_operators
-  postal_code: string_filter_operators
-  recipient_name: string_filter_operators
   updated_at: date_filter_operators
   updated_at_func: datetime_function_filter_operators
-  user_id: id_filter_operators
   _and: [user_addresses_filter]
   _or: [user_addresses_filter]
 }
 
 input users_filter {
-  created_at: date_filter_operators
-  created_at_func: datetime_function_filter_operators
+  id: id_filter_operators
+  email: string_filter_operators
+  phone_au: string_filter_operators
+  display_name: string_filter_operators
+  marketing_opt_in: boolean_filter_operators
+  terms_accepted: boolean_filter_operators
+  privacy_accepted: boolean_filter_operators
   deleted_at: date_filter_operators
   deleted_at_func: datetime_function_filter_operators
-  display_name: string_filter_operators
-  email: string_filter_operators
-  first_name: string_filter_operators
-  id: id_filter_operators
-  last_name: string_filter_operators
-  marketing_opt_in: boolean_filter_operators
-  phone_au: string_filter_operators
-  privacy_accepted: boolean_filter_operators
-  terms_accepted: boolean_filter_operators
+  created_at: date_filter_operators
+  created_at_func: datetime_function_filter_operators
   updated_at: date_filter_operators
   updated_at_func: datetime_function_filter_operators
+  first_name: string_filter_operators
+  last_name: string_filter_operators
   _and: [users_filter]
   _or: [users_filter]
 }

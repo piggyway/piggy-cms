@@ -5,12 +5,5 @@
     "description": "$t:admin_description",
     "parent": null,
     "_syncId": "_sync_default_admin_role"
-  },
-  {
-    "name": "Administrator",
-    "icon": "verified",
-    "description": "$t:admin_description",
-    "parent": null,
-    "_syncId": "1631e500-d2f0-409d-8a98-3cddd428964a"
   }
 ]

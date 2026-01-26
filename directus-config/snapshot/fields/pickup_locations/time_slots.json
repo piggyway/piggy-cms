@@ -1,0 +1,32 @@
+{
+  "collection": "pickup_locations",
+  "field": "time_slots",
+  "type": "alias",
+  "meta": {
+    "collection": "pickup_locations",
+    "conditions": null,
+    "display": "related-values",
+    "display_options": {
+      "template": "{{slot_date}}{{start_at}}{{end_at}}"
+    },
+    "field": "time_slots",
+    "group": null,
+    "hidden": false,
+    "interface": "list-o2m",
+    "note": null,
+    "options": {
+      "template": "{{slot_date}}{{start_at}}{{end_at}}"
+    },
+    "readonly": false,
+    "required": false,
+    "searchable": true,
+    "sort": 4,
+    "special": [
+      "o2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

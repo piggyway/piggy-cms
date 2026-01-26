@@ -1,32 +1,36 @@
 {
-  "collection": "email_login_tokens",
-  "field": "updated_at",
-  "type": "dateTime",
+  "collection": "product_variant_reviews",
+  "field": "date_updated",
+  "type": "timestamp",
   "meta": {
-    "collection": "email_login_tokens",
+    "collection": "product_variant_reviews",
     "conditions": null,
-    "display": null,
-    "display_options": null,
-    "field": "updated_at",
+    "display": "datetime",
+    "display_options": {
+      "relative": true
+    },
+    "field": "date_updated",
     "group": null,
-    "hidden": false,
+    "hidden": true,
     "interface": "datetime",
     "note": null,
     "options": null,
-    "readonly": false,
+    "readonly": true,
     "required": false,
     "searchable": true,
-    "sort": 12,
-    "special": null,
+    "sort": 9,
+    "special": [
+      "date-updated"
+    ],
     "translations": null,
     "validation": null,
     "validation_message": null,
-    "width": "full"
+    "width": "half"
   },
   "schema": {
-    "name": "updated_at",
-    "table": "email_login_tokens",
-    "data_type": "timestamp without time zone",
+    "name": "date_updated",
+    "table": "product_variant_reviews",
+    "data_type": "timestamp with time zone",
     "default_value": null,
     "max_length": null,
     "numeric_precision": null,

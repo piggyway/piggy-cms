@@ -14,7 +14,7 @@
     "icon": null,
     "item_duplication_fields": null,
     "note": "产品基础信息表，存储产品的通用信息,不包含具体的价格、库存等变体相关信息",
-    "preview_url": null,
+    "preview_url": "http://localhost:3000/api/draft?secret=hHhtscklwR7hkXQkH1obP8JEMo7Jg3cRRLHciHikw=&collection=product_info&slug={{slug}}",
     "singleton": false,
     "sort": 1,
     "sort_field": "sort",

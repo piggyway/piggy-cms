@@ -1,0 +1,30 @@
+{
+  "collection": "product_variants",
+  "field": "reviews",
+  "type": "alias",
+  "meta": {
+    "collection": "product_variants",
+    "conditions": null,
+    "display": "related-values",
+    "display_options": null,
+    "field": "reviews",
+    "group": null,
+    "hidden": false,
+    "interface": "list-o2m",
+    "note": null,
+    "options": {
+      "template": "{{customer_name}}"
+    },
+    "readonly": false,
+    "required": false,
+    "searchable": true,
+    "sort": 21,
+    "special": [
+      "o2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

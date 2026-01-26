@@ -18,7 +18,7 @@
     "column": "status",
     "foreign_key_table": "ref_cart_status",
     "foreign_key_column": "id",
-    "constraint_name": "carts_status_ref_cart_status_id_fk",
+    "constraint_name": "carts_status_foreign",
     "on_update": "NO ACTION",
     "on_delete": "SET NULL"
   }
