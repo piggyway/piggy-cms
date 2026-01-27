@@ -1646,6 +1646,10 @@ type product_info {
   attributes_func: count_functions
   category_rid(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_product_category
   detail_information: String
+  publication_status: String
+  product_features: String
+  specifications: String
+  care_instructions: String
   species(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_jxn_species]
   species_func: count_functions
   product_varients(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variants]
@@ -1685,6 +1689,10 @@ type product_info_aggregated_count {
   attributes: Int
   category_rid: Int
   detail_information: Int
+  publication_status: Int
+  product_features: Int
+  specifications: Int
+  care_instructions: Int
   species: Int
   product_varients: Int
   product_info_files: Int
@@ -2919,6 +2927,10 @@ type version_product_info {
   attributes: JSON
   category_rid: JSON
   detail_information: String
+  publication_status: String
+  product_features: String
+  specifications: String
+  care_instructions: String
   species: JSON
   product_varients: JSON
   product_info_files: JSON
@@ -3605,6 +3617,10 @@ input create_product_info_input {
   attributes: JSON
   category_rid: create_ref_product_category_input
   detail_information: String
+  publication_status: String
+  product_features: String
+  specifications: String
+  care_instructions: String
   species: [create_product_info_jxn_species_input]
   product_varients: [create_product_variants_input]
   product_info_files: [create_product_info_files_input]
@@ -4591,6 +4607,10 @@ input product_info_filter {
   attributes_func: count_function_filter_operators
   category_rid: ref_product_category_filter
   detail_information: string_filter_operators
+  publication_status: string_filter_operators
+  product_features: string_filter_operators
+  specifications: string_filter_operators
+  care_instructions: string_filter_operators
   species: product_info_jxn_species_quantifier_filter
   species_func: count_function_filter_operators
   product_varients: product_variants_quantifier_filter
@@ -5320,6 +5340,10 @@ input update_product_info_input {
   attributes: JSON
   category_rid: update_ref_product_category_input
   detail_information: String
+  publication_status: String
+  product_features: String
+  specifications: String
+  care_instructions: String
   species: [update_product_info_jxn_species_input]
   product_varients: [update_product_variants_input]
   product_info_files: [update_product_info_files_input]

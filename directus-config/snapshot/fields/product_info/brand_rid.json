@@ -11,7 +11,7 @@
     },
     "field": "brand_rid",
     "group": null,
-    "hidden": false,
+    "hidden": true,
     "interface": "select-dropdown-m2o",
     "note": null,
     "options": {

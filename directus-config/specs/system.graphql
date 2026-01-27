@@ -1880,6 +1880,10 @@ type product_info {
   attributes_func: count_functions
   category_rid(filter: ref_product_category_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): ref_product_category
   detail_information: String
+  publication_status: String
+  product_features: String
+  specifications: String
+  care_instructions: String
   species(filter: product_info_jxn_species_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_info_jxn_species]
   species_func: count_functions
   product_varients(filter: product_variants_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [product_variants]
@@ -3594,6 +3598,10 @@ input product_info_filter {
   attributes_func: count_function_filter_operators
   category_rid: ref_product_category_filter
   detail_information: string_filter_operators
+  publication_status: string_filter_operators
+  product_features: string_filter_operators
+  specifications: string_filter_operators
+  care_instructions: string_filter_operators
   species: product_info_jxn_species_quantifier_filter
   species_func: count_function_filter_operators
   product_varients: product_variants_quantifier_filter
