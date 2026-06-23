@@ -4,9 +4,12 @@ RUN apk add python3 g++ make
 WORKDIR /extensions
 ADD extensions .
 RUN npm install
-# Move all extensions that start with directus-extension- to the /extensions/directus folder
+# Move every installed Directus extension (scoped or unscoped) into the /extensions/directus folder
 RUN mkdir -p ./directus
-RUN cd node_modules && find . -maxdepth 1 -type d -name "directus-extension-*" -exec mv {} ../directus \;
+RUN cd node_modules && \
+    find . -maxdepth 3 -name package.json -exec grep -l '"directus:extension"' {} + 2>/dev/null \
+    | xargs -r -n1 dirname \
+    | xargs -r -I{} mv {} ../directus/
 
 # Stage 2: Directus runtime image
 FROM directus/directus:11.17.4
