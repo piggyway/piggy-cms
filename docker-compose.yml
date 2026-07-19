@@ -3,15 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        ENVIRONMENT: ${ENV:-DEV}
     container_name: piggy-cms-directus
     ports:
       - "${DIRECTUS_PORT:-8055}:8055"
     volumes:
       - ./uploads:/directus/uploads
-      - ./directus-config:/directus/directus-config
-      - ./directus-sync-cmd/directus-sync.config.js:/directus/directus-sync.config.js
     env_file:
       - .env
     environment:
@@ -36,4 +32,3 @@ networks:
   piggy-network:
     name: piggy-network
     external: true
-
