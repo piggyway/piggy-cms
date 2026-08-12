@@ -1,0 +1,49 @@
+# Piggy CMS - Directus on Cloudflare Containers
+# Requires Docker running locally for `wrangler deploy` (image build + push).
+#
+# Secrets / container env: set via dashboard Container env, or extend
+# DirectusContainer.envVars / wrangler secrets + pass-through.
+
+name = "piggy-cms"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+# Production CMS hostname (CF orange-cloud route intercepts before Railway origin)
+routes = [
+  { pattern = "cms.piggyway.com.au/*", zone_name = "piggyway.com.au" }
+]
+
+[[containers]]
+max_instances = 2
+class_name = "DirectusContainer"
+image = "./Dockerfile"
+# instance_type = "standard-1"
+
+[[durable_objects.bindings]]
+name = "DIRECTUS"
+class_name = "DirectusContainer"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["DirectusContainer"]
+
+[observability]
+enabled = true
+
+# Non-secret defaults. Secrets (DB_*, SECRET, ADMIN_*, STORAGE_R2_KEY/SECRET) via wrangler secret put.
+[vars]
+NODE_ENV = "production"
+PUBLIC_URL = "https://cms.piggyway.com.au"
+DB_CLIENT = "pg"
+DB_PORT = "5432"
+DB_SSL = '{"rejectUnauthorized":false}'
+WEBSOCKETS_ENABLED = "true"
+# Cloudflare R2 (S3-compatible) - bucket piggy-cms-media
+STORAGE_LOCATIONS = "r2"
+STORAGE_R2_DRIVER = "s3"
+STORAGE_R2_BUCKET = "piggy-cms-media"
+STORAGE_R2_REGION = "auto"
+STORAGE_R2_ENDPOINT = "https://e8f2d3d6532ac22e30fccb438ea63a55.r2.cloudflarestorage.com"
+STORAGE_R2_FORCE_PATH_STYLE = "true"

@@ -31,3 +31,8 @@ Thumbs.db
 *.tmp
 *.temp
 
+# Cloudflare
+.wrangler/
+.dev.vars
+node_modules/
+

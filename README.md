@@ -93,3 +93,16 @@ docker compose down -v
 1. 首次启动时，Directus 会自动初始化数据库
 2. `data/` 和 `uploads/` 目录会被持久化，删除容器不会丢失数据
 3. 生产环境部署时，务必更改 `SECRET` 和数据库密码
+
+## 生产部署：Cloudflare Containers
+
+生产目标是 Cloudflare Containers（Directus 不能跑在纯 Workers 上）。
+
+详见 [docs/cloudflare-deploy.md](docs/cloudflare-deploy.md)。
+
+```bash
+npm install
+npm run deploy
+```
+
+**重要**：Containers 磁盘不持久，生产 uploads 必须走 Cloudinary 或 R2，不要依赖本地 `uploads/` 卷。
