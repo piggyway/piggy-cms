@@ -1,5 +1,5 @@
 # Stage 1: Install third-party extensions
-FROM node:23-alpine as third-party-ext
+FROM node:23-alpine AS third-party-ext
 RUN apk add python3 g++ make
 WORKDIR /extensions
 ADD extensions .
