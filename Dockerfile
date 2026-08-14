@@ -13,7 +13,8 @@ RUN mkdir -p ./directus && \
 FROM directus/directus:11.14.1
 
 USER root
-RUN npm install --global directus-sync@3.4.1
+RUN apk upgrade --no-cache \
+    && npm install --global directus-sync@3.4.1
 
 COPY --from=third-party-ext /extensions/directus ./extensions
 
