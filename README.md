@@ -9,7 +9,9 @@ piggy-cms/
 ├── Dockerfile                    # Directus 主容器 Dockerfile
 ├── docker-compose.yml            # Docker Compose 配置
 ├── .env.example                  # 环境变量模板
-├── directus-config/              # Legacy schema snapshots (not loaded at runtime)
+├── directus-config/              # Directus 11.14.1 staging bootstrap config
+├── directus-sync-cmd/            # Schema bootstrap tool configuration
+├── docker-compose.rehearsal.yml  # Disposable empty-database rehearsal
 ├── data/                         # 数据库数据持久化目录
 │   └── postgres_data/            # PostgreSQL 数据目录
 └── uploads/                      # Directus 上传文件目录
@@ -81,6 +83,33 @@ docker compose logs -f directus
 ### 重启服务
 ```bash
 docker compose restart
+```
+
+## Staging schema 演练
+
+Staging 第一版固定使用 Directus `11.14.1`。仓库中的 snapshot 也是由
+`11.14.1` 导出的；在升级 Directus 前，必须先重新导出并验证官方 snapshot。
+
+下面的演练只创建本机临时容器，不连接 AWS：
+
+```bash
+docker compose -f docker-compose.rehearsal.yml build directus
+docker compose -f docker-compose.rehearsal.yml up -d postgres
+docker compose -f docker-compose.rehearsal.yml run --rm --no-deps directus \
+  sh /directus/directus-sync-cmd/bootstrap-schema.sh
+docker compose -f docker-compose.rehearsal.yml up -d directus
+curl --fail http://127.0.0.1:18055/server/health
+```
+
+访问 http://localhost:18055/admin，使用仅限本地演练的
+`admin@example.com` / `local-rehearsal-only` 登录。
+
+旧版 `directus-sync` 只用于空数据库的首次 bootstrap，不是 migration
+runner，也不能在每次服务启动时自动执行。bootstrap 脚本会先检查
+`product_info`：schema 已存在时直接安全退出。要从头重跑演练，先删除本次临时容器：
+
+```bash
+docker compose -f docker-compose.rehearsal.yml down
 ```
 
 ### 清理数据（注意：会删除所有数据）

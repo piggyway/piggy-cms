@@ -1,0 +1,41 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: piggyway
+      POSTGRES_USER: piggyway
+      POSTGRES_PASSWORD: local-rehearsal-only
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U piggyway -d piggyway"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+
+  directus:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:18055:8055"
+    environment:
+      SECRET: local-rehearsal-secret-not-for-deployment
+      DB_CLIENT: pg
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: piggyway
+      DB_USER: piggyway
+      DB_PASSWORD: local-rehearsal-only
+      DB_SSL: "false"
+      ADMIN_EMAIL: admin@example.com
+      ADMIN_PASSWORD: local-rehearsal-only
+      DIRECTUS_ADMIN_EMAIL: admin@example.com
+      DIRECTUS_ADMIN_PASSWORD: local-rehearsal-only
+      DIRECTUS_URL: http://localhost:8055
+      DIRECTUS_SYNC_DUMP_PATH: /directus/directus-config
+      PUBLIC_URL: http://localhost:18055
+      EXTENSIONS_AUTO_RELOAD: "false"
+    volumes:
+      - ./directus-config:/directus/directus-config:ro
