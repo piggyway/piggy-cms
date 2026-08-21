@@ -18,7 +18,8 @@ Container disk is **ephemeral**. Do not rely on `/directus/uploads` in productio
 **Production uses Cloudflare R2** (S3-compatible driver):
 
 Bucket: `piggy-cms-media`  
-Public r2.dev base (optional): `https://pub-2853d48b8508467bbc376285288edbf1.r2.dev`
+Public custom domain: `https://cdn.piggyway.com.au/{object-key}`  
+Public r2.dev base (dev only): `https://pub-2853d48b8508467bbc376285288edbf1.r2.dev`
 
 ```
 STORAGE_LOCATIONS=r2
@@ -72,6 +73,9 @@ npx wrangler containers list
 ## 4. Custom domain
 
 Attach `cms.piggyway.com.au` to the Worker.
+
+`cdn.piggyway.com.au` is bound to the `piggy-cms-media` R2 bucket, not this Worker.
+Do not add it back as a Worker custom domain or the next deploy will steal the hostname from R2.
 
 Point Directus webhooks (boarding status) at the new backend URL with `DIRECTUS_WEBHOOK_TOKEN`.
 
