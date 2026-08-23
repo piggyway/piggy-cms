@@ -9,7 +9,7 @@
     "one_allowed_collections": null,
     "one_collection": "product_variants",
     "one_collection_field": null,
-    "one_deselect_action": "nullify",
+    "one_deselect_action": "delete",
     "one_field": "options",
     "sort_field": null
   },
@@ -20,6 +20,6 @@
     "foreign_key_column": "id",
     "constraint_name": "product_variant_jxn_option_values_variant_rid_product_variants_",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "on_delete": "CASCADE"
   }
 }

@@ -87,6 +87,19 @@ docker compose up -d
 
 Containers deploy is production path; compose remains for local CMS development.
 
+## Schema changes: there is no sync mechanism
+
+`directus-sync` was removed when Directus was upgraded to 12.1.1, and nothing
+replaced it. There is **no automated schema sync** between the local and the
+production Directus instances.
+
+- `directus-config/` holds legacy snapshots. They are not loaded at runtime and
+  are not kept up to date - do not treat them as the current schema.
+- Every collection, field and relation change has to be applied by hand on each
+  instance, in the same order, and verified in the admin UI.
+- The physical tables for API-owned collections are created by backend
+  migrations. Never let a Directus snapshot create or alter those tables.
+
 ## Limits / ops notes
 
 - Containers are beta (no SLA)
