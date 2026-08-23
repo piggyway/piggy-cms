@@ -12,6 +12,8 @@ workers_dev = true
 
 # Production CMS hostname. The Worker is the origin; Railway was retired in the
 # 2026-08-12 Cloudflare migration.
+# cdn.piggyway.com.au is an R2 custom domain on piggy-cms-media, not a Worker route.
+# Do not add it here or wrangler deploy will steal the hostname from R2.
 routes = [
   { pattern = "cms.piggyway.com.au/*", zone_name = "piggyway.com.au" }
 ]
