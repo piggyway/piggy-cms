@@ -170,6 +170,7 @@ jobs:
             --services "$ECS_SERVICE"
 
           health=$(curl --fail --silent --show-error --retry 5 --retry-all-errors \
+            --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36 Piggyway-Staging-Smoke" \
             https://cms-staging.piggyway.com.au/server/health)
           jq -e '.status == "ok"' <<<"$health" >/dev/null
 
