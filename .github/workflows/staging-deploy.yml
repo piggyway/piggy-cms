@@ -1,0 +1,201 @@
+name: CMS staging deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: Existing full commit SHA to redeploy; leave blank to build the selected ref
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cms-staging-deploy
+  cancel-in-progress: false
+
+env:
+  AWS_ACCOUNT_ID: "668310558003"
+  AWS_REGION: ap-southeast-2
+  AWS_ROLE_ARN: arn:aws:iam::668310558003:role/piggyway-staging-github-deploy
+  ECR_REPOSITORY: piggyway-staging-directus
+  ECS_CLUSTER: piggyway-staging
+  ECS_SERVICE: piggyway-staging-directus
+  ECS_CONTAINER: directus
+
+jobs:
+  deploy-staging:
+    name: Build and deploy staging
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: staging
+      url: https://cms-staging.piggyway.com.au
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Require staging branch
+        run: |
+          if [[ "$GITHUB_REF" != "refs/heads/staging" ]]; then
+            echo "CMS staging deployments must run from the staging branch" >&2
+            exit 1
+          fi
+
+      - name: Check out repository history
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Scan for credentials
+        run: >-
+          docker run --rm
+          -v "$GITHUB_WORKSPACE:/repo:ro"
+          ghcr.io/gitleaks/gitleaks:v8.30.1
+          detect --source=/repo --no-banner --redact
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Log in to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Resolve immutable image
+        id: image
+        env:
+          REQUESTED_IMAGE_TAG: ${{ github.event.inputs.image_tag }}
+        run: |
+          set -euo pipefail
+
+          image_tag="${REQUESTED_IMAGE_TAG:-$GITHUB_SHA}"
+          if [[ ! "$image_tag" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "image_tag must be a full 40-character Git commit SHA" >&2
+            exit 1
+          fi
+
+          image_uri="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}"
+
+          if aws ecr describe-images \
+            --repository-name "$ECR_REPOSITORY" \
+            --image-ids "imageTag=$image_tag" >/dev/null 2>&1; then
+            echo "Reusing existing immutable image $image_tag"
+          else
+            if [[ -n "${REQUESTED_IMAGE_TAG:-}" ]]; then
+              echo "Requested rollback image does not exist in ECR: $image_tag" >&2
+              exit 1
+            fi
+
+            docker build --tag "$image_uri:$image_tag" .
+            docker push "$image_uri:$image_tag"
+          fi
+
+          image_digest=$(aws ecr describe-images \
+            --repository-name "$ECR_REPOSITORY" \
+            --image-ids "imageTag=$image_tag" \
+            --query 'imageDetails[0].imageDigest' \
+            --output text)
+
+          echo "tag=$image_tag" >>"$GITHUB_OUTPUT"
+          echo "reference=$image_uri@$image_digest" >>"$GITHUB_OUTPUT"
+
+      - name: Register task revision and deploy
+        id: deploy
+        env:
+          IMAGE_REFERENCE: ${{ steps.image.outputs.reference }}
+        run: |
+          set -Eeuo pipefail
+
+          previous_task_definition=$(aws ecs describe-services \
+            --cluster "$ECS_CLUSTER" \
+            --services "$ECS_SERVICE" \
+            --query 'services[0].taskDefinition' \
+            --output text)
+
+          rollback() {
+            exit_code=$?
+            trap - ERR
+            echo "Deployment failed; rolling back to $previous_task_definition" >&2
+            aws ecs update-service \
+              --cluster "$ECS_CLUSTER" \
+              --service "$ECS_SERVICE" \
+              --task-definition "$previous_task_definition" >/dev/null
+            timeout 10m aws ecs wait services-stable \
+              --cluster "$ECS_CLUSTER" \
+              --services "$ECS_SERVICE"
+            exit "$exit_code"
+          }
+          trap rollback ERR
+
+          aws ecs describe-task-definition \
+            --task-definition "$previous_task_definition" \
+            --query taskDefinition >task-definition.json
+
+          jq --arg container "$ECS_CONTAINER" --arg image "$IMAGE_REFERENCE" '
+            del(
+              .taskDefinitionArn,
+              .revision,
+              .status,
+              .requiresAttributes,
+              .compatibilities,
+              .registeredAt,
+              .registeredBy,
+              .deregisteredAt
+            )
+            | .containerDefinitions |= map(
+                if .name == $container then .image = $image else . end
+              )
+          ' task-definition.json >rendered-task-definition.json
+
+          jq -e --arg container "$ECS_CONTAINER" '
+            [.containerDefinitions[] | select(.name == $container)] | length == 1
+          ' rendered-task-definition.json >/dev/null
+
+          new_task_definition=$(aws ecs register-task-definition \
+            --cli-input-json file://rendered-task-definition.json \
+            --query 'taskDefinition.taskDefinitionArn' \
+            --output text)
+
+          aws ecs update-service \
+            --cluster "$ECS_CLUSTER" \
+            --service "$ECS_SERVICE" \
+            --task-definition "$new_task_definition" >/dev/null
+
+          timeout 10m aws ecs wait services-stable \
+            --cluster "$ECS_CLUSTER" \
+            --services "$ECS_SERVICE"
+
+          health=$(curl --fail --silent --show-error --retry 5 --retry-all-errors \
+            https://cms-staging.piggyway.com.au/server/health)
+          jq -e '.status == "ok"' <<<"$health" >/dev/null
+
+          service=$(aws ecs describe-services \
+            --cluster "$ECS_CLUSTER" \
+            --services "$ECS_SERVICE")
+          jq -e '
+            .services[0]
+            | .desiredCount == 1
+              and .runningCount == 1
+              and .pendingCount == 0
+              and .deployments[0].rolloutState == "COMPLETED"
+          ' <<<"$service" >/dev/null
+
+          trap - ERR
+          echo "previous_task_definition=$previous_task_definition" >>"$GITHUB_OUTPUT"
+          echo "task_definition=$new_task_definition" >>"$GITHUB_OUTPUT"
+
+      - name: Write deployment summary
+        run: |
+          {
+            echo "## CMS staging deployment"
+            echo "- Commit/image tag: \`${{ steps.image.outputs.tag }}\`"
+            echo "- Image: \`${{ steps.image.outputs.reference }}\`"
+            echo "- Task definition: \`${{ steps.deploy.outputs.task_definition }}\`"
+            echo "- Previous task definition: \`${{ steps.deploy.outputs.previous_task_definition }}\`"
+            echo "- Smoke test: Directus server health passed"
+            echo "- Schema and seed operations: not run"
+          } >>"$GITHUB_STEP_SUMMARY"
